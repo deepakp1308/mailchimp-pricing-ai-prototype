@@ -1,0 +1,2102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Pricing · Mailchimp Marketing Platform</title>
+<meta name="description" content="Pick the plan that fits today and scale into tomorrow. Compare Free, Essentials, Standard, and Premium. Analytics AI is included on Standard with unlimited prompts." />
+<style>
+  /* ============================================================ */
+  /* Mailchimp Design System tokens (mirrored from homepage build) */
+  /* ============================================================ */
+  :root {
+    --mc-pep: #241C15;
+    --mc-pep-soft: #3A2E22;
+    --mc-text-secondary: #5C4F45;
+    --mc-text-muted: #8B7E72;
+    --mc-bg: #ffffff;
+    --mc-bg-off: #F6F6EE;
+    --mc-bg-soft: #FAFAF7;
+    --mc-bg-alt: #F1EFE8;
+    --mc-border: #EBE9E1;
+    --mc-border-strong: #D5D1C5;
+    --mc-yellow: #FFE01B;
+    --mc-yellow-hover: #ffec5b;
+    --mc-yellow-soft: #FFF1A8;
+    --mc-teal: #00B9A6;
+    --mc-teal-dark: #007C89;
+    --mc-teal-darker: #006670;
+    --mc-coral: #FF6B47;
+    --shadow-sm: 0 1px 4px rgba(36,28,21,0.06);
+    --shadow-md: 0 4px 16px rgba(36,28,21,0.08);
+    --shadow-lg: 0 14px 40px rgba(36,28,21,0.14);
+    --shadow-xl: 0 24px 60px rgba(36,28,21,0.22);
+    --radius-sm: 4px;
+    --radius-md: 8px;
+    --radius-lg: 12px;
+    --radius-xl: 18px;
+    --radius-pill: 999px;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: 'Helvetica Now Display', 'Helvetica Neue', Helvetica, 'Inter', Arial, sans-serif;
+    color: var(--mc-pep);
+    line-height: 1.5;
+    background: var(--mc-bg-off);
+    -webkit-font-smoothing: antialiased;
+  }
+  h1, h2, h3, .display-serif {
+    font-family: 'Cooper Light', 'Cooper Lt BT', 'Cooper Std', 'Georgia', serif;
+    font-weight: 300;
+    color: var(--mc-pep);
+    letter-spacing: -0.012em;
+    line-height: 1.08;
+  }
+  img { max-width: 100%; display: block; }
+  button, input, select { font-family: inherit; }
+  a { color: var(--mc-teal-dark); }
+  a:hover { color: var(--mc-teal-darker); }
+  :focus-visible {
+    outline: 3px solid var(--mc-teal-dark);
+    outline-offset: 2px;
+    border-radius: 6px;
+  }
+  .visually-hidden {
+    position: absolute !important;
+    height: 1px; width: 1px;
+    overflow: hidden;
+    clip: rect(1px,1px,1px,1px);
+    white-space: nowrap;
+  }
+
+  /* ===================== Top nav ===================== */
+  header.site {
+    position: sticky; top: 0; z-index: 50;
+    background: var(--mc-bg-off);
+    border-bottom: 1px solid transparent;
+  }
+  header.site .nav {
+    max-width: 1380px; margin: 0 auto;
+    display: flex; align-items: center;
+    height: 64px; padding: 0 32px;
+    gap: 32px;
+  }
+  .logo-link { display: flex; align-items: center; flex-shrink: 0; text-decoration: none; }
+  .mc-logo-img { height: 38px; width: auto; display: block; }
+  .nav-links { display: flex; gap: 28px; list-style: none; flex: 1; margin-left: 12px; }
+  .nav-links a {
+    color: var(--mc-pep); text-decoration: none; font-size: 15px; font-weight: 600;
+    padding: 6px 0;
+    transition: color 0.15s;
+    position: relative;
+  }
+  .nav-links a:hover { color: var(--mc-teal-dark); }
+  .nav-links a.is-active { color: var(--mc-pep); }
+  .nav-links a.is-active::after {
+    content: ''; position: absolute; left: 0; right: 0; bottom: -2px;
+    height: 3px; background: var(--mc-yellow); border-radius: 2px;
+  }
+  .nav-right { display: flex; align-items: center; gap: 18px; flex-shrink: 0; }
+  .nav-right .login {
+    font-size: 14px; color: var(--mc-pep); text-decoration: none; font-weight: 600;
+  }
+  .nav-cta {
+    background: var(--mc-yellow); color: var(--mc-pep);
+    padding: 10px 22px;
+    border-radius: var(--radius-pill);
+    text-decoration: none; font-weight: 700; font-size: 14px;
+    transition: background 0.2s, transform 0.15s;
+    white-space: nowrap;
+    border: 1.5px solid var(--mc-pep);
+  }
+  .nav-cta:hover { background: var(--mc-yellow-hover); transform: translateY(-1px); }
+
+  /* ===================== Variant switcher ===================== */
+  .variant-bar {
+    background: var(--mc-bg-off);
+    border-bottom: 1px solid var(--mc-border);
+  }
+  .variant-bar-inner {
+    max-width: 1380px; margin: 0 auto;
+    padding: 14px 32px;
+    display: flex; align-items: center; gap: 18px; flex-wrap: wrap;
+  }
+  .variant-bar-label {
+    font-size: 11px; font-weight: 700; letter-spacing: 0.14em;
+    text-transform: uppercase; color: var(--mc-text-muted);
+  }
+  .variant-tabs {
+    display: inline-flex; gap: 6px;
+    padding: 4px;
+    background: #fff;
+    border: 1px solid var(--mc-border);
+    border-radius: var(--radius-pill);
+  }
+  .variant-tab {
+    border: 0; background: transparent;
+    padding: 8px 16px;
+    border-radius: var(--radius-pill);
+    font-size: 13px; font-weight: 600;
+    color: var(--mc-pep);
+    cursor: pointer;
+    transition: background 0.18s, color 0.18s;
+  }
+  .variant-tab[aria-selected="true"] {
+    background: var(--mc-pep);
+    color: #fff;
+  }
+  .variant-tab:hover:not([aria-selected="true"]) {
+    background: var(--mc-bg-alt);
+  }
+  .variant-bar-note {
+    font-size: 12px; color: var(--mc-text-muted);
+    flex: 1; min-width: 220px;
+  }
+
+  /* ===================== Layout ===================== */
+  section { padding: 64px 32px; }
+  .container { max-width: 1280px; margin: 0 auto; }
+  .eyebrow {
+    display: inline-block;
+    font-size: 12px; font-weight: 700; letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--mc-teal-dark);
+    margin-bottom: 14px;
+  }
+  .btn-primary {
+    display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+    background: var(--mc-yellow); color: var(--mc-pep);
+    padding: 12px 22px;
+    border-radius: var(--radius-pill);
+    border: 1.5px solid var(--mc-pep);
+    text-decoration: none; font-weight: 700; font-size: 15px;
+    cursor: pointer;
+    transition: background 0.18s, transform 0.12s, box-shadow 0.18s;
+    box-shadow: 0 0 0 0 rgba(36,28,21,0);
+  }
+  .btn-primary:hover { background: var(--mc-yellow-hover); transform: translateY(-1px); box-shadow: var(--shadow-md); }
+  .btn-secondary {
+    display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+    background: transparent; color: var(--mc-pep);
+    padding: 11px 20px;
+    border-radius: var(--radius-pill);
+    border: 1.5px solid var(--mc-pep);
+    text-decoration: none; font-weight: 600; font-size: 14px;
+    cursor: pointer;
+    transition: background 0.18s, color 0.18s;
+  }
+  .btn-secondary:hover { background: var(--mc-pep); color: #fff; }
+  .btn-link {
+    background: transparent; border: 0; padding: 0;
+    color: var(--mc-teal-dark); font-weight: 600; font-size: 14px;
+    cursor: pointer; text-decoration: underline; text-underline-offset: 3px;
+  }
+  .btn-link:hover { color: var(--mc-teal-darker); }
+
+  /* ===================== Pricing hero ===================== */
+  .pricing-hero {
+    background: var(--mc-bg-off);
+    padding-top: 56px; padding-bottom: 32px;
+  }
+  .pricing-hero h1 {
+    font-size: clamp(40px, 5.4vw, 64px);
+    max-width: 920px;
+    margin: 0 auto 18px;
+    text-align: center;
+  }
+  .pricing-hero h1 em {
+    font-style: italic; color: var(--mc-pep);
+  }
+  .pricing-hero .sub {
+    text-align: center;
+    font-size: 18px;
+    color: var(--mc-text-secondary);
+    max-width: 720px;
+    margin: 0 auto 32px;
+  }
+  .pricing-controls {
+    display: flex; align-items: center; justify-content: center; gap: 28px;
+    flex-wrap: wrap;
+  }
+  .billing-toggle {
+    display: inline-flex; padding: 4px;
+    background: #fff;
+    border: 1px solid var(--mc-border);
+    border-radius: var(--radius-pill);
+  }
+  .billing-toggle button {
+    border: 0; background: transparent;
+    padding: 9px 18px;
+    border-radius: var(--radius-pill);
+    font-size: 14px; font-weight: 600;
+    color: var(--mc-pep);
+    cursor: pointer;
+    transition: background 0.18s, color 0.18s;
+    display: inline-flex; align-items: center; gap: 6px;
+  }
+  .billing-toggle button[aria-selected="true"] {
+    background: var(--mc-pep); color: #fff;
+  }
+  .billing-toggle .save-tag {
+    font-size: 10px; font-weight: 700;
+    background: var(--mc-yellow); color: var(--mc-pep);
+    padding: 2px 6px; border-radius: 3px;
+  }
+  .contact-select {
+    display: inline-flex; align-items: center; gap: 10px;
+    background: #fff;
+    border: 1px solid var(--mc-border);
+    border-radius: var(--radius-pill);
+    padding: 6px 10px 6px 18px;
+  }
+  .contact-select label {
+    font-size: 13px; color: var(--mc-text-secondary); font-weight: 600;
+  }
+  .contact-select select {
+    border: 0; background: transparent;
+    font-size: 14px; font-weight: 700; color: var(--mc-pep);
+    padding: 6px 28px 6px 4px;
+    cursor: pointer;
+    appearance: none;
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%23241C15' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'><polyline points='6 9 12 15 18 9'/></svg>");
+    background-repeat: no-repeat;
+    background-position: right 10px center;
+  }
+
+  /* ===================== Above-table ribbon (Variant 2 only) ===================== */
+  .ribbon-host {
+    max-width: 1280px; margin: 0 auto;
+    padding: 0 32px;
+    height: 0; overflow: hidden;
+    transition: height 0.25s ease;
+  }
+  body[data-variant="p2"] .ribbon-host { height: 76px; }
+  .ribbon {
+    margin-top: 12px;
+    background: #fff;
+    border: 1px solid var(--mc-border);
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    position: relative;
+  }
+  .ribbon::before, .ribbon::after {
+    content: ''; position: absolute; top: 0; bottom: 0; width: 56px; z-index: 2; pointer-events: none;
+  }
+  .ribbon::before { left: 0; background: linear-gradient(to right, #fff, rgba(255,255,255,0)); }
+  .ribbon::after { right: 0; background: linear-gradient(to left, #fff, rgba(255,255,255,0)); }
+  .ribbon-track {
+    display: inline-flex; gap: 64px; align-items: center;
+    padding: 16px 24px;
+    white-space: nowrap;
+    animation: ribbon-scroll 30s linear infinite;
+  }
+  .ribbon-track:hover { animation-play-state: paused; }
+  .ribbon-chip {
+    display: inline-flex; align-items: center; gap: 12px;
+    font-size: 14px; color: var(--mc-pep);
+  }
+  .ribbon-chip .num {
+    font-family: 'Cooper Light', 'Georgia', serif;
+    font-size: 22px; color: var(--mc-pep); font-weight: 400;
+  }
+  .ribbon-chip .lbl {
+    color: var(--mc-text-secondary);
+  }
+  .ribbon-chip .who {
+    color: var(--mc-pep); font-weight: 600;
+  }
+  @keyframes ribbon-scroll {
+    from { transform: translateX(0); }
+    to { transform: translateX(-50%); }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .ribbon-track { animation: none; }
+  }
+
+  /* ===================== Pricing comparison grid ===================== */
+  .pricing-grid-host {
+    max-width: 1280px; margin: 0 auto;
+    padding: 24px 32px 16px;
+    position: relative;
+    display: grid;
+    grid-template-columns: 1fr 320px;
+    gap: 32px;
+  }
+  body[data-variant="p2"] .pricing-grid-host,
+  body[data-variant="p3"] .pricing-grid-host {
+    grid-template-columns: 1fr;
+  }
+  body[data-variant="p2"] .copilot-rail,
+  body[data-variant="p3"] .copilot-rail { display: none; }
+  body[data-variant="p1"] .lens-host,
+  body[data-variant="p3"] .lens-host { display: none; }
+  body[data-variant="p1"] .lens-spacer,
+  body[data-variant="p3"] .lens-spacer { display: none; }
+  body[data-variant="p1"] .floating-console,
+  body[data-variant="p2"] .floating-console { display: none; }
+
+  .plan-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 16px;
+  }
+  .plan-card {
+    background: #fff;
+    border: 1px solid var(--mc-border);
+    border-radius: var(--radius-xl);
+    padding: 28px 22px 24px;
+    display: flex; flex-direction: column;
+    position: relative;
+    transition: box-shadow 0.18s, transform 0.18s;
+  }
+  .plan-card:hover { box-shadow: var(--shadow-md); }
+  .plan-card.is-popular {
+    border: 2px solid var(--mc-pep);
+    box-shadow: var(--shadow-md);
+  }
+  .plan-popular-flag {
+    position: absolute; top: -12px; left: 50%; transform: translateX(-50%);
+    background: var(--mc-yellow); color: var(--mc-pep);
+    font-size: 11px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase;
+    padding: 5px 12px; border-radius: var(--radius-pill);
+    border: 1.5px solid var(--mc-pep);
+  }
+  .plan-name {
+    font-family: 'Cooper Light', 'Georgia', serif;
+    font-size: 22px; font-weight: 400;
+    color: var(--mc-pep);
+    margin-bottom: 6px;
+  }
+  .plan-tagline {
+    font-size: 13px; color: var(--mc-text-secondary);
+    margin-bottom: 16px; min-height: 36px;
+  }
+  .plan-price {
+    display: flex; align-items: baseline; gap: 6px;
+    margin-bottom: 4px;
+  }
+  .plan-price .num {
+    font-family: 'Cooper Light', 'Georgia', serif;
+    font-size: 38px; font-weight: 400;
+    color: var(--mc-pep);
+  }
+  .plan-price .per {
+    font-size: 13px; color: var(--mc-text-secondary);
+  }
+  .plan-price .strike {
+    font-size: 13px; color: var(--mc-text-muted);
+    text-decoration: line-through;
+    margin-left: 4px;
+  }
+  .plan-promo {
+    font-size: 12px; color: var(--mc-teal-dark); font-weight: 600;
+    margin-bottom: 16px; min-height: 18px;
+  }
+  .plan-cta {
+    margin-bottom: 18px;
+  }
+  .plan-cta a, .plan-cta button {
+    width: 100%;
+  }
+  .plan-cta-chip {
+    display: none;
+    margin-top: 8px;
+    font-size: 12px; font-weight: 700;
+    background: var(--mc-yellow); color: var(--mc-pep);
+    padding: 6px 10px; border-radius: var(--radius-pill);
+    text-align: center;
+    border: 1px solid var(--mc-pep);
+  }
+  body[data-ai-touched="true"] .plan-card[data-plan="standard"] .plan-cta-chip {
+    display: block;
+    animation: chip-pulse 2.4s ease-in-out 2;
+  }
+  @keyframes chip-pulse {
+    0%, 100% { box-shadow: 0 0 0 0 rgba(255,224,27,0.0); }
+    50% { box-shadow: 0 0 0 8px rgba(255,224,27,0.45); }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    body[data-ai-touched="true"] .plan-card[data-plan="standard"] .plan-cta-chip { animation: none; }
+  }
+
+  /* Lens block, Variant 2 only. Kept inside the card flow but height-matched. */
+  .lens-host, .lens-spacer {
+    margin-bottom: 16px;
+    height: 168px;
+  }
+  .lens-spacer { visibility: hidden; }
+  .lens-card {
+    height: 100%;
+    background: var(--mc-bg-off);
+    border: 1px dashed var(--mc-border-strong);
+    border-radius: var(--radius-lg);
+    padding: 14px;
+    display: flex; gap: 12px;
+    align-items: stretch;
+  }
+  .lens-card .lens-illo {
+    width: 56px; height: 56px;
+    flex-shrink: 0;
+    border-radius: var(--radius-md);
+    background-size: cover; background-position: center;
+    border: 1px solid var(--mc-border);
+  }
+  .lens-card .lens-body { display: flex; flex-direction: column; gap: 8px; }
+  .lens-card .lens-eyebrow {
+    font-size: 10px; font-weight: 700; letter-spacing: 0.12em;
+    text-transform: uppercase; color: var(--mc-teal-dark);
+  }
+  .lens-card .lens-h {
+    font-size: 14px; font-weight: 700; color: var(--mc-pep);
+    line-height: 1.25;
+  }
+  .lens-card .lens-chips {
+    display: flex; flex-wrap: wrap; gap: 6px; margin-top: 4px;
+  }
+  .lens-card .lens-chip {
+    font-size: 12px; font-weight: 600;
+    background: #fff;
+    color: var(--mc-pep);
+    border: 1px solid var(--mc-border-strong);
+    border-radius: var(--radius-pill);
+    padding: 5px 10px;
+    cursor: pointer;
+    transition: background 0.15s, color 0.15s;
+  }
+  .lens-card .lens-chip:hover {
+    background: var(--mc-pep); color: #fff;
+  }
+
+  .plan-features {
+    list-style: none;
+    border-top: 1px solid var(--mc-border);
+    padding-top: 16px;
+    display: flex; flex-direction: column; gap: 10px;
+    flex: 1;
+  }
+  .plan-features li {
+    font-size: 13.5px; color: var(--mc-pep);
+    display: flex; gap: 8px;
+    align-items: flex-start;
+    line-height: 1.45;
+  }
+  .plan-features li::before {
+    content: ''; flex-shrink: 0;
+    width: 16px; height: 16px;
+    margin-top: 2px;
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23241C15' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'><polyline points='20 6 9 17 4 12'/></svg>");
+    background-size: contain;
+    background-repeat: no-repeat;
+  }
+  .plan-features li.is-highlight {
+    background: var(--mc-yellow-soft);
+    border-radius: var(--radius-md);
+    padding: 8px 10px;
+    font-weight: 700;
+  }
+  .plan-features li.is-highlight::before {
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23241C15' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'><path d='M12 2v4'/><path d='M12 18v4'/><path d='M4.93 4.93l2.83 2.83'/><path d='M16.24 16.24l2.83 2.83'/><path d='M2 12h4'/><path d='M18 12h4'/><path d='M4.93 19.07l2.83-2.83'/><path d='M16.24 7.76l2.83-2.83'/></svg>");
+  }
+  .plan-features li.is-muted { color: var(--mc-text-muted); }
+  .plan-features li.is-muted::before {
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%238B7E72' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'><line x1='5' y1='12' x2='19' y2='12'/></svg>");
+  }
+
+  /* ===================== Co-Pilot rail (Variant 1) ===================== */
+  .copilot-rail {
+    position: sticky;
+    top: 96px;
+    align-self: flex-start;
+    background: #fff;
+    border: 1px solid var(--mc-border);
+    border-radius: var(--radius-xl);
+    padding: 22px 18px 18px;
+    box-shadow: var(--shadow-sm);
+  }
+  .copilot-illo-strip {
+    display: flex; align-items: center; gap: 8px;
+    margin-bottom: 14px;
+  }
+  .copilot-illo-strip .illo {
+    width: 36px; height: 36px;
+    border-radius: var(--radius-md);
+    background-size: cover; background-position: center;
+    border: 1px solid var(--mc-border);
+    flex-shrink: 0;
+  }
+  .copilot-eyebrow {
+    font-size: 10px; font-weight: 700; letter-spacing: 0.14em;
+    text-transform: uppercase; color: var(--mc-teal-dark);
+  }
+  .copilot-title {
+    font-family: 'Cooper Light', 'Georgia', serif;
+    font-size: 22px; font-weight: 400; color: var(--mc-pep);
+    line-height: 1.15; margin: 8px 0 14px;
+  }
+  .copilot-suggested {
+    display: flex; flex-direction: column; gap: 6px; margin-bottom: 16px;
+  }
+  .copilot-q {
+    text-align: left;
+    background: var(--mc-bg-off);
+    border: 1px solid var(--mc-border);
+    border-radius: var(--radius-md);
+    padding: 10px 12px;
+    font-size: 13px; font-weight: 600; color: var(--mc-pep);
+    cursor: pointer;
+    transition: background 0.15s, border-color 0.15s, transform 0.12s;
+    display: flex; align-items: center; justify-content: space-between; gap: 8px;
+  }
+  .copilot-q::after {
+    content: ''; width: 10px; height: 10px;
+    border-right: 2px solid var(--mc-pep); border-top: 2px solid var(--mc-pep);
+    transform: rotate(45deg); flex-shrink: 0;
+  }
+  .copilot-q:hover {
+    background: #fff; border-color: var(--mc-pep);
+    transform: translateX(2px);
+  }
+
+  .copilot-ticker {
+    border-top: 1px solid var(--mc-border);
+    padding-top: 14px; margin-bottom: 16px;
+    min-height: 84px;
+    position: relative;
+  }
+  .copilot-quote {
+    position: absolute; inset: 14px 0 0 0;
+    opacity: 0; transition: opacity 0.5s ease;
+    display: flex; flex-direction: column; gap: 6px;
+  }
+  .copilot-quote.is-active { opacity: 1; }
+  .copilot-quote .qtext {
+    font-size: 13px; line-height: 1.45; color: var(--mc-pep);
+    font-style: italic;
+  }
+  .copilot-quote .qattr {
+    font-size: 12px; color: var(--mc-text-secondary); font-weight: 600;
+  }
+  .copilot-cta { width: 100%; }
+
+  /* Mobile bottom bar fallback for rail */
+  .copilot-mobile {
+    display: none;
+    position: fixed; left: 12px; right: 12px; bottom: 12px;
+    z-index: 30;
+    background: #fff;
+    border: 1px solid var(--mc-pep);
+    border-radius: var(--radius-xl);
+    padding: 10px 12px;
+    box-shadow: var(--shadow-lg);
+  }
+  .copilot-mobile-row {
+    display: flex; align-items: center; justify-content: space-between; gap: 10px;
+  }
+  .copilot-mobile-row .copilot-eyebrow { font-size: 9px; }
+  .copilot-mobile-row .copilot-mobile-h {
+    font-size: 13px; font-weight: 700; color: var(--mc-pep);
+    margin-top: 2px;
+  }
+
+  /* ===================== Add-ons ===================== */
+  .addons {
+    padding: 80px 32px;
+    background: #fff;
+    border-top: 1px solid var(--mc-border);
+  }
+  .addons h2 {
+    font-size: clamp(28px, 3vw, 40px);
+    margin-bottom: 8px;
+  }
+  .addons .lead {
+    color: var(--mc-text-secondary); margin-bottom: 32px;
+    max-width: 640px;
+  }
+  .addons-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 18px;
+  }
+  .addon-card {
+    background: var(--mc-bg-off);
+    border: 1px solid var(--mc-border);
+    border-radius: var(--radius-xl);
+    padding: 22px;
+    display: flex; flex-direction: column; gap: 12px;
+    min-height: 220px;
+  }
+  .addon-card .illo {
+    width: 64px; height: 64px;
+    border-radius: var(--radius-md);
+    background-size: cover; background-position: center;
+    border: 1px solid var(--mc-border);
+  }
+  .addon-name {
+    font-family: 'Cooper Light', 'Georgia', serif;
+    font-size: 22px; font-weight: 400;
+  }
+  .addon-desc {
+    font-size: 14px; color: var(--mc-text-secondary);
+    flex: 1;
+  }
+  .addon-price {
+    font-size: 13px; color: var(--mc-pep); font-weight: 700;
+  }
+
+  /* ===================== Testimonials ===================== */
+  .testi-section {
+    padding: 96px 32px;
+    background: var(--mc-bg-off);
+  }
+  .testi-head {
+    text-align: center;
+    max-width: 760px; margin: 0 auto 40px;
+  }
+  .testi-head h2 {
+    font-size: clamp(32px, 4vw, 48px);
+    margin: 12px 0 12px;
+  }
+  .testi-head p { color: var(--mc-text-secondary); font-size: 16px; }
+  .testi-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 22px;
+    max-width: 1200px; margin: 0 auto;
+  }
+  .testi-card {
+    background: #fff;
+    border: 1px solid var(--mc-border);
+    border-radius: var(--radius-xl);
+    padding: 28px 26px;
+    display: flex; flex-direction: column; gap: 18px;
+    position: relative;
+  }
+  .testi-card.is-featured {
+    background: var(--mc-pep);
+    color: #fff;
+    border-color: var(--mc-pep);
+  }
+  .testi-card .qmark {
+    font-family: 'Cooper Light', 'Georgia', serif;
+    font-size: 56px; line-height: 0.6;
+    color: var(--mc-yellow);
+  }
+  .testi-card.is-featured .qmark { color: var(--mc-yellow); }
+  .testi-quote {
+    font-family: 'Cooper Light', 'Georgia', serif;
+    font-size: 22px; line-height: 1.35; font-weight: 400;
+    color: var(--mc-pep);
+    flex: 1;
+  }
+  .testi-card.is-featured .testi-quote { color: #fff; }
+  .testi-attr {
+    display: flex; align-items: center; gap: 12px;
+  }
+  .testi-photo {
+    width: 48px; height: 48px;
+    border-radius: 50%;
+    background-size: cover; background-position: center;
+    flex-shrink: 0;
+    border: 2px solid var(--mc-yellow);
+  }
+  .testi-name { font-size: 14px; font-weight: 700; }
+  .testi-role { font-size: 12px; color: var(--mc-text-secondary); }
+  .testi-card.is-featured .testi-role { color: rgba(255,255,255,0.7); }
+  .testi-outcome {
+    border-top: 1px solid var(--mc-border);
+    padding-top: 16px;
+    display: flex; align-items: baseline; gap: 10px;
+  }
+  .testi-card.is-featured .testi-outcome { border-top-color: rgba(255,255,255,0.18); }
+  .testi-outcome .num {
+    font-family: 'Cooper Light', 'Georgia', serif;
+    font-size: 32px; font-weight: 400; color: var(--mc-pep);
+  }
+  .testi-card.is-featured .testi-outcome .num { color: var(--mc-yellow); }
+  .testi-outcome .lbl {
+    font-size: 12px; color: var(--mc-text-secondary); line-height: 1.35;
+  }
+  .testi-card.is-featured .testi-outcome .lbl { color: rgba(255,255,255,0.78); }
+
+  /* ===================== FAQ ===================== */
+  .faq-section { padding: 96px 32px; background: #fff; }
+  .faq-section h2 {
+    font-size: clamp(28px, 3.4vw, 40px);
+    text-align: center; margin-bottom: 32px;
+  }
+  .faq-list { max-width: 880px; margin: 0 auto; }
+  .faq-item {
+    border-top: 1px solid var(--mc-border);
+    padding: 18px 0;
+  }
+  .faq-item:last-child { border-bottom: 1px solid var(--mc-border); }
+  .faq-q {
+    width: 100%; background: transparent; border: 0;
+    text-align: left;
+    display: flex; justify-content: space-between; align-items: center;
+    font-size: 17px; font-weight: 600; color: var(--mc-pep);
+    cursor: pointer; padding: 6px 0;
+  }
+  .faq-q .ico {
+    width: 20px; height: 20px;
+    position: relative; flex-shrink: 0;
+  }
+  .faq-q .ico::before, .faq-q .ico::after {
+    content: ''; position: absolute; left: 50%; top: 50%;
+    background: var(--mc-pep);
+    transform: translate(-50%, -50%);
+    transition: transform 0.2s;
+  }
+  .faq-q .ico::before { width: 14px; height: 2px; }
+  .faq-q .ico::after { width: 2px; height: 14px; }
+  .faq-item[aria-expanded="true"] .faq-q .ico::after { transform: translate(-50%, -50%) rotate(90deg); opacity: 0; }
+  .faq-a {
+    max-height: 0; overflow: hidden;
+    transition: max-height 0.25s ease, padding 0.25s ease;
+    color: var(--mc-text-secondary); font-size: 15px; line-height: 1.6;
+  }
+  .faq-item[aria-expanded="true"] .faq-a {
+    max-height: 320px; padding-top: 8px;
+  }
+
+  /* ===================== Footer ===================== */
+  footer.site {
+    padding: 64px 32px 40px;
+    background: var(--mc-pep);
+    color: #fff;
+  }
+  footer.site .container { max-width: 1280px; }
+  .foot-cols {
+    display: grid;
+    grid-template-columns: 1.5fr repeat(4, 1fr);
+    gap: 32px;
+    margin-bottom: 48px;
+  }
+  .foot-col h4 {
+    font-family: 'Helvetica Now Display', 'Helvetica Neue', Helvetica, sans-serif;
+    font-size: 13px; font-weight: 700; letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.5);
+    margin-bottom: 14px;
+  }
+  .foot-col ul { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+  .foot-col a {
+    color: #fff; text-decoration: none; font-size: 14px;
+    transition: color 0.15s;
+  }
+  .foot-col a:hover { color: var(--mc-yellow); }
+  .foot-col p { color: rgba(255,255,255,0.7); font-size: 14px; line-height: 1.55; }
+  .foot-bottom {
+    border-top: 1px solid rgba(255,255,255,0.12);
+    padding-top: 24px;
+    display: flex; justify-content: space-between; flex-wrap: wrap; gap: 12px;
+    font-size: 12px; color: rgba(255,255,255,0.55);
+  }
+
+  /* ===================== Modal ===================== */
+  .modal-root {
+    position: fixed; inset: 0; z-index: 100;
+    display: none;
+    align-items: center; justify-content: center;
+    padding: 24px;
+    background: rgba(36,28,21,0.6);
+    backdrop-filter: blur(2px);
+  }
+  .modal-root.is-open { display: flex; }
+  .modal {
+    width: min(960px, 100%);
+    max-height: min(640px, 92vh);
+    background: #fff;
+    border-radius: var(--radius-xl);
+    overflow: hidden;
+    box-shadow: var(--shadow-xl);
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr auto;
+  }
+  .modal-pane {
+    overflow: auto;
+    padding: 28px 28px 12px;
+  }
+  .modal-pane.left {
+    border-right: 1px solid var(--mc-border);
+    background: var(--mc-bg-off);
+  }
+  .modal-pane.right { background: #fff; }
+  .modal-eyebrow {
+    font-size: 11px; font-weight: 700; letter-spacing: 0.14em;
+    text-transform: uppercase; color: var(--mc-teal-dark);
+  }
+  .modal-h {
+    font-family: 'Cooper Light', 'Georgia', serif;
+    font-size: 22px; line-height: 1.2; font-weight: 400;
+    margin: 8px 0 14px;
+  }
+  .modal-prompts {
+    display: flex; flex-direction: column; gap: 8px; margin-bottom: 16px;
+  }
+  .modal-prompt {
+    text-align: left;
+    background: #fff;
+    border: 1px solid var(--mc-border);
+    border-radius: var(--radius-md);
+    padding: 9px 12px;
+    font-size: 13px; font-weight: 600; color: var(--mc-pep);
+    cursor: pointer;
+    transition: background 0.15s, border-color 0.15s;
+  }
+  .modal-prompt:hover { background: var(--mc-bg-alt); border-color: var(--mc-pep); }
+  .modal-prompt[aria-pressed="true"] {
+    background: var(--mc-pep); color: #fff; border-color: var(--mc-pep);
+  }
+  .modal-chat {
+    background: #fff;
+    border: 1px solid var(--mc-border);
+    border-radius: var(--radius-md);
+    padding: 12px 14px;
+    font-size: 14px; line-height: 1.5;
+    color: var(--mc-pep);
+    min-height: 160px;
+  }
+  .modal-chat .role {
+    font-size: 11px; font-weight: 700; letter-spacing: 0.1em;
+    text-transform: uppercase; color: var(--mc-text-muted);
+    margin-bottom: 4px;
+  }
+  .modal-chat .msg + .msg { margin-top: 14px; }
+  .modal-chat .msg.ai .role { color: var(--mc-teal-dark); }
+
+  .modal-chart {
+    background: var(--mc-bg-off);
+    border: 1px solid var(--mc-border);
+    border-radius: var(--radius-md);
+    padding: 16px;
+    height: 220px;
+    display: flex; align-items: flex-end; gap: 10px;
+  }
+  .modal-bar {
+    flex: 1;
+    background: linear-gradient(180deg, #ffd233 0%, var(--mc-yellow) 100%);
+    border: 1px solid var(--mc-pep);
+    border-radius: 4px 4px 0 0;
+    height: 0;
+    transition: height 0.6s cubic-bezier(0.2, 0.8, 0.2, 1);
+    position: relative;
+  }
+  .modal-bar.is-positive {
+    background: linear-gradient(180deg, var(--mc-teal) 0%, var(--mc-teal-dark) 100%);
+    border-color: var(--mc-teal-dark);
+  }
+  .modal-bar .lab {
+    position: absolute; bottom: -22px; left: 0; right: 0;
+    text-align: center;
+    font-size: 11px; color: var(--mc-text-muted);
+  }
+  .modal-insight {
+    background: var(--mc-yellow-soft);
+    border: 1px solid var(--mc-pep);
+    border-radius: var(--radius-md);
+    padding: 12px 14px;
+    margin: 32px 0 14px;
+    font-size: 14px; font-weight: 600; color: var(--mc-pep);
+  }
+  .modal-cite {
+    background: #fff;
+    border: 1px solid var(--mc-border);
+    border-radius: var(--radius-md);
+    padding: 12px 14px;
+    display: flex; gap: 12px; align-items: flex-start;
+    font-size: 13px; line-height: 1.45;
+  }
+  .modal-cite .photo {
+    width: 36px; height: 36px;
+    border-radius: 50%;
+    background-size: cover; background-position: center;
+    flex-shrink: 0;
+    border: 2px solid var(--mc-yellow);
+  }
+  .modal-cite .who { font-weight: 700; font-size: 13px; }
+  .modal-cite .role { color: var(--mc-text-secondary); font-size: 12px; }
+  .modal-cite .qtext { color: var(--mc-pep); font-style: italic; margin-top: 4px; }
+
+  .modal-footer {
+    grid-column: 1 / -1;
+    background: var(--mc-pep);
+    color: #fff;
+    padding: 14px 24px;
+    display: flex; align-items: center; justify-content: space-between; gap: 16px;
+    flex-wrap: wrap;
+  }
+  .modal-footer .left {
+    display: flex; align-items: center; gap: 12px;
+    font-size: 14px;
+  }
+  .modal-footer .left .pill {
+    background: var(--mc-yellow); color: var(--mc-pep);
+    font-size: 11px; font-weight: 700; letter-spacing: 0.1em;
+    text-transform: uppercase;
+    padding: 4px 10px; border-radius: var(--radius-pill);
+  }
+  .modal-close {
+    position: absolute; top: 12px; right: 12px;
+    width: 36px; height: 36px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.92);
+    border: 1px solid var(--mc-border);
+    cursor: pointer;
+    display: flex; align-items: center; justify-content: center;
+    z-index: 2;
+  }
+  .modal-close::before, .modal-close::after {
+    content: ''; position: absolute;
+    width: 14px; height: 2px;
+    background: var(--mc-pep);
+  }
+  .modal-close::before { transform: rotate(45deg); }
+  .modal-close::after  { transform: rotate(-45deg); }
+
+  /* ===================== Floating Demo Console (Variant 3) ===================== */
+  .floating-console {
+    position: fixed;
+    right: 24px; bottom: 24px;
+    z-index: 40;
+    display: none;
+  }
+  .fc-pill {
+    width: 64px; height: 64px;
+    border-radius: 50%;
+    background: #fff;
+    border: 2px solid var(--mc-pep);
+    box-shadow: var(--shadow-lg);
+    cursor: pointer;
+    display: flex; align-items: center; justify-content: center;
+    overflow: hidden;
+    position: relative;
+    padding: 0;
+  }
+  .fc-pill::after {
+    content: ''; position: absolute; inset: 0;
+    border-radius: 50%;
+    box-shadow: inset 0 0 0 4px rgba(255,224,27,0.0);
+    animation: fc-ring 2.4s ease-in-out infinite;
+  }
+  @keyframes fc-ring {
+    0%, 100% { box-shadow: inset 0 0 0 0 rgba(255,224,27,0.0); }
+    50%      { box-shadow: inset 0 0 0 4px rgba(255,224,27,0.7); }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .fc-pill::after { animation: none; }
+  }
+  .fc-pill .pill-illo {
+    width: 100%; height: 100%;
+    background-size: cover; background-position: center;
+  }
+  .fc-pill .pill-label {
+    position: absolute; right: 72px; top: 50%; transform: translateY(-50%);
+    background: var(--mc-pep); color: #fff;
+    font-size: 12px; font-weight: 700;
+    padding: 6px 10px; border-radius: var(--radius-pill);
+    white-space: nowrap;
+    opacity: 0; transition: opacity 0.2s;
+  }
+  .fc-pill:hover .pill-label, .fc-pill:focus-visible .pill-label { opacity: 1; }
+
+  .fc-panel {
+    width: 360px;
+    height: 460px;
+    background: #fff;
+    border: 1px solid var(--mc-pep);
+    border-radius: var(--radius-xl);
+    box-shadow: var(--shadow-xl);
+    display: none;
+    flex-direction: column;
+    overflow: hidden;
+    position: relative;
+  }
+  .floating-console.is-open .fc-panel { display: flex; }
+  .floating-console.is-open .fc-pill   { display: none; }
+
+  .fc-head {
+    padding: 14px 16px;
+    background: var(--mc-pep);
+    color: #fff;
+    display: flex; align-items: center; gap: 10px;
+  }
+  .fc-head .dot {
+    width: 8px; height: 8px; border-radius: 50%;
+    background: var(--mc-yellow);
+    box-shadow: 0 0 0 0 rgba(255,224,27,0.8);
+    animation: fc-dot 1.6s ease-in-out infinite;
+  }
+  @keyframes fc-dot {
+    0%, 100% { box-shadow: 0 0 0 0 rgba(255,224,27,0.7); }
+    50%      { box-shadow: 0 0 0 8px rgba(255,224,27,0); }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .fc-head .dot { animation: none; }
+  }
+  .fc-head .label { font-size: 12px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; }
+  .fc-head .close {
+    margin-left: auto;
+    background: transparent; border: 0;
+    width: 24px; height: 24px;
+    cursor: pointer; position: relative;
+  }
+  .fc-head .close::before, .fc-head .close::after {
+    content: ''; position: absolute; left: 50%; top: 50%;
+    width: 14px; height: 2px;
+    background: #fff;
+    transform: translate(-50%, -50%) rotate(45deg);
+  }
+  .fc-head .close::after { transform: translate(-50%, -50%) rotate(-45deg); }
+
+  .fc-body {
+    padding: 16px;
+    flex: 1;
+    display: flex; flex-direction: column; gap: 12px;
+    overflow: auto;
+  }
+  .fc-prompt {
+    background: var(--mc-bg-off);
+    border: 1px solid var(--mc-border);
+    border-radius: var(--radius-md);
+    padding: 10px 12px;
+    font-size: 13px; color: var(--mc-pep); font-weight: 600;
+    min-height: 20px;
+  }
+  .fc-prompt .caret {
+    display: inline-block; width: 1px; height: 14px;
+    background: var(--mc-pep);
+    margin-left: 2px;
+    animation: fc-caret 1s steps(2) infinite;
+    vertical-align: middle;
+  }
+  @keyframes fc-caret {
+    0%, 50% { opacity: 1; }
+    51%, 100% { opacity: 0; }
+  }
+  .fc-chart {
+    background: var(--mc-bg-off);
+    border: 1px solid var(--mc-border);
+    border-radius: var(--radius-md);
+    padding: 12px;
+    height: 130px;
+    display: flex; align-items: flex-end; gap: 6px;
+  }
+  .fc-bar {
+    flex: 1;
+    border: 1px solid var(--mc-pep);
+    border-radius: 3px 3px 0 0;
+    height: 0;
+    transition: height 0.5s cubic-bezier(0.2, 0.8, 0.2, 1);
+  }
+  .fc-bar.fill { background: var(--mc-yellow); }
+  .fc-bar.fill.lift { background: var(--mc-teal-dark); border-color: var(--mc-teal-darker); }
+  .fc-insight {
+    background: var(--mc-yellow-soft);
+    border: 1px solid var(--mc-pep);
+    border-radius: var(--radius-md);
+    padding: 10px 12px;
+    font-size: 13px; font-weight: 700; color: var(--mc-pep);
+    opacity: 0; transform: translateY(4px);
+    transition: opacity 0.4s, transform 0.4s;
+  }
+  .fc-insight.is-shown { opacity: 1; transform: translateY(0); }
+  .fc-cite {
+    background: #fff;
+    border: 1px solid var(--mc-border);
+    border-radius: var(--radius-md);
+    padding: 10px 12px;
+    display: flex; gap: 10px; align-items: center;
+    font-size: 12px; line-height: 1.4;
+    opacity: 0; transition: opacity 0.4s;
+  }
+  .fc-cite.is-shown { opacity: 1; }
+  .fc-cite .photo {
+    width: 32px; height: 32px;
+    border-radius: 50%;
+    background-size: cover; background-position: center;
+    flex-shrink: 0;
+    border: 2px solid var(--mc-yellow);
+  }
+  .fc-cite .who { font-weight: 700; }
+  .fc-cite .role { color: var(--mc-text-secondary); font-size: 11px; }
+
+  .fc-foot {
+    padding: 12px 16px;
+    border-top: 1px solid var(--mc-border);
+    display: flex; align-items: center; gap: 10px;
+    background: var(--mc-bg-off);
+  }
+  .fc-foot .btn-primary { padding: 8px 14px; font-size: 13px; }
+  .fc-foot .btn-link { font-size: 12px; }
+
+  /* ===================== Responsive ===================== */
+  @media (max-width: 1080px) {
+    .pricing-grid-host {
+      grid-template-columns: 1fr;
+    }
+    body[data-variant="p1"] .copilot-rail {
+      position: static;
+      display: none;
+    }
+    body[data-variant="p1"] .copilot-mobile { display: block; }
+  }
+  @media (max-width: 880px) {
+    .plan-grid { grid-template-columns: 1fr 1fr; }
+    .nav-links { display: none; }
+    .addons-grid { grid-template-columns: 1fr; }
+    .testi-grid { grid-template-columns: 1fr; }
+    .modal { grid-template-columns: 1fr; max-height: 92vh; }
+    .modal-pane.left { border-right: 0; border-bottom: 1px solid var(--mc-border); }
+    .foot-cols { grid-template-columns: 1fr 1fr; }
+    .floating-console { right: 12px; bottom: 12px; }
+    .fc-panel { width: calc(100vw - 24px); height: 70vh; max-height: 540px; }
+  }
+  @media (max-width: 540px) {
+    .plan-grid { grid-template-columns: 1fr; }
+    .foot-cols { grid-template-columns: 1fr; }
+    section { padding: 56px 18px; }
+    .pricing-grid-host { padding: 16px; }
+    .pricing-hero { padding-left: 18px; padding-right: 18px; }
+  }
+</style>
+</head>
+<body data-variant="p1">
+
+<!-- ============================================================ -->
+<!-- HEADER NAV                                                   -->
+<!-- ============================================================ -->
+<header class="site" role="banner">
+  <div class="nav">
+    <a class="logo-link" href="#" aria-label="Mailchimp home">
+      <img class="mc-logo-img" src="assets/logos/mailchimp.svg" alt="Mailchimp" />
+    </a>
+    <ul class="nav-links">
+      <li><a href="#">Products</a></li>
+      <li><a href="#">Resources</a></li>
+      <li><a href="#" class="is-active" aria-current="page">Pricing</a></li>
+    </ul>
+    <div class="nav-right">
+      <a class="login" href="#">Sign in</a>
+      <a class="nav-cta" href="#">Get started</a>
+    </div>
+  </div>
+</header>
+
+<!-- ============================================================ -->
+<!-- VARIANT SWITCHER                                             -->
+<!-- ============================================================ -->
+<nav class="variant-bar" aria-label="Prototype variant">
+  <div class="variant-bar-inner">
+    <span class="variant-bar-label">Prototype variant</span>
+    <div class="variant-tabs" role="tablist" aria-label="Choose AI overlay variant">
+      <button type="button" class="variant-tab" role="tab" aria-selected="true"  data-variant="p1">Co-Pilot Rail</button>
+      <button type="button" class="variant-tab" role="tab" aria-selected="false" data-variant="p2">Inline Plan Lens</button>
+      <button type="button" class="variant-tab" role="tab" aria-selected="false" data-variant="p3">Floating Demo Console</button>
+    </div>
+    <span class="variant-bar-note">Switching changes only the Analytics AI overlay. The pricing comparison table stays the same.</span>
+  </div>
+</nav>
+
+<!-- ============================================================ -->
+<!-- PRICING HERO                                                 -->
+<!-- ============================================================ -->
+<section class="pricing-hero" aria-labelledby="pricingH1">
+  <h1 id="pricingH1">Pick the plan that fits today, <em>scale into tomorrow.</em></h1>
+  <p class="sub">Start free. Upgrade when you need more contacts, deeper analytics, or hands-on support. Standard ships with Analytics AI and unlimited prompts.</p>
+
+  <div class="pricing-controls">
+    <div class="billing-toggle" role="tablist" aria-label="Billing cadence">
+      <button type="button" role="tab" aria-selected="true"  data-cadence="monthly">Monthly</button>
+      <button type="button" role="tab" aria-selected="false" data-cadence="annual">Annual <span class="save-tag">Save 15%</span></button>
+    </div>
+    <div class="contact-select">
+      <label for="contactCount">Contacts</label>
+      <select id="contactCount" aria-label="Choose contact count">
+        <option value="500">500</option>
+        <option value="1500">1,500</option>
+        <option value="2500" selected>2,500</option>
+        <option value="5000">5,000</option>
+        <option value="10000">10,000</option>
+        <option value="25000">25,000</option>
+        <option value="50000">50,000</option>
+      </select>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================ -->
+<!-- ABOVE-TABLE RIBBON (Variant 2 only, height-reserved)         -->
+<!-- ============================================================ -->
+<div class="ribbon-host" aria-hidden="true">
+  <div class="ribbon" role="region" aria-label="Real Mailchimp customer outcomes">
+    <div class="ribbon-track" id="ribbonTrack">
+      <!-- duplicated set for seamless scroll, populated by JS -->
+    </div>
+  </div>
+</div>
+
+<!-- ============================================================ -->
+<!-- PRICING COMPARISON GRID                                      -->
+<!-- ============================================================ -->
+<section class="pricing-grid-host" aria-label="Plan comparison">
+  <div class="plan-grid" id="planGrid">
+
+    <!-- FREE -->
+    <article class="plan-card" data-plan="free">
+      <h3 class="plan-name">Free</h3>
+      <p class="plan-tagline">For new senders learning the ropes.</p>
+      <div class="plan-price">
+        <span class="num">$0</span>
+        <span class="per">/month</span>
+      </div>
+      <p class="plan-promo">Up to 500 contacts. 1,000 sends per month.</p>
+
+      <div class="lens-spacer" aria-hidden="true"></div>
+
+      <div class="plan-cta">
+        <a class="btn-secondary" href="#/checkout?plan=free">Sign up free</a>
+      </div>
+      <ul class="plan-features">
+        <li>Email Marketing CRM</li>
+        <li>Marketing CRM</li>
+        <li>Creative Assistant</li>
+        <li>Website builder</li>
+        <li>Forms and landing pages</li>
+        <li class="is-muted">Send-time optimization</li>
+        <li class="is-muted">Multi-step journeys</li>
+        <li class="is-muted">Analytics AI</li>
+      </ul>
+    </article>
+
+    <!-- ESSENTIALS -->
+    <article class="plan-card" data-plan="essentials">
+      <h3 class="plan-name">Essentials</h3>
+      <p class="plan-tagline">For senders ready to put Mailchimp to work.</p>
+      <div class="plan-price">
+        <span class="num">$13</span>
+        <span class="per">/month</span>
+        <span class="strike">$26</span>
+      </div>
+      <p class="plan-promo">50% off for the first 3 months.</p>
+
+      <div class="lens-spacer" aria-hidden="true"></div>
+
+      <div class="plan-cta">
+        <a class="btn-secondary" href="#/checkout?plan=essentials">Buy now</a>
+      </div>
+      <ul class="plan-features">
+        <li>Everything in Free</li>
+        <li>A/B testing</li>
+        <li>Custom branding</li>
+        <li>24/7 email and chat support</li>
+        <li>Email scheduling</li>
+        <li>Send-time optimization</li>
+        <li class="is-muted">Multi-step journeys</li>
+        <li class="is-muted">Analytics AI</li>
+      </ul>
+    </article>
+
+    <!-- STANDARD -->
+    <article class="plan-card is-popular" data-plan="standard">
+      <span class="plan-popular-flag">Most popular</span>
+      <h3 class="plan-name">Standard</h3>
+      <p class="plan-tagline">For teams who want to grow with smarter analytics.</p>
+      <div class="plan-price">
+        <span class="num">$20</span>
+        <span class="per">/month</span>
+        <span class="strike">$67</span>
+      </div>
+      <p class="plan-promo">70% off for the first 3 months.</p>
+
+      <!-- Variant 2 inline lens. Hidden in p1/p3, height reserved by .lens-spacer in siblings. -->
+      <div class="lens-host" id="lensHost">
+        <div class="lens-card" role="region" aria-labelledby="lensH">
+          <span class="lens-illo" role="img" aria-label="Analytics AI"
+                style="background-image: url('assets/illustrations/spot-analytics.jpg');"></span>
+          <div class="lens-body">
+            <span class="lens-eyebrow">Analytics AI</span>
+            <span class="lens-h" id="lensH">Try Analytics AI in 30 seconds.</span>
+            <div class="lens-chips">
+              <button type="button" class="lens-chip" data-modal-open data-prompt="Why Standard?">Why Standard?</button>
+              <button type="button" class="lens-chip" data-modal-open data-prompt="ROI of SMS + AI?">ROI of SMS + AI?</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="plan-cta">
+        <a class="btn-primary" href="#/checkout?plan=standard&analytics_ai=on">Buy now</a>
+        <span class="plan-cta-chip">Analytics AI included</span>
+      </div>
+      <ul class="plan-features">
+        <li>Everything in Essentials</li>
+        <li>Multi-step customer journeys</li>
+        <li class="is-highlight">Analytics AI. Unlimited prompts.</li>
+        <li>Custom-coded templates</li>
+        <li>Behavioral targeting</li>
+        <li>Dynamic content</li>
+        <li>Retargeting ads</li>
+        <li>Predicted demographics</li>
+      </ul>
+    </article>
+
+    <!-- PREMIUM -->
+    <article class="plan-card" data-plan="premium">
+      <h3 class="plan-name">Premium</h3>
+      <p class="plan-tagline">For teams who need scale, security, and SLAs.</p>
+      <div class="plan-price">
+        <span class="num">$350</span>
+        <span class="per">/month</span>
+      </div>
+      <p class="plan-promo">For senders above 10,000 contacts.</p>
+
+      <div class="lens-spacer" aria-hidden="true"></div>
+
+      <div class="plan-cta">
+        <a class="btn-secondary" href="#/checkout?plan=premium">Buy now</a>
+      </div>
+      <ul class="plan-features">
+        <li>Everything in Standard</li>
+        <li>Advanced segmentation</li>
+        <li>Multivariate testing</li>
+        <li>Comparative reporting</li>
+        <li>Unlimited seats and role-based access</li>
+        <li>Phone and priority support</li>
+        <li>Dedicated onboarding specialist</li>
+        <li>Custom domains and security review</li>
+      </ul>
+    </article>
+  </div>
+
+  <!-- Variant 1 Co-Pilot Rail -->
+  <aside class="copilot-rail" id="copilotRail" role="complementary" aria-label="Pricing co-pilot">
+    <div class="copilot-illo-strip" aria-hidden="true">
+      <span class="illo" style="background-image: url('assets/illustrations/minispot-lighthouse.jpg');"></span>
+      <span class="illo" style="background-image: url('assets/illustrations/spot-analytics.jpg');"></span>
+      <span class="illo" style="background-image: url('assets/illustrations/hero-audience.jpg');"></span>
+    </div>
+    <span class="copilot-eyebrow">Analytics AI</span>
+    <h3 class="copilot-title">Ask why Standard wins.</h3>
+    <div class="copilot-suggested">
+      <button type="button" class="copilot-q" data-modal-open data-prompt="Why upgrade to Standard?">Why upgrade to Standard?</button>
+      <button type="button" class="copilot-q" data-modal-open data-prompt="Show ROI of SMS + Analytics AI">Show ROI of SMS + Analytics AI</button>
+      <button type="button" class="copilot-q" data-modal-open data-prompt="Worth $20 more vs Essentials?">Worth $20 more vs Essentials?</button>
+    </div>
+
+    <div class="copilot-ticker" id="copilotTicker" aria-live="polite" aria-atomic="true">
+      <!-- populated by JS -->
+    </div>
+
+    <button type="button" class="btn-primary copilot-cta" data-modal-open data-prompt="Why is Standard the right plan for me?">
+      <span>Try Analytics AI</span>
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m13 5 7 7-7 7"/></svg>
+    </button>
+  </aside>
+</section>
+
+<!-- Mobile fallback for Variant 1 rail -->
+<div class="copilot-mobile" id="copilotMobile" aria-label="Pricing co-pilot mobile">
+  <div class="copilot-mobile-row">
+    <div>
+      <span class="copilot-eyebrow">Analytics AI</span>
+      <div class="copilot-mobile-h">Ask why Standard wins.</div>
+    </div>
+    <button type="button" class="btn-primary" data-modal-open data-prompt="Why upgrade to Standard?">Try it</button>
+  </div>
+</div>
+
+<!-- ============================================================ -->
+<!-- ADD-ONS                                                      -->
+<!-- ============================================================ -->
+<section class="addons" aria-labelledby="addonsH">
+  <div class="container">
+    <h2 id="addonsH">Add-ons that pair with any plan.</h2>
+    <p class="lead">Layer Transactional Email, SMS Marketing, or extra Audiences on top of Standard for cross-channel reach.</p>
+
+    <div class="addons-grid">
+      <article class="addon-card">
+        <span class="illo" role="img" aria-label="Transactional Email illustration"
+              style="background-image: url('assets/illustrations/minispot-tool.jpg');"></span>
+        <h3 class="addon-name">Transactional Email</h3>
+        <p class="addon-desc">Send fast, reliable receipts, password resets, and order confirmations. Powered by Mandrill.</p>
+        <span class="addon-price">From $20 per 25,000 emails</span>
+      </article>
+      <article class="addon-card">
+        <span class="illo" role="img" aria-label="SMS Marketing illustration"
+              style="background-image: url('assets/illustrations/minispot-vip.jpg');"></span>
+        <h3 class="addon-name">SMS Marketing</h3>
+        <p class="addon-desc">Reach your audience where they read most. Run SMS sends, automations, and journeys.</p>
+        <span class="addon-price">From $15 for 500 messages</span>
+      </article>
+      <article class="addon-card">
+        <span class="illo" role="img" aria-label="Audiences illustration"
+              style="background-image: url('assets/illustrations/hero-audience.jpg');"></span>
+        <h3 class="addon-name">Audiences</h3>
+        <p class="addon-desc">Add separate audiences for distinct brands, regions, or product lines without mixing data.</p>
+        <span class="addon-price">From $99 per audience per month</span>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================ -->
+<!-- TESTIMONIALS                                                 -->
+<!-- ============================================================ -->
+<section class="testi-section" aria-labelledby="testiH">
+  <div class="testi-head">
+    <span class="eyebrow">Customer outcomes</span>
+    <h2 id="testiH" class="display-serif">Real Mailchimp customers, real numbers.</h2>
+    <p>Three businesses on Standard. Three different outcomes. Same Analytics AI in the loop.</p>
+  </div>
+
+  <div class="testi-grid">
+    <article class="testi-card">
+      <span class="qmark" aria-hidden="true">&ldquo;</span>
+      <p class="testi-quote">Quarterly performance reviews used to take me 4 to 6 hours. With Analytics AI, I get the same insights in minutes.</p>
+      <div class="testi-attr">
+        <span class="testi-photo" role="img" aria-label="Anuj Chaudhry"
+              style="background-image: url('assets/personas/testimonial-anuj.jpg');"></span>
+        <div>
+          <div class="testi-name">Anuj Chaudhry</div>
+          <div class="testi-role">Chief Growth Officer, Faris Team</div>
+        </div>
+      </div>
+      <div class="testi-outcome">
+        <span class="num">&minus;92%</span>
+        <span class="lbl">time on quarterly review</span>
+      </div>
+    </article>
+
+    <article class="testi-card is-featured">
+      <span class="qmark" aria-hidden="true">&ldquo;</span>
+      <p class="testi-quote">Mailchimp gave me a marketing plan I could act on. Instead of constantly chasing my audience, I can focus on my work. It felt like an exhale.</p>
+      <div class="testi-attr">
+        <span class="testi-photo" role="img" aria-label="Suskia Strafella"
+              style="background-image: url('assets/personas/testimonial-suskia.jpg');"></span>
+        <div>
+          <div class="testi-name">Suskia Strafella</div>
+          <div class="testi-role">Founder, I Am Wild Woman</div>
+        </div>
+      </div>
+      <div class="testi-outcome">
+        <span class="num">2.3x</span>
+        <span class="lbl">campaign revenue, quarter over quarter</span>
+      </div>
+    </article>
+
+    <article class="testi-card">
+      <span class="qmark" aria-hidden="true">&ldquo;</span>
+      <p class="testi-quote">It's like getting to hire a marketing specialist, for free. The agent tells me which segment to send to and what to say. I just hit send.</p>
+      <div class="testi-attr">
+        <span class="testi-photo" role="img" aria-label="Damon Runnals"
+              style="background-image: url('assets/personas/testimonial-damon.jpg');"></span>
+        <div>
+          <div class="testi-name">Damon Runnals</div>
+          <div class="testi-role">CEO, Minnesota Playlist</div>
+        </div>
+      </div>
+      <div class="testi-outcome">
+        <span class="num">+38%</span>
+        <span class="lbl">click-through rate after restructured sends</span>
+      </div>
+    </article>
+  </div>
+</section>
+
+<!-- ============================================================ -->
+<!-- FAQ                                                          -->
+<!-- ============================================================ -->
+<section class="faq-section" aria-labelledby="faqH">
+  <h2 id="faqH" class="display-serif">Common questions about pricing.</h2>
+  <div class="faq-list">
+    <div class="faq-item" aria-expanded="false">
+      <button class="faq-q" type="button" aria-controls="faq1">Can I switch plans later? <span class="ico" aria-hidden="true"></span></button>
+      <div class="faq-a" id="faq1">Yes. You can upgrade or downgrade at any time from your account settings. Audiences, templates, and reports carry over. Annual plans are pro-rated.</div>
+    </div>
+    <div class="faq-item" aria-expanded="false">
+      <button class="faq-q" type="button" aria-controls="faq2">Is Analytics AI really unlimited on Standard? <span class="ico" aria-hidden="true"></span></button>
+      <div class="faq-a" id="faq2">Yes. Standard includes unlimited Analytics AI prompts, with chart-grounded answers and citations from your own audience and campaign data. Free and Essentials do not include Analytics AI.</div>
+    </div>
+    <div class="faq-item" aria-expanded="false">
+      <button class="faq-q" type="button" aria-controls="faq3">How does the contact-count selector affect my price? <span class="ico" aria-hidden="true"></span></button>
+      <div class="faq-a" id="faq3">Pricing scales with contact count. Use the selector at the top of this page to preview the price at your audience size before checkout.</div>
+    </div>
+    <div class="faq-item" aria-expanded="false">
+      <button class="faq-q" type="button" aria-controls="faq4">Do add-ons require a paid plan? <span class="ico" aria-hidden="true"></span></button>
+      <div class="faq-a" id="faq4">Transactional Email and SMS Marketing pair with any paid plan. Additional Audiences require Standard or Premium.</div>
+    </div>
+    <div class="faq-item" aria-expanded="false">
+      <button class="faq-q" type="button" aria-controls="faq5">Is there a free trial of Standard? <span class="ico" aria-hidden="true"></span></button>
+      <div class="faq-a" id="faq5">Yes. Standard includes a 14-day full-feature trial with no credit card required. Free is free forever for up to 500 contacts.</div>
+    </div>
+    <div class="faq-item" aria-expanded="false">
+      <button class="faq-q" type="button" aria-controls="faq6">Can I cancel any time? <span class="ico" aria-hidden="true"></span></button>
+      <div class="faq-a" id="faq6">Yes. Monthly plans cancel any time. Annual plans pro-rate the unused term and refund the balance.</div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================ -->
+<!-- FOOTER                                                       -->
+<!-- ============================================================ -->
+<footer class="site" role="contentinfo">
+  <div class="container">
+    <div class="foot-cols">
+      <div class="foot-col">
+        <img class="mc-logo-img" style="filter: invert(1); height: 32px;" src="assets/logos/mailchimp.svg" alt="Mailchimp" />
+        <p style="margin-top: 14px;">The marketing platform that grows with your business. From your first campaign to your tenth product launch.</p>
+      </div>
+      <div class="foot-col">
+        <h4>Products</h4>
+        <ul>
+          <li><a href="#">Email Marketing</a></li>
+          <li><a href="#">SMS Marketing</a></li>
+          <li><a href="#">Marketing CRM</a></li>
+          <li><a href="#">Analytics AI</a></li>
+          <li><a href="#">Websites</a></li>
+        </ul>
+      </div>
+      <div class="foot-col">
+        <h4>Resources</h4>
+        <ul>
+          <li><a href="#">Help center</a></li>
+          <li><a href="#">Marketing library</a></li>
+          <li><a href="#">Webinars</a></li>
+          <li><a href="#">Mailchimp partners</a></li>
+        </ul>
+      </div>
+      <div class="foot-col">
+        <h4>Company</h4>
+        <ul>
+          <li><a href="#">About</a></li>
+          <li><a href="#">Newsroom</a></li>
+          <li><a href="#">Careers</a></li>
+          <li><a href="#">Investor relations</a></li>
+        </ul>
+      </div>
+      <div class="foot-col">
+        <h4>Legal</h4>
+        <ul>
+          <li><a href="#">Privacy</a></li>
+          <li><a href="#">Terms</a></li>
+          <li><a href="#">Cookie preferences</a></li>
+          <li><a href="#">Security</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>&copy; 2026 Intuit Mailchimp. Prototype build for stakeholder review.</span>
+      <span>Real customer outcomes. Mock checkout flow.</span>
+    </div>
+  </div>
+</footer>
+
+<!-- ============================================================ -->
+<!-- VARIANT 3 FLOATING DEMO CONSOLE                              -->
+<!-- ============================================================ -->
+<aside class="floating-console" id="floatingConsole" aria-label="Analytics AI live demo">
+  <button type="button" class="fc-pill" id="fcPill" aria-label="Open Analytics AI demo">
+    <span class="pill-illo" role="img" aria-label="Analytics AI"
+          style="background-image: url('assets/illustrations/minispot-tool.jpg');"></span>
+    <span class="pill-label">Analytics AI demo</span>
+  </button>
+
+  <div class="fc-panel" role="region" aria-label="Analytics AI 30-second demo">
+    <div class="fc-head">
+      <span class="dot" aria-hidden="true"></span>
+      <span class="label">Analytics AI . live</span>
+      <button type="button" class="close" id="fcClose" aria-label="Dismiss demo console"></button>
+    </div>
+    <div class="fc-body">
+      <div class="fc-prompt" id="fcPrompt" aria-live="polite"></div>
+      <div class="fc-chart" id="fcChart" aria-label="Demo bar chart"></div>
+      <div class="fc-insight" id="fcInsight">+21% lift after sequencing fix.</div>
+      <div class="fc-cite" id="fcCite">
+        <span class="photo" role="img" aria-label="Damon Runnals"
+              style="background-image: url('assets/personas/testimonial-damon.jpg');"></span>
+        <div>
+          <div class="who">Damon Runnals</div>
+          <div class="role">CEO, Minnesota Playlist</div>
+        </div>
+      </div>
+    </div>
+    <div class="fc-foot">
+      <a class="btn-primary" href="#/checkout?plan=standard&analytics_ai=on">Get Standard</a>
+      <button type="button" class="btn-link" data-modal-open data-prompt="Why is revenue flat this month?">Try yourself</button>
+    </div>
+  </div>
+</aside>
+
+<!-- ============================================================ -->
+<!-- SHARED MODAL                                                 -->
+<!-- ============================================================ -->
+<div class="modal-root" id="modalRoot" role="dialog" aria-modal="true" aria-labelledby="modalH" aria-hidden="true">
+  <div class="modal" id="modal">
+    <button type="button" class="modal-close" id="modalClose" aria-label="Close Analytics AI demo"></button>
+
+    <div class="modal-pane left">
+      <span class="modal-eyebrow">Analytics AI</span>
+      <h2 class="modal-h" id="modalH">Ask a sample question.</h2>
+      <div class="modal-prompts" id="modalPrompts">
+        <button type="button" class="modal-prompt" data-prompt="Why upgrade to Standard?">Why upgrade to Standard?</button>
+        <button type="button" class="modal-prompt" data-prompt="Show ROI of SMS + Analytics AI">Show ROI of SMS + Analytics AI</button>
+        <button type="button" class="modal-prompt" data-prompt="Why is revenue flat this month?">Why is revenue flat this month?</button>
+      </div>
+      <div class="modal-chat" id="modalChat" aria-live="polite">
+        <div class="msg user">
+          <div class="role">You</div>
+          <div class="text" id="userMsg">Why upgrade to Standard?</div>
+        </div>
+        <div class="msg ai">
+          <div class="role">Analytics AI</div>
+          <div class="text" id="aiMsg"></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="modal-pane right">
+      <span class="modal-eyebrow">Live insight</span>
+      <h2 class="modal-h">Standard outperforms Essentials on send-time and segmentation.</h2>
+      <div class="modal-chart" id="modalChart" aria-label="Insight chart">
+        <div class="modal-bar" data-h="32"><span class="lab">Free</span></div>
+        <div class="modal-bar" data-h="48"><span class="lab">Essentials</span></div>
+        <div class="modal-bar is-positive" data-h="86"><span class="lab">Standard</span></div>
+        <div class="modal-bar" data-h="64"><span class="lab">Premium</span></div>
+      </div>
+      <div class="modal-insight">Send-time optimization plus Analytics AI accounts for the largest revenue lift in Standard, on average +21% vs Essentials.</div>
+      <div class="modal-cite">
+        <span class="photo" role="img" aria-label="Anuj Chaudhry"
+              style="background-image: url('assets/personas/testimonial-anuj.jpg');"></span>
+        <div>
+          <div class="who">Anuj Chaudhry, Chief Growth Officer, Faris Team</div>
+          <div class="role">Outcome verified by Mailchimp.</div>
+          <div class="qtext"><strong>&minus;92%</strong> time on quarterly review.</div>
+        </div>
+      </div>
+      <div class="modal-cite" style="margin-top: 10px;">
+        <span class="photo" role="img" aria-label="Suskia Strafella"
+              style="background-image: url('assets/personas/testimonial-suskia.jpg');"></span>
+        <div>
+          <div class="who">Suskia Strafella, Founder, I Am Wild Woman</div>
+          <div class="role">Outcome verified by Mailchimp.</div>
+          <div class="qtext"><strong>2.3x</strong> campaign revenue, quarter over quarter.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="modal-footer">
+      <div class="left">
+        <span class="pill">Standard plan . 70% off</span>
+        <span>Continue with Standard plus Analytics AI included.</span>
+      </div>
+      <a class="btn-primary" href="#/checkout?plan=standard&analytics_ai=on" id="modalCheckout">
+        <span>Continue to checkout</span>
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m13 5 7 7-7 7"/></svg>
+      </a>
+    </div>
+  </div>
+</div>
+
+<script>
+(function(){
+  'use strict';
+  var prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  // ============================================================
+  // Variant routing (?v=p1|p2|p3)
+  // ============================================================
+  var VARIANTS = ['p1','p2','p3'];
+  function getVariant() {
+    var qs = new URLSearchParams(window.location.search);
+    var v = (qs.get('v') || '').toLowerCase();
+    if (VARIANTS.indexOf(v) === -1) {
+      var hash = (window.location.hash || '').replace('#','').toLowerCase();
+      if (VARIANTS.indexOf(hash) !== -1) v = hash;
+    }
+    return VARIANTS.indexOf(v) === -1 ? 'p1' : v;
+  }
+  function setVariant(v, push) {
+    if (VARIANTS.indexOf(v) === -1) v = 'p1';
+    document.body.setAttribute('data-variant', v);
+    document.querySelectorAll('.variant-tab').forEach(function(btn){
+      btn.setAttribute('aria-selected', btn.getAttribute('data-variant') === v ? 'true' : 'false');
+    });
+    if (push) {
+      var qs = new URLSearchParams(window.location.search);
+      qs.set('v', v);
+      var newUrl = window.location.pathname + '?' + qs.toString() + window.location.hash;
+      window.history.replaceState({v:v}, '', newUrl);
+    }
+    onVariantApplied(v);
+  }
+
+  // ============================================================
+  // Customer quotes (verbatim, attribution intact)
+  // ============================================================
+  // Rail ticker and ribbon both render outcome statements with attribution,
+  // not paraphrased quotes. Verbatim customer quotes live only in the
+  // testimonial section to satisfy the "at most once per variant" rule.
+  var CUSTOMERS = [
+    {
+      name: 'Anuj Chaudhry',
+      role: 'Chief Growth Officer, Faris Team',
+      photo: 'assets/personas/testimonial-anuj.jpg',
+      outcomeNum: '\u221292%',
+      outcomeLbl: 'time on quarterly review'
+    },
+    {
+      name: 'Suskia Strafella',
+      role: 'Founder, I Am Wild Woman',
+      photo: 'assets/personas/testimonial-suskia.jpg',
+      outcomeNum: '2.3x',
+      outcomeLbl: 'campaign revenue, quarter over quarter'
+    },
+    {
+      name: 'Damon Runnals',
+      role: 'CEO, Minnesota Playlist',
+      photo: 'assets/personas/testimonial-damon.jpg',
+      outcomeNum: '+38%',
+      outcomeLbl: 'click-through rate after restructured sends'
+    }
+  ];
+
+  // ============================================================
+  // Co-Pilot rail quote ticker (Variant 1)
+  // ============================================================
+  var tickerInterval = null;
+  function buildTicker() {
+    var host = document.getElementById('copilotTicker');
+    if (!host) return;
+    host.innerHTML = '';
+    CUSTOMERS.forEach(function(c, i){
+      var d = document.createElement('div');
+      d.className = 'copilot-quote' + (i === 0 ? ' is-active' : '');
+      d.innerHTML =
+        '<div class="qtext"><strong>' + c.outcomeNum + '</strong> ' + c.outcomeLbl + '.</div>' +
+        '<div class="qattr">' + c.name + ', ' + c.role + '</div>';
+      host.appendChild(d);
+    });
+    if (tickerInterval) { clearInterval(tickerInterval); tickerInterval = null; }
+    if (prefersReduced) return;
+    var idx = 0;
+    tickerInterval = setInterval(function(){
+      var quotes = host.querySelectorAll('.copilot-quote');
+      if (!quotes.length) return;
+      quotes[idx].classList.remove('is-active');
+      idx = (idx + 1) % quotes.length;
+      quotes[idx].classList.add('is-active');
+    }, 6000);
+  }
+
+  // ============================================================
+  // Above-table ribbon (Variant 2)
+  // ============================================================
+  function buildRibbon() {
+    var track = document.getElementById('ribbonTrack');
+    if (!track) return;
+    track.innerHTML = '';
+    function chipHtml(c){
+      return '<span class="ribbon-chip">' +
+        '<span class="num">' + c.outcomeNum + '</span>' +
+        '<span class="lbl">' + c.outcomeLbl + '</span>' +
+        '<span class="who">. ' + c.name + ', ' + c.role + '</span>' +
+        '</span>';
+    }
+    var html = CUSTOMERS.map(chipHtml).join('') + CUSTOMERS.map(chipHtml).join('');
+    track.innerHTML = html;
+  }
+
+  // ============================================================
+  // Modal: focus trap, esc-close, prompt switching
+  // ============================================================
+  var modalRoot = document.getElementById('modalRoot');
+  var modalClose = document.getElementById('modalClose');
+  var lastFocus = null;
+  var aiMsgEl = document.getElementById('aiMsg');
+  var userMsgEl = document.getElementById('userMsg');
+  var streamTimer = null;
+
+  var ANSWERS = {
+    'Why upgrade to Standard?':
+      'Standard adds Analytics AI plus multi-step customer journeys. On average, customers see a 21% revenue lift over Essentials. Anuj Chaudhry cut quarterly reporting from 4 to 6 hours down to minutes.',
+    'Show ROI of SMS + Analytics AI':
+      'SMS sees the highest engagement of any channel. With Analytics AI sequencing your sends, the average customer sees +38% click-through rate after restructured sends. Damon Runnals at Minnesota Playlist is one example.',
+    'Worth $20 more vs Essentials?':
+      'Yes for any team running campaigns at scale. Analytics AI replaces hours of analyst time and surfaces the next move. Suskia Strafella saw 2.3x campaign revenue, quarter over quarter.',
+    'Why Standard?':
+      'Standard ships with Analytics AI and unlimited prompts, plus multi-step customer journeys and behavioral targeting. It is the lift that pays for itself.',
+    'ROI of SMS + AI?':
+      'SMS plus Analytics AI is the fastest path to incremental revenue. Sequencing recommendations alone drive +21% lift on average.',
+    'Why is Standard the right plan for me?':
+      'You said Standard, so we will start there. Analytics AI is included with unlimited prompts and grounded charts. You can switch plans any time.',
+    'Why is revenue flat this month?':
+      'Two of your top three campaigns landed in the wrong segment. Sequencing the welcome and win-back flows in the right order yields a +21% lift on the next send. Damon Runnals saw this same fix drive +38% click-through.'
+  };
+
+  function streamText(target, text) {
+    if (streamTimer) { clearInterval(streamTimer); streamTimer = null; }
+    target.textContent = '';
+    if (prefersReduced) { target.textContent = text; return; }
+    var i = 0;
+    streamTimer = setInterval(function(){
+      i += 2;
+      target.textContent = text.slice(0, i);
+      if (i >= text.length) { clearInterval(streamTimer); streamTimer = null; }
+    }, 18);
+  }
+
+  function trapFocus(e) {
+    if (!modalRoot.classList.contains('is-open')) return;
+    if (e.key === 'Escape') { closeModal(); return; }
+    if (e.key !== 'Tab') return;
+    var focusables = modalRoot.querySelectorAll('button, a, input, select, [tabindex]:not([tabindex="-1"])');
+    if (!focusables.length) return;
+    var first = focusables[0], last = focusables[focusables.length - 1];
+    if (e.shiftKey && document.activeElement === first) { e.preventDefault(); last.focus(); }
+    else if (!e.shiftKey && document.activeElement === last) { e.preventDefault(); first.focus(); }
+  }
+
+  function openModal(prompt) {
+    lastFocus = document.activeElement;
+    modalRoot.classList.add('is-open');
+    modalRoot.setAttribute('aria-hidden', 'false');
+    document.body.style.overflow = 'hidden';
+    document.addEventListener('keydown', trapFocus);
+    selectPrompt(prompt || 'Why upgrade to Standard?');
+    setTimeout(function(){ modalClose.focus(); }, 30);
+    document.body.setAttribute('data-ai-touched', 'true');
+  }
+  function closeModal() {
+    modalRoot.classList.remove('is-open');
+    modalRoot.setAttribute('aria-hidden', 'true');
+    document.body.style.overflow = '';
+    document.removeEventListener('keydown', trapFocus);
+    if (streamTimer) { clearInterval(streamTimer); streamTimer = null; }
+    if (lastFocus && lastFocus.focus) lastFocus.focus();
+  }
+  function selectPrompt(p) {
+    var matched = p;
+    if (!ANSWERS[matched]) matched = 'Why upgrade to Standard?';
+    userMsgEl.textContent = matched;
+    document.querySelectorAll('.modal-prompt').forEach(function(b){
+      b.setAttribute('aria-pressed', b.getAttribute('data-prompt') === matched ? 'true' : 'false');
+    });
+    streamText(aiMsgEl, ANSWERS[matched]);
+    setTimeout(animateChart, 60);
+  }
+  function animateChart() {
+    document.querySelectorAll('.modal-bar').forEach(function(bar, i){
+      var h = parseInt(bar.getAttribute('data-h'), 10) || 0;
+      bar.style.height = '0%';
+      setTimeout(function(){ bar.style.height = h + '%'; }, prefersReduced ? 0 : 80 + i * 90);
+    });
+  }
+
+  // ============================================================
+  // Floating Console (Variant 3) demo script
+  // ============================================================
+  var fcEl = document.getElementById('floatingConsole');
+  var fcPill = document.getElementById('fcPill');
+  var fcClose = document.getElementById('fcClose');
+  var fcPrompt = document.getElementById('fcPrompt');
+  var fcChart = document.getElementById('fcChart');
+  var fcInsight = document.getElementById('fcInsight');
+  var fcCite = document.getElementById('fcCite');
+  var fcShown = false;
+  var fcDismissed = false;
+  var fcTimers = [];
+
+  function clearFcTimers() {
+    fcTimers.forEach(function(t){ clearTimeout(t); });
+    fcTimers = [];
+  }
+
+  function buildFcChart() {
+    fcChart.innerHTML = '';
+    var heights = [22, 28, 24, 30, 28, 32];
+    heights.forEach(function(h, i){
+      var bar = document.createElement('div');
+      bar.className = 'fc-bar fill';
+      bar.setAttribute('data-h', h);
+      fcChart.appendChild(bar);
+    });
+  }
+
+  function showFcPill() {
+    if (fcDismissed) return;
+    fcEl.style.display = 'block';
+    if (!prefersReduced) {
+      // a 4s pause is part of the spec. The IO already debounced this call.
+    }
+  }
+
+  function expandFc() {
+    fcEl.classList.add('is-open');
+    runFcDemo();
+  }
+  function collapseFc() {
+    fcEl.classList.remove('is-open');
+    clearFcTimers();
+  }
+  function dismissFc() {
+    fcDismissed = true;
+    fcEl.style.display = 'none';
+    try { localStorage.setItem('mc-fc-dismissed', '1'); } catch(e){}
+    clearFcTimers();
+  }
+
+  function runFcDemo() {
+    clearFcTimers();
+    fcInsight.classList.remove('is-shown');
+    fcCite.classList.remove('is-shown');
+    fcPrompt.innerHTML = '';
+    buildFcChart();
+
+    if (prefersReduced) {
+      fcPrompt.textContent = 'Why is revenue flat this month?';
+      Array.prototype.forEach.call(fcChart.children, function(b, i){
+        b.style.height = (parseInt(b.getAttribute('data-h'),10) * 1.4) + 'px';
+        if (i === 5) b.classList.add('lift');
+      });
+      fcInsight.classList.add('is-shown');
+      fcCite.classList.add('is-shown');
+      return;
+    }
+
+    var promptText = 'Why is revenue flat this month?';
+    var i = 0;
+    var caret = '<span class="caret"></span>';
+    fcPrompt.innerHTML = caret;
+    var typer = setInterval(function(){
+      i++;
+      fcPrompt.innerHTML = promptText.slice(0, i) + caret;
+      if (i >= promptText.length) clearInterval(typer);
+    }, 36);
+    fcTimers.push(typer);
+
+    fcTimers.push(setTimeout(function(){
+      Array.prototype.forEach.call(fcChart.children, function(b, idx){
+        setTimeout(function(){
+          b.style.height = (parseInt(b.getAttribute('data-h'),10) * 1.4) + 'px';
+          if (idx === 5) b.classList.add('lift');
+        }, idx * 110);
+      });
+    }, 1500));
+
+    fcTimers.push(setTimeout(function(){ fcInsight.classList.add('is-shown'); }, 2900));
+    fcTimers.push(setTimeout(function(){ fcCite.classList.add('is-shown');   }, 3500));
+  }
+
+  function setupFcVisibility() {
+    try {
+      if (localStorage.getItem('mc-fc-dismissed') === '1') {
+        fcDismissed = true;
+        fcEl.style.display = 'none';
+        return;
+      }
+    } catch(e) {}
+
+    var grid = document.getElementById('planGrid');
+    if (!grid || !('IntersectionObserver' in window)) {
+      setTimeout(showFcPill, 4000);
+      return;
+    }
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(en){
+        if (en.isIntersecting && !fcShown) {
+          fcShown = true;
+          setTimeout(showFcPill, 4000);
+          io.disconnect();
+        }
+      });
+    }, { threshold: 0.2 });
+    io.observe(grid);
+  }
+
+  // ============================================================
+  // Variant change side-effects
+  // ============================================================
+  function onVariantApplied(v) {
+    if (v === 'p1') {
+      buildTicker();
+    } else {
+      if (tickerInterval) { clearInterval(tickerInterval); tickerInterval = null; }
+    }
+    if (v === 'p3') {
+      setupFcVisibility();
+    } else {
+      fcEl.style.display = 'none';
+      fcEl.classList.remove('is-open');
+      clearFcTimers();
+    }
+    // Explicit aria-hidden for the lens block. Belt-and-suspenders alongside
+    // the display:none CSS rule, so screen readers do not see the inactive lens.
+    var lensHost = document.getElementById('lensHost');
+    var spacers = document.querySelectorAll('.lens-spacer');
+    if (lensHost) lensHost.setAttribute('aria-hidden', v === 'p2' ? 'false' : 'true');
+    spacers.forEach(function(s){ s.setAttribute('aria-hidden', 'true'); });
+  }
+
+  // ============================================================
+  // Wire up listeners
+  // ============================================================
+  document.addEventListener('click', function(e){
+    var open = e.target.closest('[data-modal-open]');
+    if (open) {
+      e.preventDefault();
+      openModal(open.getAttribute('data-prompt'));
+      return;
+    }
+    var prompt = e.target.closest('.modal-prompt');
+    if (prompt) {
+      selectPrompt(prompt.getAttribute('data-prompt'));
+      return;
+    }
+    var tab = e.target.closest('.variant-tab');
+    if (tab) {
+      setVariant(tab.getAttribute('data-variant'), true);
+      return;
+    }
+    var faqQ = e.target.closest('.faq-q');
+    if (faqQ) {
+      var item = faqQ.closest('.faq-item');
+      var expanded = item.getAttribute('aria-expanded') === 'true';
+      item.setAttribute('aria-expanded', expanded ? 'false' : 'true');
+      return;
+    }
+    var billing = e.target.closest('.billing-toggle button');
+    if (billing) {
+      document.querySelectorAll('.billing-toggle button').forEach(function(b){
+        b.setAttribute('aria-selected', b === billing ? 'true' : 'false');
+      });
+      return;
+    }
+  });
+
+  modalClose.addEventListener('click', closeModal);
+  modalRoot.addEventListener('click', function(e){ if (e.target === modalRoot) closeModal(); });
+
+  fcPill.addEventListener('click', expandFc);
+  fcPill.addEventListener('mouseenter', expandFc);
+  fcClose.addEventListener('click', dismissFc);
+
+  // ============================================================
+  // Boot
+  // ============================================================
+  buildRibbon();
+  setVariant(getVariant(), false);
+  // Equal-height verification hook (exposed for QA)
+  window.__verifyPlanHeights = function() {
+    var cards = document.querySelectorAll('.plan-card');
+    var heights = Array.prototype.map.call(cards, function(c){ return Math.round(c.getBoundingClientRect().height); });
+    var allEqual = heights.every(function(h){ return h === heights[0]; });
+    return { variant: document.body.getAttribute('data-variant'), heights: heights, equal: allEqual };
+  };
+})();
+</script>
+</body>
+</html>
