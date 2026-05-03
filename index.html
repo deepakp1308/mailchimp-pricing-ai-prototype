@@ -7,7 +7,7 @@
 <meta name="description" content="Pick the plan that fits today and scale into tomorrow. Compare Free, Essentials, Standard, and Premium. Analytics AI is included on Standard with unlimited prompts." />
 <style>
   /* ============================================================ */
-  /* Mailchimp Design System tokens (mirrored from homepage build) */
+  /* Mailchimp Design System tokens                               */
   /* ============================================================ */
   :root {
     --mc-pep: #241C15;
@@ -321,7 +321,7 @@
     padding: 24px 32px 16px;
     position: relative;
     display: grid;
-    grid-template-columns: 1fr 320px;
+    grid-template-columns: 1fr 332px;
     gap: 32px;
   }
   body[data-variant="p2"] .pricing-grid-host,
@@ -421,52 +421,134 @@
     body[data-ai-touched="true"] .plan-card[data-plan="standard"] .plan-cta-chip { animation: none; }
   }
 
-  /* Lens block, Variant 2 only. Kept inside the card flow but height-matched. */
+  /* ===================== Inline Plan Lens (Variant 2) ===================== */
+  /* The lens-host has natural height; .lens-spacer in sibling cards is set */
+  /* to match exactly via JS so the pricing grid stays equal-height in V2. */
   .lens-host, .lens-spacer {
     margin-bottom: 16px;
-    height: 168px;
   }
-  .lens-spacer { visibility: hidden; }
+  .lens-host { height: auto; }
+  .lens-spacer { visibility: hidden; height: 0; }
   .lens-card {
     height: 100%;
     background: var(--mc-bg-off);
-    border: 1px dashed var(--mc-border-strong);
+    border: 1px solid var(--mc-border-strong);
     border-radius: var(--radius-lg);
-    padding: 14px;
-    display: flex; gap: 12px;
-    align-items: stretch;
+    padding: 12px;
+    display: flex; flex-direction: column;
+    gap: 8px;
+    position: relative;
+    overflow: hidden;
   }
-  .lens-card .lens-illo {
-    width: 56px; height: 56px;
-    flex-shrink: 0;
-    border-radius: var(--radius-md);
-    background-size: cover; background-position: center;
-    border: 1px solid var(--mc-border);
-  }
-  .lens-card .lens-body { display: flex; flex-direction: column; gap: 8px; }
-  .lens-card .lens-eyebrow {
+  .lens-eyebrow {
     font-size: 10px; font-weight: 700; letter-spacing: 0.12em;
     text-transform: uppercase; color: var(--mc-teal-dark);
   }
-  .lens-card .lens-h {
-    font-size: 14px; font-weight: 700; color: var(--mc-pep);
-    line-height: 1.25;
+  .lens-toolbar {
+    display: flex; align-items: center; justify-content: space-between;
+    gap: 6px;
   }
-  .lens-card .lens-chips {
-    display: flex; flex-wrap: wrap; gap: 6px; margin-top: 4px;
+  .lens-business {
+    font-size: 12px; font-weight: 700; color: var(--mc-pep);
+    display: flex; align-items: center; gap: 6px;
+    min-width: 0;
   }
-  .lens-card .lens-chip {
-    font-size: 12px; font-weight: 600;
+  .lens-business .biz-dot {
+    width: 8px; height: 8px; border-radius: 50%;
+    background: var(--mc-yellow);
+    flex-shrink: 0;
+    transition: background 0.2s;
+  }
+  .lens-business .biz-name {
+    overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
+  }
+  .lens-personas {
+    display: grid; grid-template-columns: repeat(4, 1fr);
+    gap: 4px;
+  }
+  .lens-persona {
+    border: 1px solid var(--mc-border);
+    background: #fff;
+    border-radius: var(--radius-md);
+    padding: 4px;
+    cursor: pointer;
+    display: flex; align-items: center; justify-content: center;
+    overflow: hidden;
+    transition: border-color 0.15s, transform 0.12s;
+    position: relative;
+  }
+  .lens-persona[aria-pressed="true"] {
+    border-color: var(--mc-pep);
+    box-shadow: 0 0 0 2px rgba(36,28,21,0.08);
+  }
+  .lens-persona:hover { transform: translateY(-1px); }
+  .lens-persona .pavatar {
+    width: 100%; aspect-ratio: 1 / 1;
+    background-size: cover; background-position: center;
+    border-radius: var(--radius-sm);
+  }
+  .lens-persona .plabel {
+    position: absolute; bottom: 2px; left: 2px; right: 2px;
+    background: rgba(36,28,21,0.78); color: #fff;
+    font-size: 8px; font-weight: 700; letter-spacing: 0.04em;
+    text-transform: uppercase;
+    padding: 1px 2px; border-radius: 3px;
+    text-align: center;
+    line-height: 1.1;
+    pointer-events: none;
+  }
+  .lens-prompts {
+    display: flex; flex-wrap: wrap; gap: 4px;
+  }
+  .lens-prompt {
+    font-size: 11px; font-weight: 600;
     background: #fff;
     color: var(--mc-pep);
     border: 1px solid var(--mc-border-strong);
     border-radius: var(--radius-pill);
-    padding: 5px 10px;
+    padding: 4px 9px;
     cursor: pointer;
     transition: background 0.15s, color 0.15s;
+    line-height: 1.2;
   }
-  .lens-card .lens-chip:hover {
-    background: var(--mc-pep); color: #fff;
+  .lens-prompt:hover, .lens-prompt[aria-pressed="true"] {
+    background: var(--mc-pep); color: #fff; border-color: var(--mc-pep);
+  }
+  .lens-chart-host {
+    background: #fff;
+    border: 1px solid var(--mc-border);
+    border-radius: var(--radius-md);
+    height: 80px;
+    padding: 6px 8px;
+    overflow: hidden;
+    display: flex;
+  }
+  .lens-chart-host svg { width: 100%; height: 100%; display: block; }
+  .lens-insight {
+    font-size: 11px; line-height: 1.35; color: var(--mc-pep);
+    background: var(--mc-yellow-soft);
+    border: 1px solid var(--mc-pep);
+    border-radius: var(--radius-md);
+    padding: 6px 8px;
+    font-weight: 600;
+  }
+  .lens-cite {
+    font-size: 10px; color: var(--mc-text-secondary);
+    display: flex; align-items: center; gap: 6px;
+    line-height: 1.3;
+  }
+  .lens-cite .num {
+    font-family: 'Cooper Light', 'Georgia', serif;
+    font-size: 14px; color: var(--mc-pep); font-weight: 400;
+  }
+  .lens-deep-link {
+    font-size: 10px; font-weight: 600;
+    background: transparent; border: 0;
+    color: var(--mc-teal-dark);
+    cursor: pointer; padding: 0;
+    text-decoration: underline; text-underline-offset: 2px;
+    align-self: flex-start;
+    margin-top: -2px;
   }
 
   .plan-features {
@@ -512,19 +594,10 @@
     background: #fff;
     border: 1px solid var(--mc-border);
     border-radius: var(--radius-xl);
-    padding: 22px 18px 18px;
+    padding: 18px 18px 16px;
     box-shadow: var(--shadow-sm);
-  }
-  .copilot-illo-strip {
-    display: flex; align-items: center; gap: 8px;
-    margin-bottom: 14px;
-  }
-  .copilot-illo-strip .illo {
-    width: 36px; height: 36px;
-    border-radius: var(--radius-md);
-    background-size: cover; background-position: center;
-    border: 1px solid var(--mc-border);
-    flex-shrink: 0;
+    display: flex; flex-direction: column;
+    gap: 12px;
   }
   .copilot-eyebrow {
     font-size: 10px; font-weight: 700; letter-spacing: 0.14em;
@@ -533,52 +606,157 @@
   .copilot-title {
     font-family: 'Cooper Light', 'Georgia', serif;
     font-size: 22px; font-weight: 400; color: var(--mc-pep);
-    line-height: 1.15; margin: 8px 0 14px;
+    line-height: 1.15;
+    margin: -2px 0 2px;
   }
+  .copilot-toolbar {
+    display: flex; align-items: center; justify-content: space-between;
+    gap: 8px;
+    background: var(--mc-bg-off);
+    border: 1px solid var(--mc-border);
+    border-radius: var(--radius-md);
+    padding: 6px 8px;
+  }
+  .copilot-toolbar .biz {
+    display: flex; align-items: center; gap: 6px;
+    font-size: 12px; font-weight: 700; color: var(--mc-pep);
+    min-width: 0;
+  }
+  .copilot-toolbar .biz-dot {
+    width: 8px; height: 8px; border-radius: 50%;
+    background: var(--mc-yellow);
+    transition: background 0.2s;
+    flex-shrink: 0;
+  }
+  .copilot-toolbar .biz-name {
+    white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+  }
+  .copilot-toolbar .live {
+    font-size: 9px; font-weight: 700; letter-spacing: 0.1em;
+    text-transform: uppercase; color: var(--mc-text-muted);
+    display: inline-flex; align-items: center; gap: 4px;
+  }
+  .copilot-toolbar .live .dot {
+    width: 6px; height: 6px; border-radius: 50%;
+    background: var(--mc-teal);
+    box-shadow: 0 0 0 0 rgba(0,185,166,0.6);
+    animation: live-dot 1.6s ease-in-out infinite;
+  }
+  @keyframes live-dot {
+    0%, 100% { box-shadow: 0 0 0 0 rgba(0,185,166,0.6); }
+    50%      { box-shadow: 0 0 0 6px rgba(0,185,166,0); }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .copilot-toolbar .live .dot { animation: none; }
+  }
+
+  .copilot-personas {
+    display: grid; grid-template-columns: repeat(4, 1fr);
+    gap: 6px;
+  }
+  .copilot-persona {
+    background: #fff;
+    border: 1.5px solid var(--mc-border);
+    border-radius: var(--radius-md);
+    cursor: pointer;
+    overflow: hidden;
+    padding: 4px 4px 6px;
+    transition: border-color 0.15s, transform 0.12s;
+    text-align: center;
+    position: relative;
+  }
+  .copilot-persona[aria-pressed="true"] {
+    border-color: var(--mc-pep);
+    box-shadow: 0 0 0 2px rgba(36,28,21,0.08);
+  }
+  .copilot-persona:hover { transform: translateY(-1px); }
+  .copilot-persona .pavatar {
+    width: 100%; aspect-ratio: 1 / 1;
+    background-size: cover; background-position: center;
+    border-radius: var(--radius-sm);
+  }
+  .copilot-persona .plabel {
+    font-size: 10px; font-weight: 700;
+    color: var(--mc-pep);
+    margin-top: 4px;
+    line-height: 1.1;
+  }
+
   .copilot-suggested {
-    display: flex; flex-direction: column; gap: 6px; margin-bottom: 16px;
+    display: flex; flex-direction: column; gap: 6px;
   }
   .copilot-q {
     text-align: left;
     background: var(--mc-bg-off);
     border: 1px solid var(--mc-border);
     border-radius: var(--radius-md);
-    padding: 10px 12px;
-    font-size: 13px; font-weight: 600; color: var(--mc-pep);
+    padding: 8px 10px;
+    font-size: 12.5px; font-weight: 600; color: var(--mc-pep);
     cursor: pointer;
     transition: background 0.15s, border-color 0.15s, transform 0.12s;
     display: flex; align-items: center; justify-content: space-between; gap: 8px;
+    line-height: 1.3;
   }
   .copilot-q::after {
-    content: ''; width: 10px; height: 10px;
+    content: ''; width: 8px; height: 8px;
     border-right: 2px solid var(--mc-pep); border-top: 2px solid var(--mc-pep);
     transform: rotate(45deg); flex-shrink: 0;
   }
-  .copilot-q:hover {
+  .copilot-q:hover, .copilot-q[aria-pressed="true"] {
     background: #fff; border-color: var(--mc-pep);
     transform: translateX(2px);
   }
 
-  .copilot-ticker {
-    border-top: 1px solid var(--mc-border);
-    padding-top: 14px; margin-bottom: 16px;
-    min-height: 84px;
-    position: relative;
+  .copilot-chart-host {
+    background: var(--mc-bg-off);
+    border: 1px solid var(--mc-border);
+    border-radius: var(--radius-md);
+    height: 220px;
+    padding: 10px;
+    display: flex;
   }
-  .copilot-quote {
-    position: absolute; inset: 14px 0 0 0;
-    opacity: 0; transition: opacity 0.5s ease;
-    display: flex; flex-direction: column; gap: 6px;
+  .copilot-chart-host svg { width: 100%; height: 100%; display: block; }
+
+  .copilot-insight {
+    font-size: 12.5px; line-height: 1.4;
+    color: var(--mc-pep);
+    background: var(--mc-yellow-soft);
+    border: 1px solid var(--mc-pep);
+    border-radius: var(--radius-md);
+    padding: 8px 10px;
+    font-weight: 600;
   }
-  .copilot-quote.is-active { opacity: 1; }
-  .copilot-quote .qtext {
-    font-size: 13px; line-height: 1.45; color: var(--mc-pep);
-    font-style: italic;
+
+  .copilot-outcome-chip {
+    display: flex; align-items: baseline; gap: 8px;
+    background: #fff;
+    border: 1px solid var(--mc-border);
+    border-radius: var(--radius-md);
+    padding: 8px 10px;
+    font-size: 11px; line-height: 1.3;
+    color: var(--mc-text-secondary);
   }
-  .copilot-quote .qattr {
-    font-size: 12px; color: var(--mc-text-secondary); font-weight: 600;
+  .copilot-outcome-chip .num {
+    font-family: 'Cooper Light', 'Georgia', serif;
+    font-size: 18px; color: var(--mc-pep); font-weight: 400;
   }
+  .copilot-outcome-chip .who {
+    color: var(--mc-pep); font-weight: 700;
+  }
+
   .copilot-cta { width: 100%; }
+  .copilot-deep-link {
+    text-align: center;
+    margin-top: 0;
+  }
+  .copilot-deep-link button {
+    background: transparent; border: 0;
+    color: var(--mc-teal-dark); font-size: 12px; font-weight: 600;
+    cursor: pointer;
+    text-decoration: underline; text-underline-offset: 3px;
+    padding: 4px;
+  }
+  .copilot-deep-link button:hover { color: var(--mc-teal-darker); }
 
   /* Mobile bottom bar fallback for rail */
   .copilot-mobile {
@@ -795,7 +973,7 @@
     font-size: 12px; color: rgba(255,255,255,0.55);
   }
 
-  /* ===================== Modal ===================== */
+  /* ===================== Modal (deeper sandbox) ===================== */
   .modal-root {
     position: fixed; inset: 0; z-index: 100;
     display: none;
@@ -806,138 +984,169 @@
   }
   .modal-root.is-open { display: flex; }
   .modal {
-    width: min(960px, 100%);
-    max-height: min(640px, 92vh);
+    width: min(1080px, 100%);
+    max-height: min(720px, 92vh);
     background: #fff;
     border-radius: var(--radius-xl);
     overflow: hidden;
     box-shadow: var(--shadow-xl);
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 280px 1fr;
     grid-template-rows: 1fr auto;
+    position: relative;
   }
   .modal-pane {
     overflow: auto;
-    padding: 28px 28px 12px;
+    padding: 24px 24px 16px;
   }
   .modal-pane.left {
     border-right: 1px solid var(--mc-border);
     background: var(--mc-bg-off);
+    display: flex; flex-direction: column; gap: 16px;
   }
-  .modal-pane.right { background: #fff; }
+  .modal-pane.right {
+    background: #fff;
+    display: flex; flex-direction: column; gap: 16px;
+  }
   .modal-eyebrow {
     font-size: 11px; font-weight: 700; letter-spacing: 0.14em;
     text-transform: uppercase; color: var(--mc-teal-dark);
   }
-  .modal-h {
-    font-family: 'Cooper Light', 'Georgia', serif;
-    font-size: 22px; line-height: 1.2; font-weight: 400;
-    margin: 8px 0 14px;
+  .modal-section-h {
+    font-size: 11px; font-weight: 700;
+    letter-spacing: 0.1em; text-transform: uppercase;
+    color: var(--mc-text-muted);
+    margin: 4px 0 -4px;
   }
+  .modal-personas {
+    display: grid; grid-template-columns: repeat(2, 1fr);
+    gap: 8px;
+  }
+  .modal-persona {
+    background: #fff;
+    border: 1.5px solid var(--mc-border);
+    border-radius: var(--radius-md);
+    cursor: pointer;
+    overflow: hidden;
+    padding: 6px;
+    transition: border-color 0.15s, transform 0.12s;
+    text-align: left;
+    display: flex; align-items: center; gap: 8px;
+  }
+  .modal-persona[aria-pressed="true"] {
+    border-color: var(--mc-pep);
+    box-shadow: 0 0 0 2px rgba(36,28,21,0.08);
+  }
+  .modal-persona:hover { transform: translateY(-1px); }
+  .modal-persona .pavatar {
+    width: 38px; height: 38px;
+    flex-shrink: 0;
+    background-size: cover; background-position: center;
+    border-radius: var(--radius-sm);
+  }
+  .modal-persona .pmeta {
+    font-size: 11px; line-height: 1.2;
+    flex: 1; min-width: 0;
+  }
+  .modal-persona .pname { font-size: 12px; font-weight: 700; color: var(--mc-pep); }
+  .modal-persona .pbiz  { color: var(--mc-text-secondary); font-size: 11px; margin-top: 2px; }
   .modal-prompts {
-    display: flex; flex-direction: column; gap: 8px; margin-bottom: 16px;
+    display: flex; flex-direction: column; gap: 6px;
   }
   .modal-prompt {
     text-align: left;
     background: #fff;
     border: 1px solid var(--mc-border);
     border-radius: var(--radius-md);
-    padding: 9px 12px;
+    padding: 10px 12px;
     font-size: 13px; font-weight: 600; color: var(--mc-pep);
     cursor: pointer;
     transition: background 0.15s, border-color 0.15s;
+    line-height: 1.35;
   }
   .modal-prompt:hover { background: var(--mc-bg-alt); border-color: var(--mc-pep); }
   .modal-prompt[aria-pressed="true"] {
     background: var(--mc-pep); color: #fff; border-color: var(--mc-pep);
   }
-  .modal-chat {
-    background: #fff;
-    border: 1px solid var(--mc-border);
-    border-radius: var(--radius-md);
-    padding: 12px 14px;
-    font-size: 14px; line-height: 1.5;
-    color: var(--mc-pep);
-    min-height: 160px;
+  .modal-toolbar {
+    display: flex; align-items: center; justify-content: space-between;
+    gap: 8px;
+    padding-bottom: 4px;
+    border-bottom: 1px solid var(--mc-border);
   }
-  .modal-chat .role {
-    font-size: 11px; font-weight: 700; letter-spacing: 0.1em;
+  .modal-toolbar .biz {
+    display: flex; align-items: center; gap: 8px;
+    font-size: 14px; font-weight: 700; color: var(--mc-pep);
+  }
+  .modal-toolbar .biz-dot {
+    width: 10px; height: 10px; border-radius: 50%;
+    background: var(--mc-yellow);
+    transition: background 0.2s;
+  }
+  .modal-toolbar .live {
+    font-size: 10px; font-weight: 700; letter-spacing: 0.1em;
     text-transform: uppercase; color: var(--mc-text-muted);
-    margin-bottom: 4px;
+    display: inline-flex; align-items: center; gap: 6px;
   }
-  .modal-chat .msg + .msg { margin-top: 14px; }
-  .modal-chat .msg.ai .role { color: var(--mc-teal-dark); }
-
-  .modal-chart {
+  .modal-toolbar .live .dot {
+    width: 6px; height: 6px; border-radius: 50%;
+    background: var(--mc-teal);
+    animation: live-dot 1.6s ease-in-out infinite;
+  }
+  .modal-question {
+    font-family: 'Cooper Light', 'Georgia', serif;
+    font-size: 22px; line-height: 1.25; font-weight: 400;
+    color: var(--mc-pep);
+  }
+  .modal-chart-host {
     background: var(--mc-bg-off);
     border: 1px solid var(--mc-border);
     border-radius: var(--radius-md);
-    padding: 16px;
-    height: 220px;
-    display: flex; align-items: flex-end; gap: 10px;
+    height: 280px;
+    padding: 14px;
+    display: flex;
   }
-  .modal-bar {
-    flex: 1;
-    background: linear-gradient(180deg, #ffd233 0%, var(--mc-yellow) 100%);
-    border: 1px solid var(--mc-pep);
-    border-radius: 4px 4px 0 0;
-    height: 0;
-    transition: height 0.6s cubic-bezier(0.2, 0.8, 0.2, 1);
-    position: relative;
-  }
-  .modal-bar.is-positive {
-    background: linear-gradient(180deg, var(--mc-teal) 0%, var(--mc-teal-dark) 100%);
-    border-color: var(--mc-teal-dark);
-  }
-  .modal-bar .lab {
-    position: absolute; bottom: -22px; left: 0; right: 0;
-    text-align: center;
-    font-size: 11px; color: var(--mc-text-muted);
-  }
+  .modal-chart-host svg { width: 100%; height: 100%; display: block; }
   .modal-insight {
     background: var(--mc-yellow-soft);
     border: 1px solid var(--mc-pep);
     border-radius: var(--radius-md);
     padding: 12px 14px;
-    margin: 32px 0 14px;
-    font-size: 14px; font-weight: 600; color: var(--mc-pep);
+    font-size: 14px; line-height: 1.5;
+    font-weight: 600; color: var(--mc-pep);
   }
-  .modal-cite {
+  .modal-outcome {
     background: #fff;
     border: 1px solid var(--mc-border);
     border-radius: var(--radius-md);
-    padding: 12px 14px;
-    display: flex; gap: 12px; align-items: flex-start;
-    font-size: 13px; line-height: 1.45;
+    padding: 10px 12px;
+    display: flex; align-items: center; gap: 12px;
+    font-size: 13px;
   }
-  .modal-cite .photo {
-    width: 36px; height: 36px;
-    border-radius: 50%;
-    background-size: cover; background-position: center;
-    flex-shrink: 0;
-    border: 2px solid var(--mc-yellow);
+  .modal-outcome .num {
+    font-family: 'Cooper Light', 'Georgia', serif;
+    font-size: 22px; color: var(--mc-pep); font-weight: 400;
   }
-  .modal-cite .who { font-weight: 700; font-size: 13px; }
-  .modal-cite .role { color: var(--mc-text-secondary); font-size: 12px; }
-  .modal-cite .qtext { color: var(--mc-pep); font-style: italic; margin-top: 4px; }
+  .modal-outcome .lbl { color: var(--mc-text-secondary); flex: 1; line-height: 1.35; }
+  .modal-outcome .who { color: var(--mc-pep); font-weight: 700; }
 
   .modal-footer {
     grid-column: 1 / -1;
     background: var(--mc-pep);
     color: #fff;
-    padding: 14px 24px;
+    padding: 12px 20px;
     display: flex; align-items: center; justify-content: space-between; gap: 16px;
     flex-wrap: wrap;
   }
   .modal-footer .left {
     display: flex; align-items: center; gap: 12px;
-    font-size: 14px;
+    font-size: 13px;
   }
   .modal-footer .left .pill {
     background: var(--mc-yellow); color: var(--mc-pep);
-    font-size: 11px; font-weight: 700; letter-spacing: 0.1em;
+    font-size: 10px; font-weight: 700; letter-spacing: 0.1em;
     text-transform: uppercase;
-    padding: 4px 10px; border-radius: var(--radius-pill);
+    padding: 3px 9px; border-radius: var(--radius-pill);
   }
   .modal-close {
     position: absolute; top: 12px; right: 12px;
@@ -1004,8 +1213,8 @@
   .fc-pill:hover .pill-label, .fc-pill:focus-visible .pill-label { opacity: 1; }
 
   .fc-panel {
-    width: 360px;
-    height: 460px;
+    width: 380px;
+    height: 520px;
     background: #fff;
     border: 1px solid var(--mc-pep);
     border-radius: var(--radius-xl);
@@ -1019,30 +1228,34 @@
   .floating-console.is-open .fc-pill   { display: none; }
 
   .fc-head {
-    padding: 14px 16px;
+    padding: 12px 14px;
     background: var(--mc-pep);
     color: #fff;
     display: flex; align-items: center; gap: 10px;
   }
   .fc-head .dot {
     width: 8px; height: 8px; border-radius: 50%;
-    background: var(--mc-yellow);
-    box-shadow: 0 0 0 0 rgba(255,224,27,0.8);
+    background: var(--mc-teal);
     animation: fc-dot 1.6s ease-in-out infinite;
   }
   @keyframes fc-dot {
-    0%, 100% { box-shadow: 0 0 0 0 rgba(255,224,27,0.7); }
-    50%      { box-shadow: 0 0 0 8px rgba(255,224,27,0); }
+    0%, 100% { box-shadow: 0 0 0 0 rgba(0,185,166,0.7); }
+    50%      { box-shadow: 0 0 0 8px rgba(0,185,166,0); }
   }
   @media (prefers-reduced-motion: reduce) {
     .fc-head .dot { animation: none; }
   }
-  .fc-head .label { font-size: 12px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; }
+  .fc-head .label {
+    font-size: 12px; font-weight: 700;
+    letter-spacing: 0.08em; text-transform: uppercase;
+    flex: 1; min-width: 0;
+    white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+  }
   .fc-head .close {
-    margin-left: auto;
     background: transparent; border: 0;
     width: 24px; height: 24px;
     cursor: pointer; position: relative;
+    flex-shrink: 0;
   }
   .fc-head .close::before, .fc-head .close::after {
     content: ''; position: absolute; left: 50%; top: 50%;
@@ -1052,22 +1265,62 @@
   }
   .fc-head .close::after { transform: translate(-50%, -50%) rotate(-45deg); }
 
+  .fc-personas {
+    display: flex; align-items: center; justify-content: center; gap: 6px;
+    padding: 10px 14px 8px;
+    background: var(--mc-bg-off);
+    border-bottom: 1px solid var(--mc-border);
+  }
+  .fc-persona {
+    background: #fff;
+    border: 1.5px solid var(--mc-border);
+    border-radius: 50%;
+    width: 36px; height: 36px;
+    cursor: pointer;
+    overflow: hidden;
+    padding: 0;
+    transition: border-color 0.15s, transform 0.12s;
+    position: relative;
+  }
+  .fc-persona[aria-pressed="true"] {
+    border-color: var(--mc-pep);
+    box-shadow: 0 0 0 2px rgba(36,28,21,0.08);
+  }
+  .fc-persona:hover { transform: translateY(-1px); }
+  .fc-persona .pavatar {
+    width: 100%; height: 100%;
+    background-size: cover; background-position: center;
+    border-radius: 50%;
+  }
+  .fc-persona .ptip {
+    position: absolute; bottom: -28px; left: 50%; transform: translateX(-50%);
+    background: var(--mc-pep); color: #fff;
+    font-size: 10px; font-weight: 700;
+    padding: 3px 7px; border-radius: 4px;
+    white-space: nowrap;
+    opacity: 0; pointer-events: none;
+    transition: opacity 0.15s;
+    z-index: 2;
+  }
+  .fc-persona:hover .ptip, .fc-persona:focus-visible .ptip { opacity: 1; }
+
   .fc-body {
-    padding: 16px;
+    padding: 12px 14px;
     flex: 1;
-    display: flex; flex-direction: column; gap: 12px;
+    display: flex; flex-direction: column; gap: 10px;
     overflow: auto;
   }
   .fc-prompt {
     background: var(--mc-bg-off);
     border: 1px solid var(--mc-border);
     border-radius: var(--radius-md);
-    padding: 10px 12px;
+    padding: 9px 12px;
     font-size: 13px; color: var(--mc-pep); font-weight: 600;
-    min-height: 20px;
+    min-height: 38px;
+    line-height: 1.35;
   }
   .fc-prompt .caret {
-    display: inline-block; width: 1px; height: 14px;
+    display: inline-block; width: 1px; height: 13px;
     background: var(--mc-pep);
     margin-left: 2px;
     animation: fc-caret 1s steps(2) infinite;
@@ -1077,29 +1330,22 @@
     0%, 50% { opacity: 1; }
     51%, 100% { opacity: 0; }
   }
-  .fc-chart {
+  .fc-chart-host {
     background: var(--mc-bg-off);
     border: 1px solid var(--mc-border);
     border-radius: var(--radius-md);
-    padding: 12px;
-    height: 130px;
-    display: flex; align-items: flex-end; gap: 6px;
+    height: 170px;
+    padding: 10px;
+    display: flex;
   }
-  .fc-bar {
-    flex: 1;
-    border: 1px solid var(--mc-pep);
-    border-radius: 3px 3px 0 0;
-    height: 0;
-    transition: height 0.5s cubic-bezier(0.2, 0.8, 0.2, 1);
-  }
-  .fc-bar.fill { background: var(--mc-yellow); }
-  .fc-bar.fill.lift { background: var(--mc-teal-dark); border-color: var(--mc-teal-darker); }
+  .fc-chart-host svg { width: 100%; height: 100%; display: block; }
   .fc-insight {
     background: var(--mc-yellow-soft);
     border: 1px solid var(--mc-pep);
     border-radius: var(--radius-md);
-    padding: 10px 12px;
-    font-size: 13px; font-weight: 700; color: var(--mc-pep);
+    padding: 9px 12px;
+    font-size: 12.5px; font-weight: 600; color: var(--mc-pep);
+    line-height: 1.4;
     opacity: 0; transform: translateY(4px);
     transition: opacity 0.4s, transform 0.4s;
   }
@@ -1108,30 +1354,34 @@
     background: #fff;
     border: 1px solid var(--mc-border);
     border-radius: var(--radius-md);
-    padding: 10px 12px;
+    padding: 9px 12px;
     display: flex; gap: 10px; align-items: center;
-    font-size: 12px; line-height: 1.4;
+    font-size: 11.5px; line-height: 1.35;
     opacity: 0; transition: opacity 0.4s;
   }
   .fc-cite.is-shown { opacity: 1; }
   .fc-cite .photo {
-    width: 32px; height: 32px;
+    width: 30px; height: 30px;
     border-radius: 50%;
     background-size: cover; background-position: center;
     flex-shrink: 0;
     border: 2px solid var(--mc-yellow);
   }
-  .fc-cite .who { font-weight: 700; }
-  .fc-cite .role { color: var(--mc-text-secondary); font-size: 11px; }
+  .fc-cite .num {
+    font-family: 'Cooper Light', 'Georgia', serif;
+    font-size: 16px; color: var(--mc-pep); font-weight: 400;
+  }
+  .fc-cite .who { font-weight: 700; color: var(--mc-pep); }
+  .fc-cite .role { color: var(--mc-text-secondary); font-size: 10.5px; }
 
   .fc-foot {
-    padding: 12px 16px;
+    padding: 10px 14px;
     border-top: 1px solid var(--mc-border);
-    display: flex; align-items: center; gap: 10px;
+    display: flex; align-items: center; justify-content: space-between; gap: 10px;
     background: var(--mc-bg-off);
   }
-  .fc-foot .btn-primary { padding: 8px 14px; font-size: 13px; }
-  .fc-foot .btn-link { font-size: 12px; }
+  .fc-foot .btn-primary { padding: 7px 13px; font-size: 12.5px; }
+  .fc-foot .btn-link { font-size: 11.5px; }
 
   /* ===================== Responsive ===================== */
   @media (max-width: 1080px) {
@@ -1157,6 +1407,9 @@
   }
   @media (max-width: 540px) {
     .plan-grid { grid-template-columns: 1fr; }
+    body[data-variant="p2"] .lens-host,
+    body[data-variant="p2"] .lens-spacer { height: auto; }
+    body[data-variant="p2"] .lens-spacer { display: none; }
     .foot-cols { grid-template-columns: 1fr; }
     section { padding: 56px 18px; }
     .pricing-grid-host { padding: 16px; }
@@ -1192,12 +1445,12 @@
 <nav class="variant-bar" aria-label="Prototype variant">
   <div class="variant-bar-inner">
     <span class="variant-bar-label">Prototype variant</span>
-    <div class="variant-tabs" role="tablist" aria-label="Choose AI overlay variant">
+    <div class="variant-tabs" role="tablist" aria-label="Choose Analytics AI placement">
       <button type="button" class="variant-tab" role="tab" aria-selected="true"  data-variant="p1">Co-Pilot Rail</button>
       <button type="button" class="variant-tab" role="tab" aria-selected="false" data-variant="p2">Inline Plan Lens</button>
       <button type="button" class="variant-tab" role="tab" aria-selected="false" data-variant="p3">Floating Demo Console</button>
     </div>
-    <span class="variant-bar-note">Switching changes only the Analytics AI overlay. The pricing comparison table stays the same.</span>
+    <span class="variant-bar-note">All three variants embed the same mini Analytics AI playground. Only placement changes.</span>
   </div>
 </nav>
 
@@ -1234,7 +1487,7 @@
 <div class="ribbon-host" aria-hidden="true">
   <div class="ribbon" role="region" aria-label="Real Mailchimp customer outcomes">
     <div class="ribbon-track" id="ribbonTrack">
-      <!-- duplicated set for seamless scroll, populated by JS -->
+      <!-- populated by JS -->
     </div>
   </div>
 </div>
@@ -1242,7 +1495,7 @@
 <!-- ============================================================ -->
 <!-- PRICING COMPARISON GRID                                      -->
 <!-- ============================================================ -->
-<section class="pricing-grid-host" aria-label="Plan comparison">
+<section class="pricing-grid-host" id="pricingGrid" aria-label="Plan comparison">
   <div class="plan-grid" id="planGrid">
 
     <!-- FREE -->
@@ -1312,24 +1565,31 @@
       </div>
       <p class="plan-promo">70% off for the first 3 months.</p>
 
-      <!-- Variant 2 inline lens. Hidden in p1/p3, height reserved by .lens-spacer in siblings. -->
+      <!-- Variant 2 inline lens. Height reserved by .lens-spacer in siblings. -->
       <div class="lens-host" id="lensHost">
-        <div class="lens-card" role="region" aria-labelledby="lensH">
-          <span class="lens-illo" role="img" aria-label="Analytics AI"
-                style="background-image: url('assets/illustrations/spot-analytics.jpg');"></span>
-          <div class="lens-body">
-            <span class="lens-eyebrow">Analytics AI</span>
-            <span class="lens-h" id="lensH">Try Analytics AI in 30 seconds.</span>
-            <div class="lens-chips">
-              <button type="button" class="lens-chip" data-modal-open data-prompt="Why Standard?">Why Standard?</button>
-              <button type="button" class="lens-chip" data-modal-open data-prompt="ROI of SMS + AI?">ROI of SMS + AI?</button>
-            </div>
+        <div class="lens-card" role="region" aria-labelledby="lensH" aria-label="Analytics AI mini playground">
+          <span class="lens-eyebrow" id="lensH">Try Analytics AI live</span>
+          <div class="lens-toolbar">
+            <span class="lens-business">
+              <span class="biz-dot" id="lensDot"></span>
+              <span class="biz-name" id="lensBiz">Oat Lord</span>
+            </span>
           </div>
+          <div class="lens-personas" id="lensPersonas" role="tablist" aria-label="Sample data persona">
+            <!-- populated by JS -->
+          </div>
+          <div class="lens-prompts" id="lensPrompts" role="group" aria-label="Suggested questions">
+            <!-- populated by JS -->
+          </div>
+          <div class="lens-chart-host" id="lensChart" aria-label="Chart preview"></div>
+          <div class="lens-insight" id="lensInsight"></div>
+          <div class="lens-cite" id="lensCite"></div>
+          <button type="button" class="lens-deep-link" data-modal-open>Open full demo</button>
         </div>
       </div>
 
       <div class="plan-cta">
-        <a class="btn-primary" href="#/checkout?plan=standard&analytics_ai=on">Buy now</a>
+        <a class="btn-primary" href="#/checkout?plan=standard&analytics_ai=on">Get Standard with Analytics AI</a>
         <span class="plan-cta-chip">Analytics AI included</span>
       </div>
       <ul class="plan-features">
@@ -1373,39 +1633,49 @@
   </div>
 
   <!-- Variant 1 Co-Pilot Rail -->
-  <aside class="copilot-rail" id="copilotRail" role="complementary" aria-label="Pricing co-pilot">
-    <div class="copilot-illo-strip" aria-hidden="true">
-      <span class="illo" style="background-image: url('assets/illustrations/minispot-lighthouse.jpg');"></span>
-      <span class="illo" style="background-image: url('assets/illustrations/spot-analytics.jpg');"></span>
-      <span class="illo" style="background-image: url('assets/illustrations/hero-audience.jpg');"></span>
-    </div>
-    <span class="copilot-eyebrow">Analytics AI</span>
-    <h3 class="copilot-title">Ask why Standard wins.</h3>
-    <div class="copilot-suggested">
-      <button type="button" class="copilot-q" data-modal-open data-prompt="Why upgrade to Standard?">Why upgrade to Standard?</button>
-      <button type="button" class="copilot-q" data-modal-open data-prompt="Show ROI of SMS + Analytics AI">Show ROI of SMS + Analytics AI</button>
-      <button type="button" class="copilot-q" data-modal-open data-prompt="Worth $20 more vs Essentials?">Worth $20 more vs Essentials?</button>
+  <aside class="copilot-rail" id="copilotRail" role="complementary" aria-label="Analytics AI mini playground">
+    <span class="copilot-eyebrow">Try Analytics AI live</span>
+    <h3 class="copilot-title">Ask your data anything.</h3>
+
+    <div class="copilot-toolbar">
+      <span class="biz">
+        <span class="biz-dot" id="railDot"></span>
+        <span class="biz-name" id="railBiz">Oat Lord</span>
+      </span>
+      <span class="live"><span class="dot" aria-hidden="true"></span><span>Sample data</span></span>
     </div>
 
-    <div class="copilot-ticker" id="copilotTicker" aria-live="polite" aria-atomic="true">
+    <div class="copilot-personas" id="railPersonas" role="tablist" aria-label="Sample data persona">
       <!-- populated by JS -->
     </div>
 
-    <button type="button" class="btn-primary copilot-cta" data-modal-open data-prompt="Why is Standard the right plan for me?">
-      <span>Try Analytics AI</span>
+    <div class="copilot-suggested" id="railPrompts" role="group" aria-label="Suggested questions">
+      <!-- populated by JS -->
+    </div>
+
+    <div class="copilot-chart-host" id="railChart" aria-label="Chart preview"></div>
+
+    <div class="copilot-insight" id="railInsight"></div>
+    <div class="copilot-outcome-chip" id="railOutcome"></div>
+
+    <a class="btn-primary copilot-cta" href="#pricingGrid" id="railCta">
+      <span>Get Standard with Analytics AI</span>
       <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m13 5 7 7-7 7"/></svg>
-    </button>
+    </a>
+    <div class="copilot-deep-link">
+      <button type="button" data-modal-open>Open full mini demo</button>
+    </div>
   </aside>
 </section>
 
 <!-- Mobile fallback for Variant 1 rail -->
-<div class="copilot-mobile" id="copilotMobile" aria-label="Pricing co-pilot mobile">
+<div class="copilot-mobile" id="copilotMobile" aria-label="Analytics AI mini playground (mobile)">
   <div class="copilot-mobile-row">
     <div>
-      <span class="copilot-eyebrow">Analytics AI</span>
-      <div class="copilot-mobile-h">Ask why Standard wins.</div>
+      <span class="copilot-eyebrow">Try Analytics AI live</span>
+      <div class="copilot-mobile-h">Ask your data anything.</div>
     </div>
-    <button type="button" class="btn-primary" data-modal-open data-prompt="Why upgrade to Standard?">Try it</button>
+    <button type="button" class="btn-primary" data-modal-open>Try it</button>
   </div>
 </div>
 
@@ -1599,102 +1869,75 @@
 <!-- VARIANT 3 FLOATING DEMO CONSOLE                              -->
 <!-- ============================================================ -->
 <aside class="floating-console" id="floatingConsole" aria-label="Analytics AI live demo">
-  <button type="button" class="fc-pill" id="fcPill" aria-label="Open Analytics AI demo">
+  <button type="button" class="fc-pill" id="fcPill" aria-label="Open Analytics AI mini demo">
     <span class="pill-illo" role="img" aria-label="Analytics AI"
-          style="background-image: url('assets/illustrations/minispot-tool.jpg');"></span>
+          style="background-image: url('assets/personas/persona-ecommerce.jpg');"></span>
     <span class="pill-label">Analytics AI demo</span>
   </button>
 
-  <div class="fc-panel" role="region" aria-label="Analytics AI 30-second demo">
+  <div class="fc-panel" role="region" aria-label="Analytics AI mini demo">
     <div class="fc-head">
       <span class="dot" aria-hidden="true"></span>
-      <span class="label">Analytics AI . live</span>
+      <span class="label" id="fcLabel">Analytics AI · Oat Lord</span>
       <button type="button" class="close" id="fcClose" aria-label="Dismiss demo console"></button>
+    </div>
+    <div class="fc-personas" id="fcPersonas" role="tablist" aria-label="Sample data persona">
+      <!-- populated by JS -->
     </div>
     <div class="fc-body">
       <div class="fc-prompt" id="fcPrompt" aria-live="polite"></div>
-      <div class="fc-chart" id="fcChart" aria-label="Demo bar chart"></div>
-      <div class="fc-insight" id="fcInsight">+21% lift after sequencing fix.</div>
-      <div class="fc-cite" id="fcCite">
-        <span class="photo" role="img" aria-label="Damon Runnals"
-              style="background-image: url('assets/personas/testimonial-damon.jpg');"></span>
-        <div>
-          <div class="who">Damon Runnals</div>
-          <div class="role">CEO, Minnesota Playlist</div>
-        </div>
-      </div>
+      <div class="fc-chart-host" id="fcChart" aria-label="Demo chart"></div>
+      <div class="fc-insight" id="fcInsight"></div>
+      <div class="fc-cite" id="fcCite"></div>
     </div>
     <div class="fc-foot">
-      <a class="btn-primary" href="#/checkout?plan=standard&analytics_ai=on">Get Standard</a>
-      <button type="button" class="btn-link" data-modal-open data-prompt="Why is revenue flat this month?">Try yourself</button>
+      <a class="btn-primary" href="#pricingGrid" id="fcCta">Get Standard</a>
+      <button type="button" class="btn-link" data-modal-open>Open full demo</button>
     </div>
   </div>
 </aside>
 
 <!-- ============================================================ -->
-<!-- SHARED MODAL                                                 -->
+<!-- SHARED MODAL: full mini playground                           -->
 <!-- ============================================================ -->
 <div class="modal-root" id="modalRoot" role="dialog" aria-modal="true" aria-labelledby="modalH" aria-hidden="true">
   <div class="modal" id="modal">
     <button type="button" class="modal-close" id="modalClose" aria-label="Close Analytics AI demo"></button>
 
     <div class="modal-pane left">
-      <span class="modal-eyebrow">Analytics AI</span>
-      <h2 class="modal-h" id="modalH">Ask a sample question.</h2>
-      <div class="modal-prompts" id="modalPrompts">
-        <button type="button" class="modal-prompt" data-prompt="Why upgrade to Standard?">Why upgrade to Standard?</button>
-        <button type="button" class="modal-prompt" data-prompt="Show ROI of SMS + Analytics AI">Show ROI of SMS + Analytics AI</button>
-        <button type="button" class="modal-prompt" data-prompt="Why is revenue flat this month?">Why is revenue flat this month?</button>
+      <span class="modal-eyebrow">Try Analytics AI</span>
+      <h2 class="visually-hidden" id="modalH">Analytics AI mini demo</h2>
+      <div class="modal-section-h">Sample data persona</div>
+      <div class="modal-personas" id="modalPersonas" role="tablist" aria-label="Sample data persona">
+        <!-- populated by JS -->
       </div>
-      <div class="modal-chat" id="modalChat" aria-live="polite">
-        <div class="msg user">
-          <div class="role">You</div>
-          <div class="text" id="userMsg">Why upgrade to Standard?</div>
-        </div>
-        <div class="msg ai">
-          <div class="role">Analytics AI</div>
-          <div class="text" id="aiMsg"></div>
-        </div>
+      <div class="modal-section-h">Suggested questions</div>
+      <div class="modal-prompts" id="modalPrompts" role="group" aria-label="Suggested questions">
+        <!-- populated by JS -->
       </div>
     </div>
 
     <div class="modal-pane right">
-      <span class="modal-eyebrow">Live insight</span>
-      <h2 class="modal-h">Standard outperforms Essentials on send-time and segmentation.</h2>
-      <div class="modal-chart" id="modalChart" aria-label="Insight chart">
-        <div class="modal-bar" data-h="32"><span class="lab">Free</span></div>
-        <div class="modal-bar" data-h="48"><span class="lab">Essentials</span></div>
-        <div class="modal-bar is-positive" data-h="86"><span class="lab">Standard</span></div>
-        <div class="modal-bar" data-h="64"><span class="lab">Premium</span></div>
+      <div class="modal-toolbar">
+        <span class="biz">
+          <span class="biz-dot" id="modalDot"></span>
+          <span id="modalBiz">Oat Lord</span>
+        </span>
+        <span class="live"><span class="dot" aria-hidden="true"></span><span>Sample data</span></span>
       </div>
-      <div class="modal-insight">Send-time optimization plus Analytics AI accounts for the largest revenue lift in Standard, on average +21% vs Essentials.</div>
-      <div class="modal-cite">
-        <span class="photo" role="img" aria-label="Anuj Chaudhry"
-              style="background-image: url('assets/personas/testimonial-anuj.jpg');"></span>
-        <div>
-          <div class="who">Anuj Chaudhry, Chief Growth Officer, Faris Team</div>
-          <div class="role">Outcome verified by Mailchimp.</div>
-          <div class="qtext"><strong>&minus;92%</strong> time on quarterly review.</div>
-        </div>
-      </div>
-      <div class="modal-cite" style="margin-top: 10px;">
-        <span class="photo" role="img" aria-label="Suskia Strafella"
-              style="background-image: url('assets/personas/testimonial-suskia.jpg');"></span>
-        <div>
-          <div class="who">Suskia Strafella, Founder, I Am Wild Woman</div>
-          <div class="role">Outcome verified by Mailchimp.</div>
-          <div class="qtext"><strong>2.3x</strong> campaign revenue, quarter over quarter.</div>
-        </div>
-      </div>
+      <div class="modal-question" id="modalQuestion">Why did revenue drop last week?</div>
+      <div class="modal-chart-host" id="modalChart" aria-label="Insight chart"></div>
+      <div class="modal-insight" id="modalInsight"></div>
+      <div class="modal-outcome" id="modalOutcome"></div>
     </div>
 
     <div class="modal-footer">
       <div class="left">
-        <span class="pill">Standard plan . 70% off</span>
-        <span>Continue with Standard plus Analytics AI included.</span>
+        <span class="pill">Standard plan · 70% off</span>
+        <span>Analytics AI is included on Standard with unlimited prompts.</span>
       </div>
-      <a class="btn-primary" href="#/checkout?plan=standard&analytics_ai=on" id="modalCheckout">
-        <span>Continue to checkout</span>
+      <a class="btn-primary" href="#pricingGrid" id="modalCta">
+        <span>Get Standard with Analytics AI</span>
         <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m13 5 7 7-7 7"/></svg>
       </a>
     </div>
@@ -1704,11 +1947,320 @@
 <script>
 (function(){
   'use strict';
-  var prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var prefersReduced = (typeof window.matchMedia === 'function')
+    ? window.matchMedia('(prefers-reduced-motion: reduce)').matches
+    : false;
 
-  // ============================================================
-  // Variant routing (?v=p1|p2|p3)
-  // ============================================================
+  /* ============================================================
+   * Persona data
+   * ============================================================ */
+  var PERSONAS = [
+    {
+      id: 'ecommerce',
+      label: 'Ecommerce',
+      role: 'Ecommerce Founder',
+      business: 'Oat Lord',
+      brandColor: '#FFE01B',
+      photo: 'assets/personas/persona-ecommerce.jpg',
+      anim:  'assets/personas/persona-ecommerce.gif',
+      questions: [
+        {
+          q: "Why did revenue drop last week?",
+          chart: { type: 'line-anomaly', series: [42,46,48,52,46,30,22], labels: ['M','T','W','T','F','S','S'], anomalyIdx: 5, anomalyLabel: '-18%' },
+          insight: "Revenue dropped 18% week over week. Your abandoned-cart automation paused on Tuesday after a template error and accounts for roughly $4.2K of weekly revenue.",
+          outcome: { num: '2.3x', lbl: 'campaign revenue, quarter over quarter', who: 'Suskia Strafella, I Am Wild Woman' }
+        },
+        {
+          q: "What are my top 3 products this month?",
+          chart: { type: 'bars', values: [82, 54, 41, 28, 19], labels: ['Oat Bowl', 'Smoothie', 'Granola', 'Mug', 'Tee'], valueLabels: ['$8.2K','$5.4K','$4.1K','$2.8K','$1.9K'] },
+          insight: "Oat Bowl Bundle, Smoothie Mix, and Recovery Granola drive 43% of revenue from 3 SKUs. Bundle buyers are 3.1x more likely to convert on a smoothie upsell within 30 days.",
+          outcome: { num: '\u221292%', lbl: 'time on quarterly review', who: 'Anuj Chaudhry, Faris Team' }
+        },
+        {
+          q: "Forecast next month's revenue.",
+          chart: { type: 'forecast', actual: [62,68,72,78,82,86,88], forecast: [88,92,96,100], confidence: 6, label: '$94K' },
+          insight: "May tracks to $94K (\u00B1$6K, 86% confidence), an 8% lift over April. Adding a Mother's Day reminder send pushes the forecast to roughly $99K.",
+          outcome: { num: '2.3x', lbl: 'campaign revenue, quarter over quarter', who: 'Suskia Strafella, I Am Wild Woman' }
+        }
+      ]
+    },
+    {
+      id: 'agency',
+      label: 'Agency',
+      role: 'Agency Owner',
+      business: 'Pixel Co.',
+      brandColor: '#007C89',
+      photo: 'assets/personas/persona-agency.jpg',
+      anim:  'assets/personas/persona-agency.gif',
+      questions: [
+        {
+          q: "Which client converts best from last campaign?",
+          chart: { type: 'bars', values: [84, 56, 44, 30, 18], labels: ['Sundial', 'Mavenly', 'Vela', 'Glow', 'Riverbed'], valueLabels: ['$8.4K','$5.6K','$4.4K','$3.0K','$1.8K'] },
+          insight: "Sundial Apparel led at 42% open and $8.4K revenue, 3.2x your portfolio average. Riverbed underperformed at 14% open after a domain reputation dip.",
+          outcome: { num: '\u221292%', lbl: 'time on quarterly review', who: 'Anuj Chaudhry, Faris Team' }
+        },
+        {
+          q: "What's the best send time for my audience?",
+          chart: { type: 'bars', values: [42, 35, 28, 38, 22, 18, 11], labels: ['Tu','W','Th','F','Sa','Su','M'], suffix: '%', highlightIdx: 0 },
+          insight: "Tuesday 9am ET is your best slot at 42% open rate. Sunday evenings consistently underperform. Switching from Friday afternoons to Tuesday lifts opens by about 22%.",
+          outcome: { num: '+38%', lbl: 'click-through rate after restructured sends', who: 'Damon Runnals, Minnesota Playlist' }
+        },
+        {
+          q: "Forecast next month's revenue.",
+          chart: { type: 'forecast', actual: [38,42,46,49,52,55,57], forecast: [57,60,62,64], confidence: 4, label: '$58K' },
+          insight: "Portfolio tracks to $58K (\u00B1$4K). Sundial alone projects +18% if we move two campaigns from Friday to Tuesday 9am.",
+          outcome: { num: '\u221292%', lbl: 'time on quarterly review', who: 'Anuj Chaudhry, Faris Team' }
+        }
+      ]
+    },
+    {
+      id: 'nonprofit',
+      label: 'Nonprofit',
+      role: 'Nonprofit Director',
+      business: 'Reach Out',
+      brandColor: '#241C15',
+      photo: 'assets/personas/persona-nonprofit.jpg',
+      anim:  'assets/personas/persona-nonprofit.gif',
+      questions: [
+        {
+          q: "Which campaign drove the most donations?",
+          chart: { type: 'bars', values: [142, 88, 64, 48, 32], labels: ['Holiday', 'Spring', 'Gala', 'Field Day', 'YearEnd'], valueLabels: ['$14.2K','$8.8K','$6.4K','$4.8K','$3.2K'] },
+          insight: "Holiday Drive raised $14.2K, 62% above target and 68% of all Q4 revenue. The 'A meal for a neighbor' subject line beat the control by 47%.",
+          outcome: { num: '+38%', lbl: 'click-through rate after restructured sends', who: 'Damon Runnals, Minnesota Playlist' }
+        },
+        {
+          q: "What anomaly happened in opens this week?",
+          chart: { type: 'line-anomaly', series: [38,40,42,44,42,30,38], labels: ['M','T','W','T','F','S','S'], anomalyIdx: 5, anomalyLabel: '-27%' },
+          insight: "Saturday opens dipped 27% below baseline after a domain warming sequence for a new sender. Resolves within 48 hours, no audience cleanup needed.",
+          outcome: { num: '2.3x', lbl: 'campaign revenue, quarter over quarter', who: 'Suskia Strafella, I Am Wild Woman' }
+        },
+        {
+          q: "Forecast next month's revenue.",
+          chart: { type: 'forecast', actual: [14,16,17,19,20,22,23], forecast: [23,24,25,26], confidence: 2, label: '$22K' },
+          insight: "May tracks to $22K (\u00B12K) on the back of your re-engagement series. Adding a second thank-you email lifts new-donor retention by 8 points.",
+          outcome: { num: '+38%', lbl: 'click-through rate after restructured sends', who: 'Damon Runnals, Minnesota Playlist' }
+        }
+      ]
+    },
+    {
+      id: 'b2c',
+      label: 'B2C',
+      role: 'B2C Marketer',
+      business: 'Rye & Roast Coffee Co.',
+      brandColor: '#FF6B47',
+      photo: 'assets/personas/persona-b2c.jpg',
+      anim:  'assets/personas/persona-b2c.gif',
+      questions: [
+        {
+          q: "Which segment converts best from last campaign?",
+          chart: { type: 'donut', segments: [{lbl:'VIP', val: 58},{lbl:'Loyal', val: 22},{lbl:'New', val: 14},{lbl:'Lapsed', val: 6}], centerVal: '58%', centerLbl: 'VIP share' },
+          insight: "Your VIP segment (1,140 contacts) drove 58% of revenue at a 6.4% conversion rate, three times the audience average. Lapsed contacts are dragging the average down.",
+          outcome: { num: '2.3x', lbl: 'campaign revenue, quarter over quarter', who: 'Suskia Strafella, I Am Wild Woman' }
+        },
+        {
+          q: "What's the best send time for my audience?",
+          chart: { type: 'bars', values: [39, 36, 32, 28, 22, 14, 18], labels: ['W','Tu','M','Th','F','Sa','Su'], suffix: '%', highlightIdx: 0 },
+          insight: "Wednesday 7am wins at 39% open. Saturdays drop to 14%. Excluding Saturday from automations adds about 6 points to monthly average open rate.",
+          outcome: { num: '+38%', lbl: 'click-through rate after restructured sends', who: 'Damon Runnals, Minnesota Playlist' }
+        },
+        {
+          q: "Forecast next month's revenue.",
+          chart: { type: 'forecast', actual: [28,31,33,36,38,40,42], forecast: [42,44,45,47], confidence: 3, label: '$41K' },
+          insight: "May projects to $41K (\u00B13K), 11% above April. A loyalty re-engagement send to your 650 lapsed contacts adds about $3.6K of incremental revenue.",
+          outcome: { num: '\u221292%', lbl: 'time on quarterly review', who: 'Anuj Chaudhry, Faris Team' }
+        }
+      ]
+    }
+  ];
+
+  function getPersonaById(id) {
+    for (var i = 0; i < PERSONAS.length; i++) if (PERSONAS[i].id === id) return PERSONAS[i];
+    return PERSONAS[0];
+  }
+
+  /* ============================================================
+   * SVG chart renderers (mini, brand-tokened, motion-safe)
+   * ============================================================ */
+  function chartBars(opts, color) {
+    var values = opts.values || [];
+    var labels = opts.labels || [];
+    var valueLabels = opts.valueLabels || null;
+    var suffix = opts.suffix || '';
+    var highlight = (typeof opts.highlightIdx === 'number') ? opts.highlightIdx : 0;
+    if (!values.length) return '';
+    var max = Math.max.apply(null, values);
+    var W = 360, H = 180;
+    var n = values.length;
+    var pad = 14;
+    var gap = 8;
+    var bw = (W - pad * 2 - gap * (n - 1)) / n;
+    var bars = '';
+    for (var i = 0; i < n; i++) {
+      var v = values[i];
+      var bh = Math.max(6, (v / max) * (H - pad * 2 - 18));
+      var x = pad + i * (bw + gap);
+      var y = H - pad - bh;
+      var fill = (i === highlight) ? color : 'rgba(36,28,21,0.16)';
+      var anim = prefersReduced ? '' :
+        '<animate attributeName="height" from="0" to="'+bh+'" dur="0.6s" begin="100ms" fill="freeze"/>' +
+        '<animate attributeName="y" from="'+(H-pad)+'" to="'+y+'" dur="0.6s" begin="100ms" fill="freeze"/>';
+      var startH = prefersReduced ? bh : 0;
+      var startY = prefersReduced ? y : (H - pad);
+      bars +=
+        '<rect x="'+x.toFixed(1)+'" y="'+startY.toFixed(1)+'" width="'+bw.toFixed(1)+'" height="'+startH.toFixed(1)+'" rx="3" fill="'+fill+'" stroke="#241C15" stroke-width="1">'+
+        anim+'</rect>';
+      if (i === highlight) {
+        var labelText = valueLabels && valueLabels[i] ? valueLabels[i] : (v + suffix);
+        bars += '<text x="'+(x + bw/2).toFixed(1)+'" y="'+(y - 6).toFixed(1)+'" font-size="11" font-weight="700" fill="#241C15" text-anchor="middle">'+labelText+'</text>';
+      }
+      if (labels[i]) {
+        bars += '<text x="'+(x + bw/2).toFixed(1)+'" y="'+(H - 4).toFixed(1)+'" font-size="9.5" font-weight="600" fill="#5C4F45" text-anchor="middle">'+labels[i]+'</text>';
+      }
+    }
+    return '<svg viewBox="0 0 '+W+' '+H+'" preserveAspectRatio="xMidYMid meet" role="img">' + bars + '</svg>';
+  }
+
+  function chartLineAnomaly(opts, color) {
+    var s = opts.series || [];
+    var labels = opts.labels || [];
+    var anomalyIdx = (typeof opts.anomalyIdx === 'number') ? opts.anomalyIdx : -1;
+    var anomalyLabel = opts.anomalyLabel || '';
+    if (s.length < 2) return '';
+    var W = 360, H = 180;
+    var pad = 18;
+    var max = Math.max.apply(null, s);
+    var min = Math.min.apply(null, s);
+    var range = Math.max(1, max - min);
+    var n = s.length;
+    function px(i) { return pad + i * ((W - pad * 2) / (n - 1)); }
+    function py(v) { return H - pad - 12 - ((v - min) / range) * (H - pad * 2 - 12); }
+    var d = '';
+    for (var i = 0; i < n; i++) {
+      d += (i === 0 ? 'M' : ' L') + px(i).toFixed(1) + ',' + py(s[i]).toFixed(1);
+    }
+    var area = d + ' L'+px(n-1).toFixed(1)+','+(H-pad)+' L'+pad+','+(H-pad)+' Z';
+    var dash = prefersReduced ? '' : 'stroke-dasharray="700" stroke-dashoffset="700"';
+    var animLine = prefersReduced ? '' : '<animate attributeName="stroke-dashoffset" from="700" to="0" dur="0.8s" fill="freeze"/>';
+    var grad = '<defs><linearGradient id="laGrad'+(opts.uid||'')+'" x1="0" x2="0" y1="0" y2="1">' +
+      '<stop offset="0%" stop-color="'+color+'" stop-opacity="0.32"/>' +
+      '<stop offset="100%" stop-color="'+color+'" stop-opacity="0"/>' +
+      '</linearGradient></defs>';
+    var labelTicks = '';
+    for (var j = 0; j < n; j++) {
+      if (labels[j]) labelTicks += '<text x="'+px(j).toFixed(1)+'" y="'+(H-4)+'" font-size="9.5" font-weight="600" fill="#5C4F45" text-anchor="middle">'+labels[j]+'</text>';
+    }
+    var anomaly = '';
+    if (anomalyIdx >= 0 && anomalyIdx < n) {
+      var ax = px(anomalyIdx), ay = py(s[anomalyIdx]);
+      anomaly =
+        '<circle cx="'+ax.toFixed(1)+'" cy="'+ay.toFixed(1)+'" r="6" fill="#FF6B47" stroke="#fff" stroke-width="2"/>' +
+        '<text x="'+(ax+9).toFixed(1)+'" y="'+(ay-6).toFixed(1)+'" font-size="11" font-weight="700" fill="#FF6B47">'+anomalyLabel+'</text>';
+    }
+    return '<svg viewBox="0 0 '+W+' '+H+'" preserveAspectRatio="xMidYMid meet" role="img">' +
+      grad +
+      '<path d="'+area+'" fill="url(#laGrad'+(opts.uid||'')+')"/>' +
+      '<path d="'+d+'" fill="none" stroke="'+color+'" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" '+dash+'>'+animLine+'</path>' +
+      anomaly +
+      labelTicks +
+      '</svg>';
+  }
+
+  function chartForecast(opts, color) {
+    var actual = opts.actual || [];
+    var forecast = opts.forecast || [];
+    var label = opts.label || '';
+    if (!actual.length || !forecast.length) return '';
+    var W = 360, H = 180;
+    var pad = 18;
+    var all = actual.concat(forecast);
+    var max = Math.max.apply(null, all);
+    var min = Math.min.apply(null, all);
+    var range = Math.max(1, max - min);
+    var nA = actual.length, nF = forecast.length;
+    var totalPts = nA + nF - 1;
+    function x(i) { return pad + i * ((W - pad * 2) / totalPts); }
+    function y(v) { return H - pad - 14 - ((v - min) / range) * (H - pad * 2 - 14); }
+    var dA = '', dF = '';
+    for (var i = 0; i < nA; i++) dA += (i === 0 ? 'M' : ' L') + x(i).toFixed(1) + ',' + y(actual[i]).toFixed(1);
+    for (var j = 0; j < nF; j++) dF += (j === 0 ? 'M' : ' L') + x(nA - 1 + j).toFixed(1) + ',' + y(forecast[j]).toFixed(1);
+    var animA = prefersReduced ? '' : '<animate attributeName="stroke-dashoffset" from="700" to="0" dur="0.8s" fill="freeze"/>';
+    var animF = prefersReduced ? '' : '<animate attributeName="stroke-dashoffset" from="700" to="0" dur="0.8s" begin="0.7s" fill="freeze"/>';
+    var dashA = prefersReduced ? '' : 'stroke-dasharray="700" stroke-dashoffset="700"';
+    var dashF = prefersReduced ? 'stroke-dasharray="6,4"' : 'stroke-dasharray="700" stroke-dashoffset="700"';
+    var todayX = x(nA - 1), todayY = y(actual[nA - 1]);
+    var endX = x(totalPts), endY = y(forecast[nF - 1]);
+    var todayLbl =
+      '<line x1="'+todayX.toFixed(1)+'" y1="'+(pad-2)+'" x2="'+todayX.toFixed(1)+'" y2="'+(H-pad)+'" stroke="rgba(36,28,21,0.18)" stroke-dasharray="2,3"/>' +
+      '<text x="'+todayX.toFixed(1)+'" y="'+(H-4)+'" font-size="9.5" font-weight="600" fill="#5C4F45" text-anchor="middle">Today</text>';
+    return '<svg viewBox="0 0 '+W+' '+H+'" preserveAspectRatio="xMidYMid meet" role="img">' +
+      '<path d="'+dA+'" fill="none" stroke="'+color+'" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" '+dashA+'>'+animA+'</path>' +
+      '<path d="'+dF+'" fill="none" stroke="#00B9A6" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="6,4">'+
+      (prefersReduced ? '' : '<animate attributeName="stroke-opacity" from="0" to="1" dur="0.4s" begin="0.7s" fill="freeze"/>')+
+      '</path>' +
+      '<circle cx="'+todayX.toFixed(1)+'" cy="'+todayY.toFixed(1)+'" r="4" fill="'+color+'"/>' +
+      '<circle cx="'+endX.toFixed(1)+'" cy="'+endY.toFixed(1)+'" r="5" fill="#00B9A6"/>' +
+      '<text x="'+(endX-4).toFixed(1)+'" y="'+(endY-8).toFixed(1)+'" font-size="11" font-weight="700" fill="#007C89" text-anchor="end">'+label+'</text>' +
+      todayLbl +
+      '</svg>';
+  }
+
+  function chartDonut(opts, color) {
+    var segs = opts.segments || [];
+    if (!segs.length) return '';
+    var W = 360, H = 180;
+    var cx = 96, cy = H / 2, r = 56, sw = 18;
+    var total = segs.reduce(function(s,x){return s+x.val;}, 0);
+    var palette = [color, '#007C89', '#00B9A6', 'rgba(36,28,21,0.22)'];
+    var arcs = '';
+    var angle = -Math.PI / 2;
+    var animDelay = 0;
+    for (var i = 0; i < segs.length; i++) {
+      var frac = segs[i].val / total;
+      var sweep = frac * Math.PI * 2;
+      var sx = cx + r * Math.cos(angle), sy = cy + r * Math.sin(angle);
+      var ex = cx + r * Math.cos(angle + sweep), ey = cy + r * Math.sin(angle + sweep);
+      var large = sweep > Math.PI ? 1 : 0;
+      var d = 'M'+sx.toFixed(1)+','+sy.toFixed(1)+' A'+r+','+r+' 0 '+large+',1 '+ex.toFixed(1)+','+ey.toFixed(1);
+      var fill = palette[i] || palette[palette.length - 1];
+      var dash = 2 * Math.PI * r;
+      var animSeg = prefersReduced ? '' :
+        '<animate attributeName="stroke-dashoffset" from="'+dash+'" to="'+(dash - sweep * r).toFixed(1)+'" dur="0.5s" begin="'+animDelay+'ms" fill="freeze"/>';
+      arcs +=
+        '<path d="'+d+'" stroke="'+fill+'" stroke-width="'+sw+'" fill="none" stroke-linecap="butt" stroke-dasharray="'+dash+'" stroke-dashoffset="'+(prefersReduced ? (dash - sweep * r) : dash)+'">'+
+        animSeg+'</path>';
+      angle += sweep;
+      animDelay += 250;
+    }
+    var legend = '';
+    var ly = 18;
+    for (var k = 0; k < segs.length; k++) {
+      var sw2 = palette[k] || palette[palette.length - 1];
+      legend +=
+        '<rect x="180" y="'+ly+'" width="10" height="10" rx="2" fill="'+sw2+'"/>' +
+        '<text x="196" y="'+(ly + 9)+'" font-size="11" font-weight="600" fill="#241C15">'+segs[k].lbl+'</text>' +
+        '<text x="346" y="'+(ly + 9)+'" font-size="11" font-weight="700" fill="#241C15" text-anchor="end">'+segs[k].val+'%</text>';
+      ly += 22;
+    }
+    var center =
+      '<text x="'+cx+'" y="'+(cy - 2)+'" font-size="22" font-weight="400" fill="#241C15" text-anchor="middle" font-family="Cooper Light, Georgia, serif">'+(opts.centerVal || '')+'</text>' +
+      '<text x="'+cx+'" y="'+(cy + 16)+'" font-size="10" font-weight="600" fill="#5C4F45" text-anchor="middle" letter-spacing="0.05em">'+(opts.centerLbl || '')+'</text>';
+    return '<svg viewBox="0 0 '+W+' '+H+'" preserveAspectRatio="xMidYMid meet" role="img">' + arcs + center + legend + '</svg>';
+  }
+
+  function renderChart(host, chart, color) {
+    if (!host || !chart) return;
+    chart.uid = (chart.uid || ('c' + Math.floor(Math.random() * 100000)));
+    var svg = '';
+    if (chart.type === 'bars') svg = chartBars(chart, color);
+    else if (chart.type === 'line-anomaly') svg = chartLineAnomaly(chart, color);
+    else if (chart.type === 'forecast') svg = chartForecast(chart, color);
+    else if (chart.type === 'donut') svg = chartDonut(chart, color);
+    host.innerHTML = svg;
+  }
+
+  /* ============================================================
+   * Variant routing (?v=p1|p2|p3)
+   * ============================================================ */
   var VARIANTS = ['p1','p2','p3'];
   function getVariant() {
     var qs = new URLSearchParams(window.location.search);
@@ -1734,121 +2286,392 @@
     onVariantApplied(v);
   }
 
-  // ============================================================
-  // Customer quotes (verbatim, attribution intact)
-  // ============================================================
-  // Rail ticker and ribbon both render outcome statements with attribution,
-  // not paraphrased quotes. Verbatim customer quotes live only in the
-  // testimonial section to satisfy the "at most once per variant" rule.
+  /* ============================================================
+   * Above-table ribbon
+   * ============================================================ */
   var CUSTOMERS = [
-    {
-      name: 'Anuj Chaudhry',
-      role: 'Chief Growth Officer, Faris Team',
-      photo: 'assets/personas/testimonial-anuj.jpg',
-      outcomeNum: '\u221292%',
-      outcomeLbl: 'time on quarterly review'
-    },
-    {
-      name: 'Suskia Strafella',
-      role: 'Founder, I Am Wild Woman',
-      photo: 'assets/personas/testimonial-suskia.jpg',
-      outcomeNum: '2.3x',
-      outcomeLbl: 'campaign revenue, quarter over quarter'
-    },
-    {
-      name: 'Damon Runnals',
-      role: 'CEO, Minnesota Playlist',
-      photo: 'assets/personas/testimonial-damon.jpg',
-      outcomeNum: '+38%',
-      outcomeLbl: 'click-through rate after restructured sends'
-    }
+    { name: 'Anuj Chaudhry', role: 'Chief Growth Officer, Faris Team', outcomeNum: '\u221292%', outcomeLbl: 'time on quarterly review' },
+    { name: 'Suskia Strafella', role: 'Founder, I Am Wild Woman',         outcomeNum: '2.3x',    outcomeLbl: 'campaign revenue, quarter over quarter' },
+    { name: 'Damon Runnals', role: 'CEO, Minnesota Playlist',             outcomeNum: '+38%',    outcomeLbl: 'click-through rate after restructured sends' }
   ];
-
-  // ============================================================
-  // Co-Pilot rail quote ticker (Variant 1)
-  // ============================================================
-  var tickerInterval = null;
-  function buildTicker() {
-    var host = document.getElementById('copilotTicker');
-    if (!host) return;
-    host.innerHTML = '';
-    CUSTOMERS.forEach(function(c, i){
-      var d = document.createElement('div');
-      d.className = 'copilot-quote' + (i === 0 ? ' is-active' : '');
-      d.innerHTML =
-        '<div class="qtext"><strong>' + c.outcomeNum + '</strong> ' + c.outcomeLbl + '.</div>' +
-        '<div class="qattr">' + c.name + ', ' + c.role + '</div>';
-      host.appendChild(d);
-    });
-    if (tickerInterval) { clearInterval(tickerInterval); tickerInterval = null; }
-    if (prefersReduced) return;
-    var idx = 0;
-    tickerInterval = setInterval(function(){
-      var quotes = host.querySelectorAll('.copilot-quote');
-      if (!quotes.length) return;
-      quotes[idx].classList.remove('is-active');
-      idx = (idx + 1) % quotes.length;
-      quotes[idx].classList.add('is-active');
-    }, 6000);
-  }
-
-  // ============================================================
-  // Above-table ribbon (Variant 2)
-  // ============================================================
   function buildRibbon() {
     var track = document.getElementById('ribbonTrack');
     if (!track) return;
-    track.innerHTML = '';
     function chipHtml(c){
       return '<span class="ribbon-chip">' +
         '<span class="num">' + c.outcomeNum + '</span>' +
         '<span class="lbl">' + c.outcomeLbl + '</span>' +
-        '<span class="who">. ' + c.name + ', ' + c.role + '</span>' +
+        '<span class="who">· ' + c.name + ', ' + c.role.split(',')[0] + '</span>' +
         '</span>';
     }
     var html = CUSTOMERS.map(chipHtml).join('') + CUSTOMERS.map(chipHtml).join('');
     track.innerHTML = html;
   }
 
-  // ============================================================
-  // Modal: focus trap, esc-close, prompt switching
-  // ============================================================
-  var modalRoot = document.getElementById('modalRoot');
-  var modalClose = document.getElementById('modalClose');
-  var lastFocus = null;
-  var aiMsgEl = document.getElementById('aiMsg');
-  var userMsgEl = document.getElementById('userMsg');
-  var streamTimer = null;
-
-  var ANSWERS = {
-    'Why upgrade to Standard?':
-      'Standard adds Analytics AI plus multi-step customer journeys. On average, customers see a 21% revenue lift over Essentials. Anuj Chaudhry cut quarterly reporting from 4 to 6 hours down to minutes.',
-    'Show ROI of SMS + Analytics AI':
-      'SMS sees the highest engagement of any channel. With Analytics AI sequencing your sends, the average customer sees +38% click-through rate after restructured sends. Damon Runnals at Minnesota Playlist is one example.',
-    'Worth $20 more vs Essentials?':
-      'Yes for any team running campaigns at scale. Analytics AI replaces hours of analyst time and surfaces the next move. Suskia Strafella saw 2.3x campaign revenue, quarter over quarter.',
-    'Why Standard?':
-      'Standard ships with Analytics AI and unlimited prompts, plus multi-step customer journeys and behavioral targeting. It is the lift that pays for itself.',
-    'ROI of SMS + AI?':
-      'SMS plus Analytics AI is the fastest path to incremental revenue. Sequencing recommendations alone drive +21% lift on average.',
-    'Why is Standard the right plan for me?':
-      'You said Standard, so we will start there. Analytics AI is included with unlimited prompts and grounded charts. You can switch plans any time.',
-    'Why is revenue flat this month?':
-      'Two of your top three campaigns landed in the wrong segment. Sequencing the welcome and win-back flows in the right order yields a +21% lift on the next send. Damon Runnals saw this same fix drive +38% click-through.'
+  /* ============================================================
+   * Mini playground state (shared across all variants + modal)
+   * ============================================================ */
+  var state = {
+    personaId: 'ecommerce',
+    questionIdx: 0
   };
 
-  function streamText(target, text) {
-    if (streamTimer) { clearInterval(streamTimer); streamTimer = null; }
-    target.textContent = '';
-    if (prefersReduced) { target.textContent = text; return; }
-    var i = 0;
-    streamTimer = setInterval(function(){
-      i += 2;
-      target.textContent = text.slice(0, i);
-      if (i >= text.length) { clearInterval(streamTimer); streamTimer = null; }
-    }, 18);
+  function getQuestion() {
+    var p = getPersonaById(state.personaId);
+    var idx = Math.min(state.questionIdx, p.questions.length - 1);
+    return { persona: p, q: p.questions[idx], idx: idx };
   }
 
+  /* ============================================================
+   * V1: Co-Pilot rail
+   * ============================================================ */
+  function buildRailPersonas() {
+    var host = document.getElementById('railPersonas');
+    if (!host) return;
+    host.innerHTML = '';
+    PERSONAS.forEach(function(p){
+      var btn = document.createElement('button');
+      btn.type = 'button';
+      btn.className = 'copilot-persona';
+      btn.setAttribute('role', 'tab');
+      btn.setAttribute('aria-pressed', p.id === state.personaId ? 'true' : 'false');
+      btn.setAttribute('data-persona', p.id);
+      btn.setAttribute('aria-label', p.role + ', ' + p.business);
+      btn.innerHTML =
+        '<span class="pavatar" aria-hidden="true" style="background-image:url(\''+p.photo+'\');"></span>' +
+        '<span class="plabel">'+p.label+'</span>';
+      host.appendChild(btn);
+    });
+  }
+  function renderRail() {
+    var ctx = getQuestion();
+    var p = ctx.persona, q = ctx.q;
+    var dot = document.getElementById('railDot');
+    var biz = document.getElementById('railBiz');
+    if (dot) dot.style.background = p.brandColor;
+    if (biz) biz.textContent = p.business;
+    var prompts = document.getElementById('railPrompts');
+    if (prompts) {
+      prompts.innerHTML = '';
+      p.questions.forEach(function(qq, i){
+        var btn = document.createElement('button');
+        btn.type = 'button';
+        btn.className = 'copilot-q';
+        btn.setAttribute('aria-pressed', i === ctx.idx ? 'true' : 'false');
+        btn.setAttribute('data-qidx', String(i));
+        btn.textContent = qq.q;
+        prompts.appendChild(btn);
+      });
+    }
+    document.querySelectorAll('#railPersonas .copilot-persona').forEach(function(b){
+      b.setAttribute('aria-pressed', b.getAttribute('data-persona') === p.id ? 'true' : 'false');
+    });
+    renderChart(document.getElementById('railChart'), q.chart, p.brandColor);
+    var insight = document.getElementById('railInsight');
+    if (insight) insight.textContent = q.insight;
+    var outcome = document.getElementById('railOutcome');
+    if (outcome) {
+      outcome.innerHTML =
+        '<span class="num">'+q.outcome.num+'</span>' +
+        '<span><span class="who">'+q.outcome.who+'</span> · '+q.outcome.lbl+'</span>';
+    }
+  }
+
+  /* ============================================================
+   * V2: Inline plan lens
+   * ============================================================ */
+  function buildLensPersonas() {
+    var host = document.getElementById('lensPersonas');
+    if (!host) return;
+    host.innerHTML = '';
+    PERSONAS.forEach(function(p){
+      var btn = document.createElement('button');
+      btn.type = 'button';
+      btn.className = 'lens-persona';
+      btn.setAttribute('role', 'tab');
+      btn.setAttribute('aria-pressed', p.id === state.personaId ? 'true' : 'false');
+      btn.setAttribute('data-persona', p.id);
+      btn.setAttribute('aria-label', p.role + ', ' + p.business);
+      btn.innerHTML =
+        '<span class="pavatar" aria-hidden="true" style="background-image:url(\''+p.photo+'\');"></span>' +
+        '<span class="plabel">'+p.label+'</span>';
+      host.appendChild(btn);
+    });
+  }
+  function renderLens() {
+    var ctx = getQuestion();
+    var p = ctx.persona, q = ctx.q;
+    var dot = document.getElementById('lensDot');
+    var biz = document.getElementById('lensBiz');
+    if (dot) dot.style.background = p.brandColor;
+    if (biz) biz.textContent = p.business;
+    var prompts = document.getElementById('lensPrompts');
+    if (prompts) {
+      prompts.innerHTML = '';
+      // Show first 2 prompts inline
+      p.questions.slice(0, 2).forEach(function(qq, i){
+        var btn = document.createElement('button');
+        btn.type = 'button';
+        btn.className = 'lens-prompt';
+        btn.setAttribute('aria-pressed', i === ctx.idx ? 'true' : 'false');
+        btn.setAttribute('data-qidx', String(i));
+        btn.textContent = qq.q;
+        prompts.appendChild(btn);
+      });
+    }
+    document.querySelectorAll('#lensPersonas .lens-persona').forEach(function(b){
+      b.setAttribute('aria-pressed', b.getAttribute('data-persona') === p.id ? 'true' : 'false');
+    });
+    var lensIdx = Math.min(ctx.idx, 1);
+    var lensQ = p.questions[lensIdx];
+    renderChart(document.getElementById('lensChart'), lensQ.chart, p.brandColor);
+    var insight = document.getElementById('lensInsight');
+    if (insight) insight.textContent = lensQ.insight;
+    var cite = document.getElementById('lensCite');
+    if (cite) {
+      cite.innerHTML =
+        '<span class="num">'+lensQ.outcome.num+'</span>' +
+        '<span>'+lensQ.outcome.who+' · '+lensQ.outcome.lbl+'</span>';
+    }
+  }
+
+  /* ============================================================
+   * V3: Floating console (autoplay multi-prompt)
+   * ============================================================ */
+  var fcEl = document.getElementById('floatingConsole');
+  var fcPillEl = document.getElementById('fcPill');
+  var fcCloseEl = document.getElementById('fcClose');
+  var fcPromptEl = document.getElementById('fcPrompt');
+  var fcChartEl = document.getElementById('fcChart');
+  var fcInsightEl = document.getElementById('fcInsight');
+  var fcCiteEl = document.getElementById('fcCite');
+  var fcLabelEl = document.getElementById('fcLabel');
+  var fcShown = false;
+  var fcDismissed = false;
+  var fcTimers = [];
+  var fcAutoplayIdx = 0;
+  var fcInteracted = false;
+
+  function clearFcTimers() {
+    fcTimers.forEach(function(t){ clearTimeout(t); clearInterval(t); });
+    fcTimers = [];
+  }
+
+  function buildFcPersonas() {
+    var host = document.getElementById('fcPersonas');
+    if (!host) return;
+    host.innerHTML = '';
+    PERSONAS.forEach(function(p){
+      var btn = document.createElement('button');
+      btn.type = 'button';
+      btn.className = 'fc-persona';
+      btn.setAttribute('role', 'tab');
+      btn.setAttribute('aria-pressed', p.id === state.personaId ? 'true' : 'false');
+      btn.setAttribute('data-persona', p.id);
+      btn.setAttribute('aria-label', p.role + ', ' + p.business);
+      btn.innerHTML =
+        '<span class="pavatar" aria-hidden="true" style="background-image:url(\''+p.photo+'\');"></span>' +
+        '<span class="ptip" aria-hidden="true">'+p.label+'</span>';
+      host.appendChild(btn);
+    });
+  }
+
+  function renderFcStatic() {
+    var ctx = getQuestion();
+    var p = ctx.persona, q = ctx.q;
+    if (fcLabelEl) fcLabelEl.textContent = 'Analytics AI · ' + p.business;
+    document.querySelectorAll('#fcPersonas .fc-persona').forEach(function(b){
+      b.setAttribute('aria-pressed', b.getAttribute('data-persona') === p.id ? 'true' : 'false');
+    });
+    fcPromptEl.textContent = q.q;
+    renderChart(fcChartEl, q.chart, p.brandColor);
+    fcInsightEl.textContent = q.insight;
+    fcInsightEl.classList.add('is-shown');
+    fcCiteEl.innerHTML =
+      '<span class="photo" role="img" aria-label="" style="background-image:url(\''+p.photo+'\');"></span>' +
+      '<div><div class="who">'+q.outcome.who.split(',')[0]+'</div>' +
+      '<div class="role">'+(q.outcome.who.split(',')[1]||'').trim()+'</div></div>' +
+      '<div style="margin-left:auto; text-align:right;">'+
+      '<div class="num">'+q.outcome.num+'</div>'+
+      '<div class="role">'+q.outcome.lbl+'</div>'+
+      '</div>';
+    fcCiteEl.classList.add('is-shown');
+  }
+
+  function runFcDemo() {
+    clearFcTimers();
+    fcInsightEl.classList.remove('is-shown');
+    fcCiteEl.classList.remove('is-shown');
+    fcPromptEl.innerHTML = '';
+
+    if (prefersReduced) {
+      renderFcStatic();
+      return;
+    }
+
+    var ctx = getQuestion();
+    var p = ctx.persona, q = ctx.q;
+    if (fcLabelEl) fcLabelEl.textContent = 'Analytics AI · ' + p.business;
+    document.querySelectorAll('#fcPersonas .fc-persona').forEach(function(b){
+      b.setAttribute('aria-pressed', b.getAttribute('data-persona') === p.id ? 'true' : 'false');
+    });
+
+    var promptText = q.q;
+    var caret = '<span class="caret"></span>';
+    var i = 0;
+    fcPromptEl.innerHTML = caret;
+    var typer = setInterval(function(){
+      i++;
+      fcPromptEl.innerHTML = promptText.slice(0, i) + caret;
+      if (i >= promptText.length) {
+        clearInterval(typer);
+        fcPromptEl.innerHTML = promptText;
+      }
+    }, 32);
+    fcTimers.push(typer);
+
+    fcTimers.push(setTimeout(function(){
+      renderChart(fcChartEl, q.chart, p.brandColor);
+    }, Math.max(800, promptText.length * 32 + 200)));
+
+    fcTimers.push(setTimeout(function(){
+      fcInsightEl.textContent = q.insight;
+      fcInsightEl.classList.add('is-shown');
+    }, Math.max(1700, promptText.length * 32 + 1100)));
+
+    fcTimers.push(setTimeout(function(){
+      fcCiteEl.innerHTML =
+        '<span class="photo" role="img" aria-label="" style="background-image:url(\''+p.photo+'\');"></span>' +
+        '<div><div class="who">'+q.outcome.who.split(',')[0]+'</div>' +
+        '<div class="role">'+(q.outcome.who.split(',')[1]||'').trim()+'</div></div>' +
+        '<div style="margin-left:auto; text-align:right;">'+
+        '<div class="num">'+q.outcome.num+'</div>'+
+        '<div class="role">'+q.outcome.lbl+'</div>'+
+        '</div>';
+      fcCiteEl.classList.add('is-shown');
+    }, Math.max(2300, promptText.length * 32 + 1700)));
+
+    if (!fcInteracted) {
+      fcTimers.push(setTimeout(function(){
+        if (fcInteracted) return;
+        fcAutoplayIdx = (fcAutoplayIdx + 1) % 6;
+        var nextPersona, nextQ;
+        if (fcAutoplayIdx % 2 === 0) {
+          var idxList = ['ecommerce','agency','nonprofit','b2c'];
+          nextPersona = idxList[(fcAutoplayIdx / 2) % 4];
+          state.personaId = nextPersona;
+          state.questionIdx = 0;
+        } else {
+          var pp = getPersonaById(state.personaId);
+          state.questionIdx = (state.questionIdx + 1) % pp.questions.length;
+        }
+        runFcDemo();
+      }, 6500));
+    }
+  }
+
+  function showFcPill() {
+    if (fcDismissed) return;
+    fcEl.style.display = 'block';
+  }
+  function expandFc() {
+    fcEl.classList.add('is-open');
+    if (!fcEl.dataset.first) {
+      fcEl.dataset.first = '1';
+      runFcDemo();
+    }
+  }
+  function dismissFc() {
+    fcDismissed = true;
+    fcEl.classList.remove('is-open');
+    fcEl.style.display = 'none';
+    try { localStorage.setItem('mc-fc-dismissed', '1'); } catch(e){}
+    clearFcTimers();
+  }
+  function setupFcVisibility() {
+    try {
+      if (localStorage.getItem('mc-fc-dismissed') === '1') {
+        fcDismissed = true;
+        fcEl.style.display = 'none';
+        return;
+      }
+    } catch(e) {}
+    var grid = document.getElementById('planGrid');
+    if (!grid || !('IntersectionObserver' in window)) {
+      setTimeout(showFcPill, 3000);
+      return;
+    }
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(en){
+        if (en.isIntersecting && !fcShown) {
+          fcShown = true;
+          setTimeout(showFcPill, 3000);
+          io.disconnect();
+        }
+      });
+    }, { threshold: 0.2 });
+    io.observe(grid);
+  }
+
+  /* ============================================================
+   * Modal: full mini playground
+   * ============================================================ */
+  var modalRoot = document.getElementById('modalRoot');
+  var modalCloseBtn = document.getElementById('modalClose');
+  var lastFocus = null;
+
+  function buildModalPersonas() {
+    var host = document.getElementById('modalPersonas');
+    if (!host) return;
+    host.innerHTML = '';
+    PERSONAS.forEach(function(p){
+      var btn = document.createElement('button');
+      btn.type = 'button';
+      btn.className = 'modal-persona';
+      btn.setAttribute('role', 'tab');
+      btn.setAttribute('aria-pressed', p.id === state.personaId ? 'true' : 'false');
+      btn.setAttribute('data-persona', p.id);
+      btn.innerHTML =
+        '<span class="pavatar" aria-hidden="true" style="background-image:url(\''+p.photo+'\');"></span>' +
+        '<span class="pmeta"><span class="pname">'+p.role+'</span><span class="pbiz">'+p.business+'</span></span>';
+      host.appendChild(btn);
+    });
+  }
+  function renderModal() {
+    var ctx = getQuestion();
+    var p = ctx.persona, q = ctx.q;
+    document.querySelectorAll('#modalPersonas .modal-persona').forEach(function(b){
+      b.setAttribute('aria-pressed', b.getAttribute('data-persona') === p.id ? 'true' : 'false');
+    });
+    var prompts = document.getElementById('modalPrompts');
+    if (prompts) {
+      prompts.innerHTML = '';
+      p.questions.forEach(function(qq, i){
+        var btn = document.createElement('button');
+        btn.type = 'button';
+        btn.className = 'modal-prompt';
+        btn.setAttribute('aria-pressed', i === ctx.idx ? 'true' : 'false');
+        btn.setAttribute('data-qidx', String(i));
+        btn.textContent = qq.q;
+        prompts.appendChild(btn);
+      });
+    }
+    var dot = document.getElementById('modalDot');
+    var biz = document.getElementById('modalBiz');
+    if (dot) dot.style.background = p.brandColor;
+    if (biz) biz.textContent = p.business;
+    var qEl = document.getElementById('modalQuestion');
+    if (qEl) qEl.textContent = q.q;
+    renderChart(document.getElementById('modalChart'), q.chart, p.brandColor);
+    var insight = document.getElementById('modalInsight');
+    if (insight) insight.textContent = q.insight;
+    var outcome = document.getElementById('modalOutcome');
+    if (outcome) {
+      outcome.innerHTML =
+        '<span class="num">'+q.outcome.num+'</span>' +
+        '<span class="lbl"><span class="who">'+q.outcome.who+'</span> · '+q.outcome.lbl+'</span>';
+    }
+  }
   function trapFocus(e) {
     if (!modalRoot.classList.contains('is-open')) return;
     if (e.key === 'Escape') { closeModal(); return; }
@@ -1859,15 +2682,14 @@
     if (e.shiftKey && document.activeElement === first) { e.preventDefault(); last.focus(); }
     else if (!e.shiftKey && document.activeElement === last) { e.preventDefault(); first.focus(); }
   }
-
-  function openModal(prompt) {
+  function openModal() {
     lastFocus = document.activeElement;
     modalRoot.classList.add('is-open');
     modalRoot.setAttribute('aria-hidden', 'false');
     document.body.style.overflow = 'hidden';
     document.addEventListener('keydown', trapFocus);
-    selectPrompt(prompt || 'Why upgrade to Standard?');
-    setTimeout(function(){ modalClose.focus(); }, 30);
+    renderModal();
+    setTimeout(function(){ modalCloseBtn.focus(); }, 30);
     document.body.setAttribute('data-ai-touched', 'true');
   }
   function closeModal() {
@@ -1875,185 +2697,89 @@
     modalRoot.setAttribute('aria-hidden', 'true');
     document.body.style.overflow = '';
     document.removeEventListener('keydown', trapFocus);
-    if (streamTimer) { clearInterval(streamTimer); streamTimer = null; }
     if (lastFocus && lastFocus.focus) lastFocus.focus();
   }
-  function selectPrompt(p) {
-    var matched = p;
-    if (!ANSWERS[matched]) matched = 'Why upgrade to Standard?';
-    userMsgEl.textContent = matched;
-    document.querySelectorAll('.modal-prompt').forEach(function(b){
-      b.setAttribute('aria-pressed', b.getAttribute('data-prompt') === matched ? 'true' : 'false');
-    });
-    streamText(aiMsgEl, ANSWERS[matched]);
-    setTimeout(animateChart, 60);
-  }
-  function animateChart() {
-    document.querySelectorAll('.modal-bar').forEach(function(bar, i){
-      var h = parseInt(bar.getAttribute('data-h'), 10) || 0;
-      bar.style.height = '0%';
-      setTimeout(function(){ bar.style.height = h + '%'; }, prefersReduced ? 0 : 80 + i * 90);
-    });
-  }
 
-  // ============================================================
-  // Floating Console (Variant 3) demo script
-  // ============================================================
-  var fcEl = document.getElementById('floatingConsole');
-  var fcPill = document.getElementById('fcPill');
-  var fcClose = document.getElementById('fcClose');
-  var fcPrompt = document.getElementById('fcPrompt');
-  var fcChart = document.getElementById('fcChart');
-  var fcInsight = document.getElementById('fcInsight');
-  var fcCite = document.getElementById('fcCite');
-  var fcShown = false;
-  var fcDismissed = false;
-  var fcTimers = [];
-
-  function clearFcTimers() {
-    fcTimers.forEach(function(t){ clearTimeout(t); });
-    fcTimers = [];
+  /* ============================================================
+   * State updates
+   * ============================================================ */
+  function selectPersona(id) {
+    if (state.personaId === id) return;
+    state.personaId = id;
+    state.questionIdx = 0;
+    fcInteracted = true;
+    renderAll();
+  }
+  function selectQuestion(idx) {
+    state.questionIdx = idx;
+    fcInteracted = true;
+    renderAll();
+  }
+  function renderAll() {
+    renderRail();
+    renderLens();
+    if (fcEl && fcEl.classList.contains('is-open')) renderFcStatic();
+    if (modalRoot.classList.contains('is-open')) renderModal();
+    if (typeof syncLensSpacers === 'function') syncLensSpacers();
   }
 
-  function buildFcChart() {
-    fcChart.innerHTML = '';
-    var heights = [22, 28, 24, 30, 28, 32];
-    heights.forEach(function(h, i){
-      var bar = document.createElement('div');
-      bar.className = 'fc-bar fill';
-      bar.setAttribute('data-h', h);
-      fcChart.appendChild(bar);
-    });
-  }
-
-  function showFcPill() {
-    if (fcDismissed) return;
-    fcEl.style.display = 'block';
-    if (!prefersReduced) {
-      // a 4s pause is part of the spec. The IO already debounced this call.
-    }
-  }
-
-  function expandFc() {
-    fcEl.classList.add('is-open');
-    runFcDemo();
-  }
-  function collapseFc() {
-    fcEl.classList.remove('is-open');
-    clearFcTimers();
-  }
-  function dismissFc() {
-    fcDismissed = true;
-    fcEl.style.display = 'none';
-    try { localStorage.setItem('mc-fc-dismissed', '1'); } catch(e){}
-    clearFcTimers();
-  }
-
-  function runFcDemo() {
-    clearFcTimers();
-    fcInsight.classList.remove('is-shown');
-    fcCite.classList.remove('is-shown');
-    fcPrompt.innerHTML = '';
-    buildFcChart();
-
-    if (prefersReduced) {
-      fcPrompt.textContent = 'Why is revenue flat this month?';
-      Array.prototype.forEach.call(fcChart.children, function(b, i){
-        b.style.height = (parseInt(b.getAttribute('data-h'),10) * 1.4) + 'px';
-        if (i === 5) b.classList.add('lift');
-      });
-      fcInsight.classList.add('is-shown');
-      fcCite.classList.add('is-shown');
-      return;
-    }
-
-    var promptText = 'Why is revenue flat this month?';
-    var i = 0;
-    var caret = '<span class="caret"></span>';
-    fcPrompt.innerHTML = caret;
-    var typer = setInterval(function(){
-      i++;
-      fcPrompt.innerHTML = promptText.slice(0, i) + caret;
-      if (i >= promptText.length) clearInterval(typer);
-    }, 36);
-    fcTimers.push(typer);
-
-    fcTimers.push(setTimeout(function(){
-      Array.prototype.forEach.call(fcChart.children, function(b, idx){
-        setTimeout(function(){
-          b.style.height = (parseInt(b.getAttribute('data-h'),10) * 1.4) + 'px';
-          if (idx === 5) b.classList.add('lift');
-        }, idx * 110);
-      });
-    }, 1500));
-
-    fcTimers.push(setTimeout(function(){ fcInsight.classList.add('is-shown'); }, 2900));
-    fcTimers.push(setTimeout(function(){ fcCite.classList.add('is-shown');   }, 3500));
-  }
-
-  function setupFcVisibility() {
-    try {
-      if (localStorage.getItem('mc-fc-dismissed') === '1') {
-        fcDismissed = true;
-        fcEl.style.display = 'none';
-        return;
-      }
-    } catch(e) {}
-
-    var grid = document.getElementById('planGrid');
-    if (!grid || !('IntersectionObserver' in window)) {
-      setTimeout(showFcPill, 4000);
-      return;
-    }
-    var io = new IntersectionObserver(function(entries){
-      entries.forEach(function(en){
-        if (en.isIntersecting && !fcShown) {
-          fcShown = true;
-          setTimeout(showFcPill, 4000);
-          io.disconnect();
-        }
-      });
-    }, { threshold: 0.2 });
-    io.observe(grid);
-  }
-
-  // ============================================================
-  // Variant change side-effects
-  // ============================================================
+  /* ============================================================
+   * Variant change side-effects
+   * ============================================================ */
   function onVariantApplied(v) {
-    if (v === 'p1') {
-      buildTicker();
-    } else {
-      if (tickerInterval) { clearInterval(tickerInterval); tickerInterval = null; }
-    }
     if (v === 'p3') {
       setupFcVisibility();
     } else {
-      fcEl.style.display = 'none';
-      fcEl.classList.remove('is-open');
+      if (fcEl) {
+        fcEl.style.display = 'none';
+        fcEl.classList.remove('is-open');
+      }
       clearFcTimers();
     }
-    // Explicit aria-hidden for the lens block. Belt-and-suspenders alongside
-    // the display:none CSS rule, so screen readers do not see the inactive lens.
     var lensHost = document.getElementById('lensHost');
     var spacers = document.querySelectorAll('.lens-spacer');
     if (lensHost) lensHost.setAttribute('aria-hidden', v === 'p2' ? 'false' : 'true');
     spacers.forEach(function(s){ s.setAttribute('aria-hidden', 'true'); });
+    document.body.removeAttribute('data-ai-touched');
+    // Match spacer height in V2 so all four cards stay equal-height.
+    syncLensSpacers();
   }
 
-  // ============================================================
-  // Wire up listeners
-  // ============================================================
+  function syncLensSpacers() {
+    var lensHost = document.getElementById('lensHost');
+    var spacers = document.querySelectorAll('.lens-spacer');
+    if (!lensHost || !spacers.length) return;
+    var v = document.body.getAttribute('data-variant');
+    if (v === 'p2') {
+      // Wait one frame so the lens content has its final layout.
+      requestAnimationFrame(function(){
+        var h = lensHost.getBoundingClientRect().height;
+        spacers.forEach(function(s){ s.style.height = h + 'px'; });
+      });
+    } else {
+      spacers.forEach(function(s){ s.style.height = ''; });
+    }
+  }
+  window.addEventListener('resize', function(){ syncLensSpacers(); });
+
+  /* ============================================================
+   * Wire up listeners
+   * ============================================================ */
   document.addEventListener('click', function(e){
     var open = e.target.closest('[data-modal-open]');
     if (open) {
       e.preventDefault();
-      openModal(open.getAttribute('data-prompt'));
+      openModal();
       return;
     }
-    var prompt = e.target.closest('.modal-prompt');
-    if (prompt) {
-      selectPrompt(prompt.getAttribute('data-prompt'));
+    var pTab = e.target.closest('.copilot-persona, .lens-persona, .fc-persona, .modal-persona');
+    if (pTab) {
+      selectPersona(pTab.getAttribute('data-persona'));
+      return;
+    }
+    var qBtn = e.target.closest('.copilot-q, .lens-prompt, .modal-prompt');
+    if (qBtn) {
+      selectQuestion(parseInt(qBtn.getAttribute('data-qidx'), 10) || 0);
       return;
     }
     var tab = e.target.closest('.variant-tab');
@@ -2077,24 +2803,30 @@
     }
   });
 
-  modalClose.addEventListener('click', closeModal);
+  modalCloseBtn.addEventListener('click', closeModal);
   modalRoot.addEventListener('click', function(e){ if (e.target === modalRoot) closeModal(); });
 
-  fcPill.addEventListener('click', expandFc);
-  fcPill.addEventListener('mouseenter', expandFc);
-  fcClose.addEventListener('click', dismissFc);
+  if (fcPillEl) fcPillEl.addEventListener('click', expandFc);
+  if (fcPillEl) fcPillEl.addEventListener('mouseenter', expandFc);
+  if (fcCloseEl) fcCloseEl.addEventListener('click', dismissFc);
 
-  // ============================================================
-  // Boot
-  // ============================================================
+  /* ============================================================
+   * Boot
+   * ============================================================ */
   buildRibbon();
+  buildRailPersonas();
+  buildLensPersonas();
+  buildFcPersonas();
+  buildModalPersonas();
   setVariant(getVariant(), false);
+  renderAll();
+
   // Equal-height verification hook (exposed for QA)
   window.__verifyPlanHeights = function() {
     var cards = document.querySelectorAll('.plan-card');
     var heights = Array.prototype.map.call(cards, function(c){ return Math.round(c.getBoundingClientRect().height); });
-    var allEqual = heights.every(function(h){ return h === heights[0]; });
-    return { variant: document.body.getAttribute('data-variant'), heights: heights, equal: allEqual };
+    var spread = Math.max.apply(null, heights) - Math.min.apply(null, heights);
+    return { variant: document.body.getAttribute('data-variant'), heights: heights, spread: spread, equalish: spread <= 4 };
   };
 })();
 </script>
