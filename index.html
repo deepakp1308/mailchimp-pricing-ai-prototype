@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Pricing · Mailchimp Marketing Platform</title>
-<meta name="description" content="Pick the plan that fits today and scale into tomorrow. Compare Free, Essentials, Standard, and Premium. Analytics AI is included on Standard with unlimited prompts." />
+<title>Pricing Marketing | Mailchimp</title>
+<meta name="description" content="Customize your plan. Compare Premium, Standard, and Essentials. Standard ships with Analytics AI and unlimited prompts." />
 <style>
   /* ============================================================ */
   /* Mailchimp Design System tokens                               */
@@ -113,50 +113,8 @@
   }
   .nav-cta:hover { background: var(--mc-yellow-hover); transform: translateY(-1px); }
 
-  /* ===================== Variant switcher ===================== */
-  .variant-bar {
-    background: var(--mc-bg-off);
-    border-bottom: 1px solid var(--mc-border);
-  }
-  .variant-bar-inner {
-    max-width: 1380px; margin: 0 auto;
-    padding: 14px 32px;
-    display: flex; align-items: center; gap: 18px; flex-wrap: wrap;
-  }
-  .variant-bar-label {
-    font-size: 11px; font-weight: 700; letter-spacing: 0.14em;
-    text-transform: uppercase; color: var(--mc-text-muted);
-  }
-  .variant-tabs {
-    display: inline-flex; gap: 6px;
-    padding: 4px;
-    background: #fff;
-    border: 1px solid var(--mc-border);
-    border-radius: var(--radius-pill);
-  }
-  .variant-tab {
-    border: 0; background: transparent;
-    padding: 8px 16px;
-    border-radius: var(--radius-pill);
-    font-size: 13px; font-weight: 600;
-    color: var(--mc-pep);
-    cursor: pointer;
-    transition: background 0.18s, color 0.18s;
-  }
-  .variant-tab[aria-selected="true"] {
-    background: var(--mc-pep);
-    color: #fff;
-  }
-  .variant-tab:hover:not([aria-selected="true"]) {
-    background: var(--mc-bg-alt);
-  }
-  .variant-bar-note {
-    font-size: 12px; color: var(--mc-text-muted);
-    flex: 1; min-width: 220px;
-  }
-
   /* ===================== Layout ===================== */
-  section { padding: 64px 32px; }
+  section { padding: 56px 32px; }
   .container { max-width: 1280px; margin: 0 auto; }
   .eyebrow {
     display: inline-block;
@@ -198,170 +156,145 @@
   /* ===================== Pricing hero ===================== */
   .pricing-hero {
     background: var(--mc-bg-off);
-    padding-top: 56px; padding-bottom: 32px;
+    padding-top: 56px; padding-bottom: 24px;
+    text-align: center;
   }
   .pricing-hero h1 {
-    font-size: clamp(40px, 5.4vw, 64px);
+    font-size: clamp(36px, 4.6vw, 56px);
     max-width: 920px;
-    margin: 0 auto 18px;
-    text-align: center;
+    margin: 0 auto 14px;
   }
   .pricing-hero h1 em {
     font-style: italic; color: var(--mc-pep);
   }
   .pricing-hero .sub {
-    text-align: center;
-    font-size: 18px;
+    font-size: 17px;
     color: var(--mc-text-secondary);
     max-width: 720px;
-    margin: 0 auto 32px;
+    margin: 0 auto;
   }
-  .pricing-controls {
-    display: flex; align-items: center; justify-content: center; gap: 28px;
+
+  /* ===================== Pricing utility bar ===================== */
+  .pricing-utility {
+    padding: 0 32px;
+    background: var(--mc-bg-off);
+  }
+  .pricing-utility .container {
+    padding-top: 32px;
+  }
+  .utility-bar {
+    display: flex; align-items: center; gap: 24px;
     flex-wrap: wrap;
+    padding-bottom: 14px;
   }
-  .billing-toggle {
-    display: inline-flex; padding: 4px;
-    background: #fff;
-    border: 1px solid var(--mc-border);
-    border-radius: var(--radius-pill);
-  }
-  .billing-toggle button {
-    border: 0; background: transparent;
-    padding: 9px 18px;
-    border-radius: var(--radius-pill);
-    font-size: 14px; font-weight: 600;
+  .utility-label {
+    font-family: 'Cooper Light', 'Georgia', serif;
+    font-size: 22px; font-weight: 400;
     color: var(--mc-pep);
-    cursor: pointer;
-    transition: background 0.18s, color 0.18s;
-    display: inline-flex; align-items: center; gap: 6px;
   }
-  .billing-toggle button[aria-selected="true"] {
-    background: var(--mc-pep); color: #fff;
-  }
-  .billing-toggle .save-tag {
-    font-size: 10px; font-weight: 700;
-    background: var(--mc-yellow); color: var(--mc-pep);
-    padding: 2px 6px; border-radius: 3px;
-  }
-  .contact-select {
-    display: inline-flex; align-items: center; gap: 10px;
+  .contact-pill {
+    display: inline-flex; align-items: center; gap: 12px;
     background: #fff;
-    border: 1px solid var(--mc-border);
+    border: 1.5px solid var(--mc-pep);
     border-radius: var(--radius-pill);
-    padding: 6px 10px 6px 18px;
+    padding: 6px 8px 6px 18px;
   }
-  .contact-select label {
-    font-size: 13px; color: var(--mc-text-secondary); font-weight: 600;
+  .contact-pill label {
+    font-size: 14px; color: var(--mc-pep); font-weight: 700;
   }
-  .contact-select select {
+  .contact-pill select {
     border: 0; background: transparent;
     font-size: 14px; font-weight: 700; color: var(--mc-pep);
-    padding: 6px 28px 6px 4px;
+    padding: 6px 30px 6px 6px;
     cursor: pointer;
     appearance: none;
     background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%23241C15' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'><polyline points='6 9 12 15 18 9'/></svg>");
     background-repeat: no-repeat;
-    background-position: right 10px center;
+    background-position: right 8px center;
   }
-
-  /* ===================== Above-table ribbon (Variant 2 only) ===================== */
-  .ribbon-host {
-    max-width: 1280px; margin: 0 auto;
-    padding: 0 32px;
-    height: 0; overflow: hidden;
-    transition: height 0.25s ease;
+  .utility-ribbon {
+    display: flex; align-items: center; justify-content: space-between;
+    gap: 18px;
+    background: var(--mc-yellow);
+    border: 1.5px solid var(--mc-pep);
+    border-radius: var(--radius-md);
+    padding: 14px 22px;
+    flex-wrap: wrap;
   }
-  body[data-variant="p2"] .ribbon-host { height: 76px; }
-  .ribbon {
-    margin-top: 12px;
-    background: #fff;
-    border: 1px solid var(--mc-border);
-    border-radius: var(--radius-lg);
-    overflow: hidden;
-    position: relative;
+  .utility-ribbon-text {
+    font-size: 15px; color: var(--mc-pep); font-weight: 600;
+    flex: 1; min-width: 240px;
   }
-  .ribbon::before, .ribbon::after {
-    content: ''; position: absolute; top: 0; bottom: 0; width: 56px; z-index: 2; pointer-events: none;
-  }
-  .ribbon::before { left: 0; background: linear-gradient(to right, #fff, rgba(255,255,255,0)); }
-  .ribbon::after { right: 0; background: linear-gradient(to left, #fff, rgba(255,255,255,0)); }
-  .ribbon-track {
-    display: inline-flex; gap: 64px; align-items: center;
-    padding: 16px 24px;
+  .utility-ribbon-cta {
+    color: var(--mc-pep);
+    font-size: 14px; font-weight: 700;
+    text-decoration: underline; text-underline-offset: 3px;
+    display: inline-flex; align-items: center; gap: 6px;
     white-space: nowrap;
-    animation: ribbon-scroll 30s linear infinite;
   }
-  .ribbon-track:hover { animation-play-state: paused; }
-  .ribbon-chip {
-    display: inline-flex; align-items: center; gap: 12px;
-    font-size: 14px; color: var(--mc-pep);
-  }
-  .ribbon-chip .num {
-    font-family: 'Cooper Light', 'Georgia', serif;
-    font-size: 22px; color: var(--mc-pep); font-weight: 400;
-  }
-  .ribbon-chip .lbl {
-    color: var(--mc-text-secondary);
-  }
-  .ribbon-chip .who {
-    color: var(--mc-pep); font-weight: 600;
-  }
-  @keyframes ribbon-scroll {
-    from { transform: translateX(0); }
-    to { transform: translateX(-50%); }
-  }
-  @media (prefers-reduced-motion: reduce) {
-    .ribbon-track { animation: none; }
-  }
+  .utility-ribbon-cta:hover { color: var(--mc-pep-soft); }
 
-  /* ===================== Pricing comparison grid ===================== */
+  /* ===================== Pricing comparison grid + rail layout ===================== */
   .pricing-grid-host {
     max-width: 1280px; margin: 0 auto;
     padding: 24px 32px 16px;
     position: relative;
     display: grid;
-    grid-template-columns: 1fr 332px;
-    gap: 32px;
+    grid-template-columns: 1fr 312px;
+    gap: 28px;
+    align-items: start;
   }
-  body[data-variant="p2"] .pricing-grid-host,
-  body[data-variant="p3"] .pricing-grid-host {
-    grid-template-columns: 1fr;
+  .pricing-table-wrap {
+    min-width: 0;
   }
-  body[data-variant="p2"] .copilot-rail,
-  body[data-variant="p3"] .copilot-rail { display: none; }
-  body[data-variant="p1"] .lens-host,
-  body[data-variant="p3"] .lens-host { display: none; }
-  body[data-variant="p1"] .lens-spacer,
-  body[data-variant="p3"] .lens-spacer { display: none; }
-  body[data-variant="p1"] .floating-console,
-  body[data-variant="p2"] .floating-console { display: none; }
 
-  .plan-grid {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 16px;
-  }
-  .plan-card {
+  .pricing-table {
     background: #fff;
     border: 1px solid var(--mc-border);
     border-radius: var(--radius-xl);
-    padding: 28px 22px 24px;
+    overflow: hidden;
+  }
+
+  /* Header row: meta + 3 plans, equal-height columns */
+  .table-head {
+    display: grid;
+    grid-template-columns: 1.05fr 1fr 1fr 1fr;
+    border-bottom: 1px solid var(--mc-border);
+  }
+  .head-cell {
+    padding: 24px 18px 22px;
+    border-right: 1px solid var(--mc-border);
+    background: #fff;
     display: flex; flex-direction: column;
     position: relative;
-    transition: box-shadow 0.18s, transform 0.18s;
+    min-height: 320px;
   }
-  .plan-card:hover { box-shadow: var(--shadow-md); }
-  .plan-card.is-popular {
-    border: 2px solid var(--mc-pep);
-    box-shadow: var(--shadow-md);
+  .head-cell:last-child { border-right: 0; }
+  .head-cell.is-popular {
+    background: var(--mc-bg-off);
+    box-shadow: inset 0 0 0 2px var(--mc-pep);
+    border-right-color: transparent;
   }
-  .plan-popular-flag {
+  .best-deal-flag {
     position: absolute; top: -12px; left: 50%; transform: translateX(-50%);
     background: var(--mc-yellow); color: var(--mc-pep);
     font-size: 11px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase;
     padding: 5px 12px; border-radius: var(--radius-pill);
     border: 1.5px solid var(--mc-pep);
+    white-space: nowrap;
+  }
+  .meta-headline {
+    font-family: 'Cooper Light', 'Georgia', serif;
+    font-size: 19px; font-weight: 400;
+    color: var(--mc-pep);
+    line-height: 1.2;
+    margin-bottom: 10px;
+  }
+  .meta-body {
+    font-size: 13.5px; color: var(--mc-text-secondary);
+    line-height: 1.5;
+    margin-bottom: 16px;
+    flex: 1;
   }
   .plan-name {
     font-family: 'Cooper Light', 'Georgia', serif;
@@ -369,235 +302,103 @@
     color: var(--mc-pep);
     margin-bottom: 6px;
   }
-  .plan-tagline {
-    font-size: 13px; color: var(--mc-text-secondary);
-    margin-bottom: 16px; min-height: 36px;
+  .plan-blurb {
+    font-size: 13.5px; color: var(--mc-text-secondary);
+    margin-bottom: 16px; min-height: 56px;
+    line-height: 1.5;
   }
-  .plan-price {
-    display: flex; align-items: baseline; gap: 6px;
-    margin-bottom: 4px;
+  .plan-starts {
+    font-size: 14px; color: var(--mc-pep); font-weight: 700;
+    margin-bottom: 14px;
   }
-  .plan-price .num {
+  .plan-starts .num {
     font-family: 'Cooper Light', 'Georgia', serif;
-    font-size: 38px; font-weight: 400;
-    color: var(--mc-pep);
+    font-size: 18px; font-weight: 400;
   }
-  .plan-price .per {
-    font-size: 13px; color: var(--mc-text-secondary);
+  .plan-cta-stack {
+    display: flex; flex-direction: column; gap: 8px;
+    margin-top: auto;
   }
-  .plan-price .strike {
-    font-size: 13px; color: var(--mc-text-muted);
-    text-decoration: line-through;
-    margin-left: 4px;
-  }
-  .plan-promo {
-    font-size: 12px; color: var(--mc-teal-dark); font-weight: 600;
-    margin-bottom: 16px; min-height: 18px;
-  }
-  .plan-cta {
-    margin-bottom: 18px;
-  }
-  .plan-cta a, .plan-cta button {
-    width: 100%;
-  }
-  .plan-cta-chip {
-    display: none;
-    margin-top: 8px;
-    font-size: 12px; font-weight: 700;
-    background: var(--mc-yellow); color: var(--mc-pep);
-    padding: 6px 10px; border-radius: var(--radius-pill);
+  .plan-cta-stack .demo-link {
     text-align: center;
-    border: 1px solid var(--mc-pep);
-  }
-  body[data-ai-touched="true"] .plan-card[data-plan="standard"] .plan-cta-chip {
-    display: block;
-    animation: chip-pulse 2.4s ease-in-out 2;
-  }
-  @keyframes chip-pulse {
-    0%, 100% { box-shadow: 0 0 0 0 rgba(255,224,27,0.0); }
-    50% { box-shadow: 0 0 0 8px rgba(255,224,27,0.45); }
-  }
-  @media (prefers-reduced-motion: reduce) {
-    body[data-ai-touched="true"] .plan-card[data-plan="standard"] .plan-cta-chip { animation: none; }
-  }
-
-  /* ===================== Inline Plan Lens (Variant 2) ===================== */
-  /* The lens-host has natural height; .lens-spacer in sibling cards is set */
-  /* to match exactly via JS so the pricing grid stays equal-height in V2. */
-  .lens-host, .lens-spacer {
-    margin-bottom: 16px;
-  }
-  .lens-host { height: auto; }
-  .lens-spacer { visibility: hidden; height: 0; }
-  .lens-card {
-    height: 100%;
-    background: var(--mc-bg-off);
-    border: 1px solid var(--mc-border-strong);
-    border-radius: var(--radius-lg);
-    padding: 12px;
-    display: flex; flex-direction: column;
-    gap: 8px;
-    position: relative;
-    overflow: hidden;
-  }
-  .lens-eyebrow {
-    font-size: 10px; font-weight: 700; letter-spacing: 0.12em;
-    text-transform: uppercase; color: var(--mc-teal-dark);
-  }
-  .lens-toolbar {
-    display: flex; align-items: center; justify-content: space-between;
-    gap: 6px;
-  }
-  .lens-business {
-    font-size: 12px; font-weight: 700; color: var(--mc-pep);
-    display: flex; align-items: center; gap: 6px;
-    min-width: 0;
-  }
-  .lens-business .biz-dot {
-    width: 8px; height: 8px; border-radius: 50%;
-    background: var(--mc-yellow);
-    flex-shrink: 0;
-    transition: background 0.2s;
-  }
-  .lens-business .biz-name {
-    overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
-  }
-  .lens-personas {
-    display: grid; grid-template-columns: repeat(4, 1fr);
-    gap: 4px;
-  }
-  .lens-persona {
-    border: 1px solid var(--mc-border);
-    background: #fff;
-    border-radius: var(--radius-md);
-    padding: 4px;
-    cursor: pointer;
-    display: flex; align-items: center; justify-content: center;
-    overflow: hidden;
-    transition: border-color 0.15s, transform 0.12s;
-    position: relative;
-  }
-  .lens-persona[aria-pressed="true"] {
-    border-color: var(--mc-pep);
-    box-shadow: 0 0 0 2px rgba(36,28,21,0.08);
-  }
-  .lens-persona:hover { transform: translateY(-1px); }
-  .lens-persona .pavatar {
-    width: 100%; aspect-ratio: 1 / 1;
-    background-size: cover; background-position: center;
-    border-radius: var(--radius-sm);
-  }
-  .lens-persona .plabel {
-    position: absolute; bottom: 2px; left: 2px; right: 2px;
-    background: rgba(36,28,21,0.78); color: #fff;
-    font-size: 8px; font-weight: 700; letter-spacing: 0.04em;
-    text-transform: uppercase;
-    padding: 1px 2px; border-radius: 3px;
-    text-align: center;
-    line-height: 1.1;
-    pointer-events: none;
-  }
-  .lens-prompts {
-    display: flex; flex-wrap: wrap; gap: 4px;
-  }
-  .lens-prompt {
-    font-size: 11px; font-weight: 600;
-    background: #fff;
+    font-size: 13px; font-weight: 700;
     color: var(--mc-pep);
-    border: 1px solid var(--mc-border-strong);
-    border-radius: var(--radius-pill);
-    padding: 4px 9px;
-    cursor: pointer;
-    transition: background 0.15s, color 0.15s;
-    line-height: 1.2;
+    text-decoration: underline; text-underline-offset: 3px;
   }
-  .lens-prompt:hover, .lens-prompt[aria-pressed="true"] {
-    background: var(--mc-pep); color: #fff; border-color: var(--mc-pep);
+  .plan-cta-stack .btn-primary,
+  .plan-cta-stack .btn-secondary { width: 100%; }
+  .overage-note {
+    font-size: 11.5px; color: var(--mc-text-muted);
+    margin-top: 10px;
+    line-height: 1.4;
   }
-  .lens-chart-host {
-    background: #fff;
-    border: 1px solid var(--mc-border);
-    border-radius: var(--radius-md);
-    height: 80px;
-    padding: 6px 8px;
-    overflow: hidden;
-    display: flex;
-  }
-  .lens-chart-host svg { width: 100%; height: 100%; display: block; }
-  .lens-insight {
-    font-size: 11px; line-height: 1.35; color: var(--mc-pep);
-    background: var(--mc-yellow-soft);
-    border: 1px solid var(--mc-pep);
-    border-radius: var(--radius-md);
-    padding: 6px 8px;
-    font-weight: 600;
-  }
-  .lens-cite {
-    font-size: 10px; color: var(--mc-text-secondary);
-    display: flex; align-items: center; gap: 6px;
-    line-height: 1.3;
-  }
-  .lens-cite .num {
-    font-family: 'Cooper Light', 'Georgia', serif;
-    font-size: 14px; color: var(--mc-pep); font-weight: 400;
-  }
-  .lens-deep-link {
-    font-size: 10px; font-weight: 600;
-    background: transparent; border: 0;
-    color: var(--mc-teal-dark);
-    cursor: pointer; padding: 0;
-    text-decoration: underline; text-underline-offset: 2px;
-    align-self: flex-start;
-    margin-top: -2px;
-  }
+  .overage-note a { color: var(--mc-teal-dark); text-decoration: underline; text-underline-offset: 2px; }
 
-  .plan-features {
-    list-style: none;
+  /* Row groups */
+  .row-group-h {
+    display: grid;
+    grid-template-columns: 1.05fr 1fr 1fr 1fr;
+    background: var(--mc-bg-alt);
     border-top: 1px solid var(--mc-border);
-    padding-top: 16px;
-    display: flex; flex-direction: column; gap: 10px;
-    flex: 1;
+    border-bottom: 1px solid var(--mc-border);
   }
-  .plan-features li {
-    font-size: 13.5px; color: var(--mc-pep);
-    display: flex; gap: 8px;
-    align-items: flex-start;
+  .row-group-h .cell {
+    padding: 14px 18px;
+    font-size: 13px; font-weight: 700;
+    letter-spacing: 0.06em; text-transform: uppercase;
+    color: var(--mc-pep);
+  }
+  .feat-row {
+    display: grid;
+    grid-template-columns: 1.05fr 1fr 1fr 1fr;
+    border-bottom: 1px solid var(--mc-border);
+  }
+  .feat-row:last-child { border-bottom: 0; }
+  .feat-row .cell {
+    padding: 16px 18px;
+    font-size: 13.5px;
+    color: var(--mc-pep);
     line-height: 1.45;
+    border-right: 1px solid var(--mc-border);
   }
-  .plan-features li::before {
-    content: ''; flex-shrink: 0;
-    width: 16px; height: 16px;
-    margin-top: 2px;
-    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23241C15' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'><polyline points='20 6 9 17 4 12'/></svg>");
-    background-size: contain;
-    background-repeat: no-repeat;
+  .feat-row .cell:last-child { border-right: 0; }
+  .feat-row .cell.is-popular { background: var(--mc-bg-off); }
+  .feat-row .cell.row-label { font-weight: 700; }
+  .feat-row .cell.tone-mute { color: var(--mc-text-muted); font-size: 12.5px; }
+  .feat-mark {
+    display: inline-flex; align-items: center; justify-content: center;
+    width: 22px; height: 22px;
+    border-radius: 50%;
+    flex-shrink: 0;
   }
-  .plan-features li.is-highlight {
-    background: var(--mc-yellow-soft);
-    border-radius: var(--radius-md);
-    padding: 8px 10px;
-    font-weight: 700;
+  .feat-mark.is-yes {
+    background: var(--mc-pep);
+    color: #fff;
   }
-  .plan-features li.is-highlight::before {
-    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23241C15' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'><path d='M12 2v4'/><path d='M12 18v4'/><path d='M4.93 4.93l2.83 2.83'/><path d='M16.24 16.24l2.83 2.83'/><path d='M2 12h4'/><path d='M18 12h4'/><path d='M4.93 19.07l2.83-2.83'/><path d='M16.24 7.76l2.83-2.83'/></svg>");
+  .feat-mark.is-no {
+    background: transparent;
+    color: var(--mc-text-muted);
+    border: 1.5px solid var(--mc-border-strong);
   }
-  .plan-features li.is-muted { color: var(--mc-text-muted); }
-  .plan-features li.is-muted::before {
-    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%238B7E72' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'><line x1='5' y1='12' x2='19' y2='12'/></svg>");
+  .compare-all-row {
+    text-align: center;
+    padding: 20px;
+    background: #fff;
+    border-top: 1px solid var(--mc-border);
   }
 
-  /* ===================== Co-Pilot rail (Variant 1) ===================== */
+  /* ===================== Co-Pilot rail (single variant) ===================== */
   .copilot-rail {
     position: sticky;
     top: 96px;
-    align-self: flex-start;
+    align-self: start;
     background: #fff;
     border: 1px solid var(--mc-border);
     border-radius: var(--radius-xl);
-    padding: 18px 18px 16px;
+    padding: 16px 16px 14px;
     box-shadow: var(--shadow-sm);
     display: flex; flex-direction: column;
-    gap: 12px;
+    gap: 10px;
   }
   .copilot-eyebrow {
     font-size: 10px; font-weight: 700; letter-spacing: 0.14em;
@@ -605,7 +406,7 @@
   }
   .copilot-title {
     font-family: 'Cooper Light', 'Georgia', serif;
-    font-size: 22px; font-weight: 400; color: var(--mc-pep);
+    font-size: 20px; font-weight: 400; color: var(--mc-pep);
     line-height: 1.15;
     margin: -2px 0 2px;
   }
@@ -660,7 +461,7 @@
     border-radius: var(--radius-md);
     cursor: pointer;
     overflow: hidden;
-    padding: 4px 4px 6px;
+    padding: 4px 4px 5px;
     transition: border-color 0.15s, transform 0.12s;
     text-align: center;
     position: relative;
@@ -683,7 +484,7 @@
   }
 
   .copilot-suggested {
-    display: flex; flex-direction: column; gap: 6px;
+    display: flex; flex-direction: column; gap: 5px;
   }
   .copilot-q {
     text-align: left;
@@ -711,7 +512,7 @@
     background: var(--mc-bg-off);
     border: 1px solid var(--mc-border);
     border-radius: var(--radius-md);
-    height: 220px;
+    height: 200px;
     padding: 10px;
     display: flex;
   }
@@ -744,10 +545,9 @@
     color: var(--mc-pep); font-weight: 700;
   }
 
-  .copilot-cta { width: 100%; }
   .copilot-deep-link {
     text-align: center;
-    margin-top: 0;
+    margin-top: -2px;
   }
   .copilot-deep-link button {
     background: transparent; border: 0;
@@ -758,7 +558,34 @@
   }
   .copilot-deep-link button:hover { color: var(--mc-teal-darker); }
 
-  /* Mobile bottom bar fallback for rail */
+  /* Below the rail: separate yellow Get Standard with Analytics AI CTA */
+  .rail-cta-block {
+    margin-top: 14px;
+    background: var(--mc-yellow);
+    border: 1.5px solid var(--mc-pep);
+    border-radius: var(--radius-xl);
+    padding: 14px;
+    display: flex; flex-direction: column; gap: 6px;
+  }
+  .rail-cta-block .h {
+    font-family: 'Cooper Light', 'Georgia', serif;
+    font-size: 17px; font-weight: 400; color: var(--mc-pep);
+    line-height: 1.2;
+  }
+  .rail-cta-block .sub {
+    font-size: 12px; color: var(--mc-pep);
+    line-height: 1.35;
+  }
+  .rail-cta-block .btn-primary {
+    background: var(--mc-pep); color: #fff;
+    border-color: var(--mc-pep);
+    margin-top: 4px;
+  }
+  .rail-cta-block .btn-primary:hover {
+    background: var(--mc-pep-soft);
+  }
+
+  /* Mobile fallback for rail */
   .copilot-mobile {
     display: none;
     position: fixed; left: 12px; right: 12px; bottom: 12px;
@@ -778,62 +605,107 @@
     margin-top: 2px;
   }
 
-  /* ===================== Add-ons ===================== */
-  .addons {
-    padding: 80px 32px;
-    background: #fff;
-    border-top: 1px solid var(--mc-border);
+  /* ===================== Awards / trust section (dark) ===================== */
+  .awards-section {
+    background: var(--mc-pep);
+    color: #fff;
+    padding: 72px 32px;
   }
-  .addons h2 {
-    font-size: clamp(28px, 3vw, 40px);
-    margin-bottom: 8px;
+  .awards-section h2 {
+    color: #fff;
+    font-size: clamp(28px, 3.4vw, 40px);
+    text-align: center;
+    margin-bottom: 36px;
   }
-  .addons .lead {
-    color: var(--mc-text-secondary); margin-bottom: 32px;
-    max-width: 640px;
-  }
-  .addons-grid {
+  .awards-grid {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 18px;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 22px;
+    max-width: 1080px; margin: 0 auto;
   }
-  .addon-card {
+  .award-badge {
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(255,255,255,0.18);
+    border-radius: var(--radius-lg);
+    padding: 22px 16px;
+    display: flex; flex-direction: column; align-items: center; justify-content: center;
+    gap: 12px;
+    min-height: 200px;
+    text-align: center;
+  }
+  .award-badge svg { display: block; }
+  .award-badge .src {
+    font-size: 11px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase;
+    color: var(--mc-yellow);
+  }
+  .award-badge .label {
+    font-size: 13px; font-weight: 600;
+    color: #fff;
+    line-height: 1.35;
+  }
+
+  /* ===================== Two-column block: nonprofits + pay as you go ===================== */
+  .twocol-section {
     background: var(--mc-bg-off);
+    padding: 72px 32px;
+  }
+  .twocol-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 32px;
+    max-width: 1080px; margin: 0 auto;
+  }
+  .twocol-card {
+    background: #fff;
     border: 1px solid var(--mc-border);
     border-radius: var(--radius-xl);
-    padding: 22px;
-    display: flex; flex-direction: column; gap: 12px;
-    min-height: 220px;
+    padding: 32px 28px;
+    display: flex; flex-direction: column;
+    gap: 14px;
   }
-  .addon-card .illo {
-    width: 64px; height: 64px;
-    border-radius: var(--radius-md);
-    background-size: cover; background-position: center;
-    border: 1px solid var(--mc-border);
+  .twocol-card h3 {
+    font-size: clamp(22px, 2.4vw, 28px);
+    margin-bottom: 4px;
   }
-  .addon-name {
-    font-family: 'Cooper Light', 'Georgia', serif;
-    font-size: 22px; font-weight: 400;
-  }
-  .addon-desc {
-    font-size: 14px; color: var(--mc-text-secondary);
+  .twocol-card p {
+    font-size: 15px; color: var(--mc-text-secondary);
     flex: 1;
+    line-height: 1.55;
   }
-  .addon-price {
-    font-size: 13px; color: var(--mc-pep); font-weight: 700;
+  .twocol-card .btn-secondary { align-self: flex-start; margin-top: 8px; }
+
+  /* ===================== Basic plans for smaller businesses ===================== */
+  .basic-section {
+    background: #fff;
+    padding: 80px 32px;
+    text-align: center;
+  }
+  .basic-section h2 {
+    font-size: clamp(28px, 3.4vw, 40px);
+    margin: 0 auto 14px;
+    max-width: 800px;
+  }
+  .basic-section p {
+    font-size: 16px; color: var(--mc-text-secondary);
+    max-width: 720px;
+    margin: 0 auto 24px;
+    line-height: 1.55;
+  }
+  .basic-cta-row {
+    display: flex; gap: 12px; justify-content: center; flex-wrap: wrap;
   }
 
   /* ===================== Testimonials ===================== */
   .testi-section {
-    padding: 96px 32px;
+    padding: 88px 32px;
     background: var(--mc-bg-off);
   }
   .testi-head {
     text-align: center;
-    max-width: 760px; margin: 0 auto 40px;
+    max-width: 760px; margin: 0 auto 36px;
   }
   .testi-head h2 {
-    font-size: clamp(32px, 4vw, 48px);
+    font-size: clamp(30px, 3.6vw, 44px);
     margin: 12px 0 12px;
   }
   .testi-head p { color: var(--mc-text-secondary); font-size: 16px; }
@@ -861,10 +733,9 @@
     font-size: 56px; line-height: 0.6;
     color: var(--mc-yellow);
   }
-  .testi-card.is-featured .qmark { color: var(--mc-yellow); }
   .testi-quote {
     font-family: 'Cooper Light', 'Georgia', serif;
-    font-size: 22px; line-height: 1.35; font-weight: 400;
+    font-size: 21px; line-height: 1.35; font-weight: 400;
     color: var(--mc-pep);
     flex: 1;
   }
@@ -899,23 +770,23 @@
   .testi-card.is-featured .testi-outcome .lbl { color: rgba(255,255,255,0.78); }
 
   /* ===================== FAQ ===================== */
-  .faq-section { padding: 96px 32px; background: #fff; }
+  .faq-section { padding: 88px 32px; background: #fff; }
   .faq-section h2 {
     font-size: clamp(28px, 3.4vw, 40px);
     text-align: center; margin-bottom: 32px;
   }
-  .faq-list { max-width: 880px; margin: 0 auto; }
+  .faq-list { max-width: 880px; margin: 0 auto; list-style: none; }
   .faq-item {
     border-top: 1px solid var(--mc-border);
-    padding: 18px 0;
+    padding: 4px 0;
   }
   .faq-item:last-child { border-bottom: 1px solid var(--mc-border); }
   .faq-q {
     width: 100%; background: transparent; border: 0;
     text-align: left;
-    display: flex; justify-content: space-between; align-items: center;
+    display: flex; justify-content: space-between; align-items: center; gap: 16px;
     font-size: 17px; font-weight: 600; color: var(--mc-pep);
-    cursor: pointer; padding: 6px 0;
+    cursor: pointer; padding: 18px 0;
   }
   .faq-q .ico {
     width: 20px; height: 20px;
@@ -925,7 +796,7 @@
     content: ''; position: absolute; left: 50%; top: 50%;
     background: var(--mc-pep);
     transform: translate(-50%, -50%);
-    transition: transform 0.2s;
+    transition: transform 0.2s, opacity 0.2s;
   }
   .faq-q .ico::before { width: 14px; height: 2px; }
   .faq-q .ico::after { width: 2px; height: 14px; }
@@ -934,23 +805,97 @@
     max-height: 0; overflow: hidden;
     transition: max-height 0.25s ease, padding 0.25s ease;
     color: var(--mc-text-secondary); font-size: 15px; line-height: 1.6;
+    padding-right: 36px;
   }
   .faq-item[aria-expanded="true"] .faq-a {
-    max-height: 320px; padding-top: 8px;
+    max-height: 480px; padding-bottom: 18px;
+  }
+
+  /* ===================== Footnotes ===================== */
+  .footnotes {
+    background: var(--mc-bg-off);
+    padding: 56px 32px 40px;
+  }
+  .footnotes-list {
+    max-width: 1080px; margin: 0 auto;
+    list-style: decimal inside;
+    color: var(--mc-text-secondary);
+    font-size: 12px;
+    line-height: 1.65;
+  }
+  .footnotes-list li {
+    padding: 4px 0;
   }
 
   /* ===================== Footer ===================== */
   footer.site {
-    padding: 64px 32px 40px;
+    padding: 56px 32px 40px;
     background: var(--mc-pep);
     color: #fff;
   }
   footer.site .container { max-width: 1280px; }
+  .related-links {
+    border-bottom: 1px solid rgba(255,255,255,0.12);
+    padding-bottom: 22px;
+    margin-bottom: 28px;
+    font-size: 13px;
+    color: rgba(255,255,255,0.78);
+  }
+  .related-links strong {
+    color: #fff;
+    margin-right: 8px;
+  }
+  .related-links a {
+    color: rgba(255,255,255,0.92);
+    text-decoration: none;
+    margin: 0 6px;
+  }
+  .related-links a:hover { color: var(--mc-yellow); }
+  .related-links .sep { color: rgba(255,255,255,0.32); margin: 0 4px; }
+
+  .watch-mc {
+    display: flex; align-items: center; gap: 18px;
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(255,255,255,0.12);
+    border-radius: var(--radius-lg);
+    padding: 18px 22px;
+    margin-bottom: 36px;
+    flex-wrap: wrap;
+  }
+  .watch-mc .wheel {
+    width: 56px; height: 56px;
+    flex-shrink: 0;
+  }
+  .watch-mc .copy {
+    flex: 1; min-width: 220px;
+  }
+  .watch-mc .label {
+    font-size: 11px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase;
+    color: var(--mc-yellow);
+    margin-bottom: 4px;
+  }
+  .watch-mc .h {
+    font-family: 'Cooper Light', 'Georgia', serif;
+    font-size: 18px; color: #fff; line-height: 1.3;
+    margin-bottom: 4px;
+  }
+  .watch-mc .p {
+    font-size: 13px; color: rgba(255,255,255,0.72);
+    line-height: 1.5;
+  }
+  .watch-mc .cta {
+    color: var(--mc-yellow);
+    font-size: 13px; font-weight: 700;
+    text-decoration: none;
+    white-space: nowrap;
+  }
+  .watch-mc .cta:hover { text-decoration: underline; }
+
   .foot-cols {
     display: grid;
-    grid-template-columns: 1.5fr repeat(4, 1fr);
-    gap: 32px;
-    margin-bottom: 48px;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 28px;
+    margin-bottom: 40px;
   }
   .foot-col h4 {
     font-family: 'Helvetica Now Display', 'Helvetica Neue', Helvetica, sans-serif;
@@ -965,11 +910,21 @@
     transition: color 0.15s;
   }
   .foot-col a:hover { color: var(--mc-yellow); }
-  .foot-col p { color: rgba(255,255,255,0.7); font-size: 14px; line-height: 1.55; }
   .foot-bottom {
     border-top: 1px solid rgba(255,255,255,0.12);
-    padding-top: 24px;
-    display: flex; justify-content: space-between; flex-wrap: wrap; gap: 12px;
+    padding-top: 22px;
+    display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 16px;
+  }
+  .foot-bottom .lockup {
+    display: flex; align-items: center; gap: 12px;
+    font-size: 12px; color: rgba(255,255,255,0.7);
+  }
+  .foot-bottom .lockup img {
+    height: 28px; width: auto;
+    filter: invert(100%);
+  }
+  .foot-bottom .lockup .sep { color: rgba(255,255,255,0.32); }
+  .foot-bottom .legal {
     font-size: 12px; color: rgba(255,255,255,0.55);
   }
 
@@ -1166,258 +1121,43 @@
   .modal-close::before { transform: rotate(45deg); }
   .modal-close::after  { transform: rotate(-45deg); }
 
-  /* ===================== Floating Demo Console (Variant 3) ===================== */
-  .floating-console {
-    position: fixed;
-    right: 24px; bottom: 24px;
-    z-index: 40;
-    display: none;
-  }
-  .fc-pill {
-    width: 64px; height: 64px;
-    border-radius: 50%;
-    background: #fff;
-    border: 2px solid var(--mc-pep);
-    box-shadow: var(--shadow-lg);
-    cursor: pointer;
-    display: flex; align-items: center; justify-content: center;
-    overflow: hidden;
-    position: relative;
-    padding: 0;
-  }
-  .fc-pill::after {
-    content: ''; position: absolute; inset: 0;
-    border-radius: 50%;
-    box-shadow: inset 0 0 0 4px rgba(255,224,27,0.0);
-    animation: fc-ring 2.4s ease-in-out infinite;
-  }
-  @keyframes fc-ring {
-    0%, 100% { box-shadow: inset 0 0 0 0 rgba(255,224,27,0.0); }
-    50%      { box-shadow: inset 0 0 0 4px rgba(255,224,27,0.7); }
-  }
-  @media (prefers-reduced-motion: reduce) {
-    .fc-pill::after { animation: none; }
-  }
-  .fc-pill .pill-illo {
-    width: 100%; height: 100%;
-    background-size: cover; background-position: center;
-  }
-  .fc-pill .pill-label {
-    position: absolute; right: 72px; top: 50%; transform: translateY(-50%);
-    background: var(--mc-pep); color: #fff;
-    font-size: 12px; font-weight: 700;
-    padding: 6px 10px; border-radius: var(--radius-pill);
-    white-space: nowrap;
-    opacity: 0; transition: opacity 0.2s;
-  }
-  .fc-pill:hover .pill-label, .fc-pill:focus-visible .pill-label { opacity: 1; }
-
-  .fc-panel {
-    width: 380px;
-    height: 520px;
-    background: #fff;
-    border: 1px solid var(--mc-pep);
-    border-radius: var(--radius-xl);
-    box-shadow: var(--shadow-xl);
-    display: none;
-    flex-direction: column;
-    overflow: hidden;
-    position: relative;
-  }
-  .floating-console.is-open .fc-panel { display: flex; }
-  .floating-console.is-open .fc-pill   { display: none; }
-
-  .fc-head {
-    padding: 12px 14px;
-    background: var(--mc-pep);
-    color: #fff;
-    display: flex; align-items: center; gap: 10px;
-  }
-  .fc-head .dot {
-    width: 8px; height: 8px; border-radius: 50%;
-    background: var(--mc-teal);
-    animation: fc-dot 1.6s ease-in-out infinite;
-  }
-  @keyframes fc-dot {
-    0%, 100% { box-shadow: 0 0 0 0 rgba(0,185,166,0.7); }
-    50%      { box-shadow: 0 0 0 8px rgba(0,185,166,0); }
-  }
-  @media (prefers-reduced-motion: reduce) {
-    .fc-head .dot { animation: none; }
-  }
-  .fc-head .label {
-    font-size: 12px; font-weight: 700;
-    letter-spacing: 0.08em; text-transform: uppercase;
-    flex: 1; min-width: 0;
-    white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
-  }
-  .fc-head .close {
-    background: transparent; border: 0;
-    width: 24px; height: 24px;
-    cursor: pointer; position: relative;
-    flex-shrink: 0;
-  }
-  .fc-head .close::before, .fc-head .close::after {
-    content: ''; position: absolute; left: 50%; top: 50%;
-    width: 14px; height: 2px;
-    background: #fff;
-    transform: translate(-50%, -50%) rotate(45deg);
-  }
-  .fc-head .close::after { transform: translate(-50%, -50%) rotate(-45deg); }
-
-  .fc-personas {
-    display: flex; align-items: center; justify-content: center; gap: 6px;
-    padding: 10px 14px 8px;
-    background: var(--mc-bg-off);
-    border-bottom: 1px solid var(--mc-border);
-  }
-  .fc-persona {
-    background: #fff;
-    border: 1.5px solid var(--mc-border);
-    border-radius: 50%;
-    width: 36px; height: 36px;
-    cursor: pointer;
-    overflow: hidden;
-    padding: 0;
-    transition: border-color 0.15s, transform 0.12s;
-    position: relative;
-  }
-  .fc-persona[aria-pressed="true"] {
-    border-color: var(--mc-pep);
-    box-shadow: 0 0 0 2px rgba(36,28,21,0.08);
-  }
-  .fc-persona:hover { transform: translateY(-1px); }
-  .fc-persona .pavatar {
-    width: 100%; height: 100%;
-    background-size: cover; background-position: center;
-    border-radius: 50%;
-  }
-  .fc-persona .ptip {
-    position: absolute; bottom: -28px; left: 50%; transform: translateX(-50%);
-    background: var(--mc-pep); color: #fff;
-    font-size: 10px; font-weight: 700;
-    padding: 3px 7px; border-radius: 4px;
-    white-space: nowrap;
-    opacity: 0; pointer-events: none;
-    transition: opacity 0.15s;
-    z-index: 2;
-  }
-  .fc-persona:hover .ptip, .fc-persona:focus-visible .ptip { opacity: 1; }
-
-  .fc-body {
-    padding: 12px 14px;
-    flex: 1;
-    display: flex; flex-direction: column; gap: 10px;
-    overflow: auto;
-  }
-  .fc-prompt {
-    background: var(--mc-bg-off);
-    border: 1px solid var(--mc-border);
-    border-radius: var(--radius-md);
-    padding: 9px 12px;
-    font-size: 13px; color: var(--mc-pep); font-weight: 600;
-    min-height: 38px;
-    line-height: 1.35;
-  }
-  .fc-prompt .caret {
-    display: inline-block; width: 1px; height: 13px;
-    background: var(--mc-pep);
-    margin-left: 2px;
-    animation: fc-caret 1s steps(2) infinite;
-    vertical-align: middle;
-  }
-  @keyframes fc-caret {
-    0%, 50% { opacity: 1; }
-    51%, 100% { opacity: 0; }
-  }
-  .fc-chart-host {
-    background: var(--mc-bg-off);
-    border: 1px solid var(--mc-border);
-    border-radius: var(--radius-md);
-    height: 170px;
-    padding: 10px;
-    display: flex;
-  }
-  .fc-chart-host svg { width: 100%; height: 100%; display: block; }
-  .fc-insight {
-    background: var(--mc-yellow-soft);
-    border: 1px solid var(--mc-pep);
-    border-radius: var(--radius-md);
-    padding: 9px 12px;
-    font-size: 12.5px; font-weight: 600; color: var(--mc-pep);
-    line-height: 1.4;
-    opacity: 0; transform: translateY(4px);
-    transition: opacity 0.4s, transform 0.4s;
-  }
-  .fc-insight.is-shown { opacity: 1; transform: translateY(0); }
-  .fc-cite {
-    background: #fff;
-    border: 1px solid var(--mc-border);
-    border-radius: var(--radius-md);
-    padding: 9px 12px;
-    display: flex; gap: 10px; align-items: center;
-    font-size: 11.5px; line-height: 1.35;
-    opacity: 0; transition: opacity 0.4s;
-  }
-  .fc-cite.is-shown { opacity: 1; }
-  .fc-cite .photo {
-    width: 30px; height: 30px;
-    border-radius: 50%;
-    background-size: cover; background-position: center;
-    flex-shrink: 0;
-    border: 2px solid var(--mc-yellow);
-  }
-  .fc-cite .num {
-    font-family: 'Cooper Light', 'Georgia', serif;
-    font-size: 16px; color: var(--mc-pep); font-weight: 400;
-  }
-  .fc-cite .who { font-weight: 700; color: var(--mc-pep); }
-  .fc-cite .role { color: var(--mc-text-secondary); font-size: 10.5px; }
-
-  .fc-foot {
-    padding: 10px 14px;
-    border-top: 1px solid var(--mc-border);
-    display: flex; align-items: center; justify-content: space-between; gap: 10px;
-    background: var(--mc-bg-off);
-  }
-  .fc-foot .btn-primary { padding: 7px 13px; font-size: 12.5px; }
-  .fc-foot .btn-link { font-size: 11.5px; }
-
   /* ===================== Responsive ===================== */
   @media (max-width: 1080px) {
     .pricing-grid-host {
       grid-template-columns: 1fr;
     }
-    body[data-variant="p1"] .copilot-rail {
+    .copilot-rail {
       position: static;
       display: none;
     }
-    body[data-variant="p1"] .copilot-mobile { display: block; }
+    .rail-cta-block { display: none; }
+    .copilot-mobile { display: block; }
+    .foot-cols { grid-template-columns: repeat(3, 1fr); }
   }
   @media (max-width: 880px) {
-    .plan-grid { grid-template-columns: 1fr 1fr; }
+    .table-head, .row-group-h, .feat-row {
+      grid-template-columns: 1.2fr 1fr 1fr 1fr;
+    }
+    .head-cell, .feat-row .cell { padding: 14px 10px; font-size: 12.5px; }
+    .plan-name { font-size: 18px; }
+    .plan-blurb { font-size: 12.5px; min-height: 0; }
     .nav-links { display: none; }
-    .addons-grid { grid-template-columns: 1fr; }
+    .awards-grid { grid-template-columns: repeat(2, 1fr); }
+    .twocol-grid { grid-template-columns: 1fr; }
     .testi-grid { grid-template-columns: 1fr; }
-    .modal { grid-template-columns: 1fr; max-height: 92vh; }
+    .foot-cols { grid-template-columns: repeat(2, 1fr); }
+    .modal {
+      grid-template-columns: 1fr;
+      max-height: 96vh;
+    }
     .modal-pane.left { border-right: 0; border-bottom: 1px solid var(--mc-border); }
-    .foot-cols { grid-template-columns: 1fr 1fr; }
-    .floating-console { right: 12px; bottom: 12px; }
-    .fc-panel { width: calc(100vw - 24px); height: 70vh; max-height: 540px; }
   }
-  @media (max-width: 540px) {
-    .plan-grid { grid-template-columns: 1fr; }
-    body[data-variant="p2"] .lens-host,
-    body[data-variant="p2"] .lens-spacer { height: auto; }
-    body[data-variant="p2"] .lens-spacer { display: none; }
-    .foot-cols { grid-template-columns: 1fr; }
-    section { padding: 56px 18px; }
-    .pricing-grid-host { padding: 16px; }
-    .pricing-hero { padding-left: 18px; padding-right: 18px; }
+  @media (max-width: 600px) {
+    .award-badge { min-height: 160px; }
   }
 </style>
 </head>
-<body data-variant="p1">
+<body>
 
 <!-- ============================================================ -->
 <!-- HEADER NAV                                                   -->
@@ -1440,235 +1180,347 @@
 </header>
 
 <!-- ============================================================ -->
-<!-- VARIANT SWITCHER                                             -->
-<!-- ============================================================ -->
-<nav class="variant-bar" aria-label="Prototype variant">
-  <div class="variant-bar-inner">
-    <span class="variant-bar-label">Prototype variant</span>
-    <div class="variant-tabs" role="tablist" aria-label="Choose Analytics AI placement">
-      <button type="button" class="variant-tab" role="tab" aria-selected="true"  data-variant="p1">Co-Pilot Rail</button>
-      <button type="button" class="variant-tab" role="tab" aria-selected="false" data-variant="p2">Inline Plan Lens</button>
-      <button type="button" class="variant-tab" role="tab" aria-selected="false" data-variant="p3">Floating Demo Console</button>
-    </div>
-    <span class="variant-bar-note">All three variants embed the same mini Analytics AI playground. Only placement changes.</span>
-  </div>
-</nav>
-
-<!-- ============================================================ -->
 <!-- PRICING HERO                                                 -->
 <!-- ============================================================ -->
 <section class="pricing-hero" aria-labelledby="pricingH1">
-  <h1 id="pricingH1">Pick the plan that fits today, <em>scale into tomorrow.</em></h1>
-  <p class="sub">Start free. Upgrade when you need more contacts, deeper analytics, or hands-on support. Standard ships with Analytics AI and unlimited prompts.</p>
+  <h1 id="pricingH1">Find a plan that fits, <em>then grow into the next one.</em></h1>
+  <p class="sub">Compare Premium, Standard, and Essentials. Standard ships with Analytics AI and unlimited prompts.</p>
+</section>
 
-  <div class="pricing-controls">
-    <div class="billing-toggle" role="tablist" aria-label="Billing cadence">
-      <button type="button" role="tab" aria-selected="true"  data-cadence="monthly">Monthly</button>
-      <button type="button" role="tab" aria-selected="false" data-cadence="annual">Annual <span class="save-tag">Save 15%</span></button>
+<!-- ============================================================ -->
+<!-- PRICING UTILITY BAR (Customize your plan + Contacts pill)    -->
+<!-- ============================================================ -->
+<section class="pricing-utility" aria-labelledby="utilLabel">
+  <div class="container">
+    <div class="utility-bar">
+      <div class="utility-label" id="utilLabel">Customize your plan</div>
+      <div class="contact-pill">
+        <label for="contactCount">Contacts</label>
+        <select id="contactCount" aria-label="Choose contact count">
+          <option value="500" selected>0 to 500</option>
+          <option value="1500">501 to 1,500</option>
+          <option value="2500">1,501 to 2,500</option>
+          <option value="5000">2,501 to 5,000</option>
+          <option value="10000">5,001 to 10,000</option>
+          <option value="25000">10,001 to 25,000</option>
+          <option value="50000">25,001 to 50,000</option>
+        </select>
+      </div>
     </div>
-    <div class="contact-select">
-      <label for="contactCount">Contacts</label>
-      <select id="contactCount" aria-label="Choose contact count">
-        <option value="500">500</option>
-        <option value="1500">1,500</option>
-        <option value="2500" selected>2,500</option>
-        <option value="5000">5,000</option>
-        <option value="10000">10,000</option>
-        <option value="25000">25,000</option>
-        <option value="50000">50,000</option>
-      </select>
+    <div class="utility-ribbon" role="region" aria-label="Personalized plan finder">
+      <span class="utility-ribbon-text">Not sure how to choose? Answer a few quick questions for a personalized recommendation for you.</span>
+      <a class="utility-ribbon-cta" href="#">Find my plan
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m13 5 7 7-7 7"/></svg>
+      </a>
     </div>
   </div>
 </section>
 
 <!-- ============================================================ -->
-<!-- ABOVE-TABLE RIBBON (Variant 2 only, height-reserved)         -->
-<!-- ============================================================ -->
-<div class="ribbon-host" aria-hidden="true">
-  <div class="ribbon" role="region" aria-label="Real Mailchimp customer outcomes">
-    <div class="ribbon-track" id="ribbonTrack">
-      <!-- populated by JS -->
-    </div>
-  </div>
-</div>
-
-<!-- ============================================================ -->
-<!-- PRICING COMPARISON GRID                                      -->
+<!-- PRICING COMPARISON TABLE + CO-PILOT RAIL                     -->
 <!-- ============================================================ -->
 <section class="pricing-grid-host" id="pricingGrid" aria-label="Plan comparison">
-  <div class="plan-grid" id="planGrid">
+  <div class="pricing-table-wrap">
+    <div class="pricing-table" id="planGrid">
 
-    <!-- FREE -->
-    <article class="plan-card" data-plan="free">
-      <h3 class="plan-name">Free</h3>
-      <p class="plan-tagline">For new senders learning the ropes.</p>
-      <div class="plan-price">
-        <span class="num">$0</span>
-        <span class="per">/month</span>
-      </div>
-      <p class="plan-promo">Up to 500 contacts. 1,000 sends per month.</p>
-
-      <div class="lens-spacer" aria-hidden="true"></div>
-
-      <div class="plan-cta">
-        <a class="btn-secondary" href="#/checkout?plan=free">Sign up free</a>
-      </div>
-      <ul class="plan-features">
-        <li>Email Marketing CRM</li>
-        <li>Marketing CRM</li>
-        <li>Creative Assistant</li>
-        <li>Website builder</li>
-        <li>Forms and landing pages</li>
-        <li class="is-muted">Send-time optimization</li>
-        <li class="is-muted">Multi-step journeys</li>
-        <li class="is-muted">Analytics AI</li>
-      </ul>
-    </article>
-
-    <!-- ESSENTIALS -->
-    <article class="plan-card" data-plan="essentials">
-      <h3 class="plan-name">Essentials</h3>
-      <p class="plan-tagline">For senders ready to put Mailchimp to work.</p>
-      <div class="plan-price">
-        <span class="num">$13</span>
-        <span class="per">/month</span>
-        <span class="strike">$26</span>
-      </div>
-      <p class="plan-promo">50% off for the first 3 months.</p>
-
-      <div class="lens-spacer" aria-hidden="true"></div>
-
-      <div class="plan-cta">
-        <a class="btn-secondary" href="#/checkout?plan=essentials">Buy now</a>
-      </div>
-      <ul class="plan-features">
-        <li>Everything in Free</li>
-        <li>A/B testing</li>
-        <li>Custom branding</li>
-        <li>24/7 email and chat support</li>
-        <li>Email scheduling</li>
-        <li>Send-time optimization</li>
-        <li class="is-muted">Multi-step journeys</li>
-        <li class="is-muted">Analytics AI</li>
-      </ul>
-    </article>
-
-    <!-- STANDARD -->
-    <article class="plan-card is-popular" data-plan="standard">
-      <span class="plan-popular-flag">Most popular</span>
-      <h3 class="plan-name">Standard</h3>
-      <p class="plan-tagline">For teams who want to grow with smarter analytics.</p>
-      <div class="plan-price">
-        <span class="num">$20</span>
-        <span class="per">/month</span>
-        <span class="strike">$67</span>
-      </div>
-      <p class="plan-promo">70% off for the first 3 months.</p>
-
-      <!-- Variant 2 inline lens. Height reserved by .lens-spacer in siblings. -->
-      <div class="lens-host" id="lensHost">
-        <div class="lens-card" role="region" aria-labelledby="lensH" aria-label="Analytics AI mini playground">
-          <span class="lens-eyebrow" id="lensH">Try Analytics AI live</span>
-          <div class="lens-toolbar">
-            <span class="lens-business">
-              <span class="biz-dot" id="lensDot"></span>
-              <span class="biz-name" id="lensBiz">Oat Lord</span>
-            </span>
+      <!-- HEADER ROW: Meta + Premium + Standard + Essentials -->
+      <div class="table-head">
+        <div class="head-cell" data-col="meta">
+          <h3 class="meta-headline">Under 250 contacts? It's free.</h3>
+          <p class="meta-body">Use core features to manage early growth. Move to a paid plan as you scale.</p>
+          <div class="plan-cta-stack">
+            <a class="btn-secondary" href="#">Sign Up</a>
           </div>
-          <div class="lens-personas" id="lensPersonas" role="tablist" aria-label="Sample data persona">
-            <!-- populated by JS -->
+        </div>
+
+        <div class="head-cell" data-col="premium">
+          <h3 class="plan-name">Premium</h3>
+          <p class="plan-blurb">For organizations with advanced needs that want full visibility and control.</p>
+          <p class="plan-starts">Starts at <span class="num">$350</span>/month*</p>
+          <div class="plan-cta-stack">
+            <a class="btn-primary" href="#" data-plan="premium">Buy Now</a>
           </div>
-          <div class="lens-prompts" id="lensPrompts" role="group" aria-label="Suggested questions">
-            <!-- populated by JS -->
+          <p class="overage-note">Overages apply if contact or email send limit is exceeded. <a href="#">Learn more</a></p>
+        </div>
+
+        <div class="head-cell is-popular" data-col="standard">
+          <span class="best-deal-flag">Best deal</span>
+          <h3 class="plan-name">Standard</h3>
+          <p class="plan-blurb">For marketers who want to scale faster with smarter automation and reporting.</p>
+          <p class="plan-starts">Starts at <span class="num">$20</span>/month*</p>
+          <div class="plan-cta-stack">
+            <a class="demo-link" href="#">Request a demo</a>
+            <a class="btn-primary" href="#" data-plan="standard">Buy Now</a>
           </div>
-          <div class="lens-chart-host" id="lensChart" aria-label="Chart preview"></div>
-          <div class="lens-insight" id="lensInsight"></div>
-          <div class="lens-cite" id="lensCite"></div>
-          <button type="button" class="lens-deep-link" data-modal-open>Open full demo</button>
+          <p class="overage-note">Overages apply if contact or email send limit is exceeded. <a href="#">Learn more</a></p>
+        </div>
+
+        <div class="head-cell" data-col="essentials">
+          <h3 class="plan-name">Essentials</h3>
+          <p class="plan-blurb">For email senders ready to upgrade from basic tools.</p>
+          <p class="plan-starts">Starts at <span class="num">$13</span>/month*</p>
+          <div class="plan-cta-stack">
+            <a class="btn-primary" href="#" data-plan="essentials">Buy Now</a>
+          </div>
+          <p class="overage-note">Overages apply if contact or email send limit is exceeded. <a href="#">Learn more</a></p>
         </div>
       </div>
 
-      <div class="plan-cta">
-        <a class="btn-primary" href="#/checkout?plan=standard&analytics_ai=on">Get Standard with Analytics AI</a>
-        <span class="plan-cta-chip">Analytics AI included</span>
-      </div>
-      <ul class="plan-features">
-        <li>Everything in Essentials</li>
-        <li>Multi-step customer journeys</li>
-        <li class="is-highlight">Analytics AI. Unlimited prompts.</li>
-        <li>Custom-coded templates</li>
-        <li>Behavioral targeting</li>
-        <li>Dynamic content</li>
-        <li>Retargeting ads</li>
-        <li>Predicted demographics</li>
-      </ul>
-    </article>
+      <!-- ROW GROUP: Key Plan Features -->
+      <div class="row-group-h"><div class="cell" role="rowheader" colspan="4">Key Plan Features</div></div>
 
-    <!-- PREMIUM -->
-    <article class="plan-card" data-plan="premium">
-      <h3 class="plan-name">Premium</h3>
-      <p class="plan-tagline">For teams who need scale, security, and SLAs.</p>
-      <div class="plan-price">
-        <span class="num">$350</span>
-        <span class="per">/month</span>
+      <div class="feat-row">
+        <div class="cell row-label">SMS Marketing</div>
+        <div class="cell">SMS and MMS add-on</div>
+        <div class="cell is-popular">SMS add-on</div>
+        <div class="cell">SMS add-on</div>
       </div>
-      <p class="plan-promo">For senders above 10,000 contacts.</p>
-
-      <div class="lens-spacer" aria-hidden="true"></div>
-
-      <div class="plan-cta">
-        <a class="btn-secondary" href="#/checkout?plan=premium">Buy now</a>
+      <div class="feat-row">
+        <div class="cell row-label">Marketing Automation Flows</div>
+        <div class="cell">Up to 200 flows</div>
+        <div class="cell is-popular">Up to 200 flows</div>
+        <div class="cell">Up to 4 flow steps</div>
       </div>
-      <ul class="plan-features">
-        <li>Everything in Standard</li>
-        <li>Advanced segmentation</li>
-        <li>Multivariate testing</li>
-        <li>Comparative reporting</li>
-        <li>Unlimited seats and role-based access</li>
-        <li>Phone and priority support</li>
-        <li>Dedicated onboarding specialist</li>
-        <li>Custom domains and security review</li>
-      </ul>
-    </article>
+      <div class="feat-row">
+        <div class="cell row-label">Generative AI Features</div>
+        <div class="cell">Create and Send</div>
+        <div class="cell is-popular">Create and Send</div>
+        <div class="cell">Create and Send</div>
+      </div>
+      <div class="feat-row">
+        <div class="cell row-label">Custom-coded Templates</div>
+        <div class="cell"><span class="feat-mark is-yes" aria-label="Included">
+          <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+        </span></div>
+        <div class="cell is-popular"><span class="feat-mark is-yes" aria-label="Included">
+          <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+        </span></div>
+        <div class="cell tone-mute"><span class="feat-mark is-no" aria-label="Not included">
+          <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><line x1="6" y1="6" x2="18" y2="18"/><line x1="6" y1="18" x2="18" y2="6"/></svg>
+        </span></div>
+      </div>
+      <div class="feat-row">
+        <div class="cell row-label">Premium Migration Services</div>
+        <div class="cell">No additional cost add-on</div>
+        <div class="cell is-popular">Contact Sales</div>
+        <div class="cell">Contact Sales</div>
+      </div>
+
+      <!-- ROW GROUP: Admin -->
+      <div class="row-group-h"><div class="cell" role="rowheader">Admin</div></div>
+
+      <div class="feat-row">
+        <div class="cell row-label">Monthly Email Sends</div>
+        <div class="cell">15x contact tier</div>
+        <div class="cell is-popular">12x contact tier</div>
+        <div class="cell">10x contact tier</div>
+      </div>
+      <div class="feat-row">
+        <div class="cell row-label">Users</div>
+        <div class="cell">Unlimited</div>
+        <div class="cell is-popular">5</div>
+        <div class="cell">3</div>
+      </div>
+      <div class="feat-row">
+        <div class="cell row-label">Audiences</div>
+        <div class="cell">5</div>
+        <div class="cell is-popular">5</div>
+        <div class="cell">3</div>
+      </div>
+      <div class="feat-row">
+        <div class="cell row-label">Role Based Access</div>
+        <div class="cell"><span class="feat-mark is-yes" aria-label="Included">
+          <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+        </span></div>
+        <div class="cell is-popular"><span class="feat-mark is-yes" aria-label="Included">
+          <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+        </span></div>
+        <div class="cell tone-mute"><span class="feat-mark is-no" aria-label="Not included">
+          <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><line x1="6" y1="6" x2="18" y2="18"/><line x1="6" y1="18" x2="18" y2="6"/></svg>
+        </span></div>
+      </div>
+
+      <!-- ROW GROUP: Services & Support -->
+      <div class="row-group-h"><div class="cell" role="rowheader">Services &amp; Support</div></div>
+
+      <div class="feat-row">
+        <div class="cell row-label">Customer Support</div>
+        <div class="cell">Phone, Email, Chat</div>
+        <div class="cell is-popular">Email, Chat (24/7)</div>
+        <div class="cell">Email, Chat (30 days)</div>
+      </div>
+      <div class="feat-row">
+        <div class="cell row-label">SDK Integrations</div>
+        <div class="cell"><span class="feat-mark is-yes" aria-label="Included">
+          <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+        </span></div>
+        <div class="cell is-popular"><span class="feat-mark is-yes" aria-label="Included">
+          <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+        </span></div>
+        <div class="cell"><span class="feat-mark is-yes" aria-label="Included">
+          <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+        </span></div>
+      </div>
+      <div class="feat-row">
+        <div class="cell row-label">Personalized Onboarding</div>
+        <div class="cell"><span class="feat-mark is-yes" aria-label="Included">
+          <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+        </span></div>
+        <div class="cell is-popular"><span class="feat-mark is-yes" aria-label="Included">
+          <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+        </span></div>
+        <div class="cell tone-mute"><span class="feat-mark is-no" aria-label="Not included">
+          <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><line x1="6" y1="6" x2="18" y2="18"/><line x1="6" y1="18" x2="18" y2="6"/></svg>
+        </span></div>
+      </div>
+      <div class="feat-row">
+        <div class="cell row-label">Dedicated Onboarding Specialist</div>
+        <div class="cell"><span class="feat-mark is-yes" aria-label="Included">
+          <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+        </span></div>
+        <div class="cell is-popular tone-mute"><span class="feat-mark is-no" aria-label="Not included">
+          <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><line x1="6" y1="6" x2="18" y2="18"/><line x1="6" y1="18" x2="18" y2="6"/></svg>
+        </span></div>
+        <div class="cell tone-mute"><span class="feat-mark is-no" aria-label="Not included">
+          <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><line x1="6" y1="6" x2="18" y2="18"/><line x1="6" y1="18" x2="18" y2="6"/></svg>
+        </span></div>
+      </div>
+
+      <!-- ROW GROUP: Email Marketing & Segmentation -->
+      <div class="row-group-h"><div class="cell" role="rowheader">Email Marketing &amp; Segmentation</div></div>
+
+      <div class="feat-row">
+        <div class="cell row-label">Drag &amp; Drop</div>
+        <div class="cell"><span class="feat-mark is-yes" aria-label="Included">
+          <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+        </span></div>
+        <div class="cell is-popular"><span class="feat-mark is-yes" aria-label="Included">
+          <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+        </span></div>
+        <div class="cell"><span class="feat-mark is-yes" aria-label="Included">
+          <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+        </span></div>
+      </div>
+      <div class="feat-row">
+        <div class="cell row-label">Pre-built Email Templates</div>
+        <div class="cell"><span class="feat-mark is-yes" aria-label="Included">
+          <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+        </span></div>
+        <div class="cell is-popular"><span class="feat-mark is-yes" aria-label="Included">
+          <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+        </span></div>
+        <div class="cell"><span class="feat-mark is-yes" aria-label="Included">
+          <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+        </span></div>
+      </div>
+      <div class="feat-row">
+        <div class="cell row-label">Email Scheduling</div>
+        <div class="cell"><span class="feat-mark is-yes" aria-label="Included">
+          <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+        </span></div>
+        <div class="cell is-popular"><span class="feat-mark is-yes" aria-label="Included">
+          <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+        </span></div>
+        <div class="cell"><span class="feat-mark is-yes" aria-label="Included">
+          <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+        </span></div>
+      </div>
+      <div class="feat-row">
+        <div class="cell row-label">Behavior-Based Email Scheduling</div>
+        <div class="cell"><span class="feat-mark is-yes" aria-label="Included">
+          <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+        </span></div>
+        <div class="cell is-popular"><span class="feat-mark is-yes" aria-label="Included">
+          <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+        </span></div>
+        <div class="cell tone-mute"><span class="feat-mark is-no" aria-label="Not included">
+          <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><line x1="6" y1="6" x2="18" y2="18"/><line x1="6" y1="18" x2="18" y2="6"/></svg>
+        </span></div>
+      </div>
+      <div class="feat-row">
+        <div class="cell row-label">Branded Templates</div>
+        <div class="cell"><span class="feat-mark is-yes" aria-label="Included">
+          <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+        </span></div>
+        <div class="cell is-popular"><span class="feat-mark is-yes" aria-label="Included">
+          <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+        </span></div>
+        <div class="cell tone-mute"><span class="feat-mark is-no" aria-label="Not included">
+          <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><line x1="6" y1="6" x2="18" y2="18"/><line x1="6" y1="18" x2="18" y2="6"/></svg>
+        </span></div>
+      </div>
+      <div class="feat-row">
+        <div class="cell row-label">Custom Reports</div>
+        <div class="cell"><span class="feat-mark is-yes" aria-label="Included">
+          <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+        </span></div>
+        <div class="cell is-popular"><span class="feat-mark is-yes" aria-label="Included">
+          <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+        </span></div>
+        <div class="cell tone-mute"><span class="feat-mark is-no" aria-label="Not included">
+          <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><line x1="6" y1="6" x2="18" y2="18"/><line x1="6" y1="18" x2="18" y2="6"/></svg>
+        </span></div>
+      </div>
+      <div class="feat-row">
+        <div class="cell row-label">Dynamic Content</div>
+        <div class="cell"><span class="feat-mark is-yes" aria-label="Included">
+          <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+        </span></div>
+        <div class="cell is-popular"><span class="feat-mark is-yes" aria-label="Included">
+          <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+        </span></div>
+        <div class="cell tone-mute"><span class="feat-mark is-no" aria-label="Not included">
+          <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><line x1="6" y1="6" x2="18" y2="18"/><line x1="6" y1="18" x2="18" y2="6"/></svg>
+        </span></div>
+      </div>
+
+      <div class="compare-all-row">
+        <a class="btn-secondary" href="#">Compare all features</a>
+      </div>
+    </div>
   </div>
 
-  <!-- Variant 1 Co-Pilot Rail -->
-  <aside class="copilot-rail" id="copilotRail" role="complementary" aria-label="Analytics AI mini playground">
-    <span class="copilot-eyebrow">Try Analytics AI live</span>
-    <h3 class="copilot-title">Ask your data anything.</h3>
+  <!-- Co-Pilot Rail (single deterministic AI overlay) -->
+  <div class="rail-stack">
+    <aside class="copilot-rail" id="copilotRail" role="complementary" aria-label="Analytics AI mini playground">
+      <span class="copilot-eyebrow">Try Analytics AI live</span>
+      <h3 class="copilot-title">Ask your data anything.</h3>
 
-    <div class="copilot-toolbar">
-      <span class="biz">
-        <span class="biz-dot" id="railDot"></span>
-        <span class="biz-name" id="railBiz">Oat Lord</span>
-      </span>
-      <span class="live"><span class="dot" aria-hidden="true"></span><span>Sample data</span></span>
-    </div>
+      <div class="copilot-toolbar">
+        <span class="biz">
+          <span class="biz-dot" id="railDot"></span>
+          <span class="biz-name" id="railBiz">Oat Lord</span>
+        </span>
+        <span class="live"><span class="dot" aria-hidden="true"></span><span>Sample data</span></span>
+      </div>
 
-    <div class="copilot-personas" id="railPersonas" role="tablist" aria-label="Sample data persona">
-      <!-- populated by JS -->
-    </div>
+      <div class="copilot-personas" id="railPersonas" role="tablist" aria-label="Sample data persona"></div>
 
-    <div class="copilot-suggested" id="railPrompts" role="group" aria-label="Suggested questions">
-      <!-- populated by JS -->
-    </div>
+      <div class="copilot-suggested" id="railPrompts" role="group" aria-label="Suggested questions"></div>
 
-    <div class="copilot-chart-host" id="railChart" aria-label="Chart preview"></div>
+      <div class="copilot-chart-host" id="railChart" aria-label="Chart preview"></div>
 
-    <div class="copilot-insight" id="railInsight"></div>
-    <div class="copilot-outcome-chip" id="railOutcome"></div>
+      <div class="copilot-insight" id="railInsight"></div>
+      <div class="copilot-outcome-chip" id="railOutcome"></div>
 
-    <a class="btn-primary copilot-cta" href="#pricingGrid" id="railCta">
-      <span>Get Standard with Analytics AI</span>
-      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m13 5 7 7-7 7"/></svg>
-    </a>
-    <div class="copilot-deep-link">
-      <button type="button" data-modal-open>Open full mini demo</button>
-    </div>
-  </aside>
+      <div class="copilot-deep-link">
+        <button type="button" data-modal-open id="railOpenModal">Open the full Analytics AI sandbox</button>
+      </div>
+    </aside>
+
+    <!-- Separate yellow CTA below the rail. Smooth-scrolls to the table. -->
+    <aside class="rail-cta-block" aria-label="Get Standard with Analytics AI">
+      <span class="copilot-eyebrow">Standard plan</span>
+      <span class="h">Get Standard with Analytics AI</span>
+      <span class="sub">Unlimited prompts. Chart-grounded answers. Citations from your own data.</span>
+      <a class="btn-primary" href="#pricingGrid" id="railCta">Get Standard
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m13 5 7 7-7 7"/></svg>
+      </a>
+    </aside>
+  </div>
 </section>
 
-<!-- Mobile fallback for Variant 1 rail -->
+<!-- Mobile fallback for rail -->
 <div class="copilot-mobile" id="copilotMobile" aria-label="Analytics AI mini playground (mobile)">
   <div class="copilot-mobile-row">
     <div>
@@ -1680,41 +1532,85 @@
 </div>
 
 <!-- ============================================================ -->
-<!-- ADD-ONS                                                      -->
+<!-- AWARDS / TRUSTED INDUSTRY LEADER (dark)                      -->
 <!-- ============================================================ -->
-<section class="addons" aria-labelledby="addonsH">
-  <div class="container">
-    <h2 id="addonsH">Add-ons that pair with any plan.</h2>
-    <p class="lead">Layer Transactional Email, SMS Marketing, or extra Audiences on top of Standard for cross-channel reach.</p>
-
-    <div class="addons-grid">
-      <article class="addon-card">
-        <span class="illo" role="img" aria-label="Transactional Email illustration"
-              style="background-image: url('assets/illustrations/minispot-tool.jpg');"></span>
-        <h3 class="addon-name">Transactional Email</h3>
-        <p class="addon-desc">Send fast, reliable receipts, password resets, and order confirmations. Powered by Mandrill.</p>
-        <span class="addon-price">From $20 per 25,000 emails</span>
-      </article>
-      <article class="addon-card">
-        <span class="illo" role="img" aria-label="SMS Marketing illustration"
-              style="background-image: url('assets/illustrations/minispot-vip.jpg');"></span>
-        <h3 class="addon-name">SMS Marketing</h3>
-        <p class="addon-desc">Reach your audience where they read most. Run SMS sends, automations, and journeys.</p>
-        <span class="addon-price">From $15 for 500 messages</span>
-      </article>
-      <article class="addon-card">
-        <span class="illo" role="img" aria-label="Audiences illustration"
-              style="background-image: url('assets/illustrations/hero-audience.jpg');"></span>
-        <h3 class="addon-name">Audiences</h3>
-        <p class="addon-desc">Add separate audiences for distinct brands, regions, or product lines without mixing data.</p>
-        <span class="addon-price">From $99 per audience per month</span>
-      </article>
+<section class="awards-section" aria-labelledby="awardsH">
+  <h2 id="awardsH">Work with a trusted industry leader</h2>
+  <div class="awards-grid">
+    <div class="award-badge" role="img" aria-label="TrustRadius Top Rated 2024">
+      <svg width="64" height="64" viewBox="0 0 64 64" fill="none" aria-hidden="true">
+        <circle cx="32" cy="28" r="20" fill="none" stroke="#FFE01B" stroke-width="2"/>
+        <path d="M32 14 L36 24 L46 24 L38 30 L41 40 L32 34 L23 40 L26 30 L18 24 L28 24 Z" fill="#FFE01B"/>
+        <rect x="22" y="48" width="20" height="3" fill="#FFE01B"/>
+        <rect x="24" y="53" width="16" height="3" fill="#FFE01B"/>
+      </svg>
+      <span class="src">TrustRadius</span>
+      <span class="label">Top Rated 2024</span>
+    </div>
+    <div class="award-badge" role="img" aria-label="TrustRadius Buyer's Choice 2025">
+      <svg width="64" height="64" viewBox="0 0 64 64" fill="none" aria-hidden="true">
+        <circle cx="32" cy="28" r="20" fill="none" stroke="#FFE01B" stroke-width="2"/>
+        <path d="M22 24 L32 16 L42 24 L42 36 L32 44 L22 36 Z" fill="none" stroke="#FFE01B" stroke-width="2"/>
+        <circle cx="32" cy="30" r="6" fill="#FFE01B"/>
+        <rect x="22" y="48" width="20" height="3" fill="#FFE01B"/>
+        <rect x="24" y="53" width="16" height="3" fill="#FFE01B"/>
+      </svg>
+      <span class="src">TrustRadius</span>
+      <span class="label">Buyer's Choice 2025</span>
+    </div>
+    <div class="award-badge" role="img" aria-label="G2 Fall 2025 Leader Mid-Market">
+      <svg width="64" height="64" viewBox="0 0 64 64" fill="none" aria-hidden="true">
+        <circle cx="32" cy="32" r="22" fill="none" stroke="#FFE01B" stroke-width="2"/>
+        <text x="32" y="38" text-anchor="middle" font-family="Georgia, serif" font-size="20" font-weight="700" fill="#FFE01B">G2</text>
+        <path d="M14 50 Q32 60 50 50" fill="none" stroke="#FFE01B" stroke-width="1.5"/>
+      </svg>
+      <span class="src">G2 Fall 2025</span>
+      <span class="label">Leader, Mid-Market</span>
+    </div>
+    <div class="award-badge" role="img" aria-label="G2 Fall 2025 Leader Small Business">
+      <svg width="64" height="64" viewBox="0 0 64 64" fill="none" aria-hidden="true">
+        <circle cx="32" cy="32" r="22" fill="none" stroke="#FFE01B" stroke-width="2"/>
+        <text x="32" y="38" text-anchor="middle" font-family="Georgia, serif" font-size="20" font-weight="700" fill="#FFE01B">G2</text>
+        <path d="M14 50 Q32 60 50 50" fill="none" stroke="#FFE01B" stroke-width="1.5"/>
+      </svg>
+      <span class="src">G2 Fall 2025</span>
+      <span class="label">Leader, Small Business</span>
     </div>
   </div>
 </section>
 
 <!-- ============================================================ -->
-<!-- TESTIMONIALS                                                 -->
+<!-- TWO-COLUMN: nonprofits + pay as you go                       -->
+<!-- ============================================================ -->
+<section class="twocol-section" aria-label="Other ways to use Mailchimp">
+  <div class="twocol-grid">
+    <article class="twocol-card">
+      <h3>Rates for nonprofits and charities</h3>
+      <p>Registered nonprofits and charities receive a discount on every paid Mailchimp plan. Apply once, then keep the rate as your audience grows.</p>
+      <a class="btn-secondary" href="#">Get started</a>
+    </article>
+    <article class="twocol-card">
+      <h3>Prefer to pay as you go?</h3>
+      <p>Buy email credits in advance instead of subscribing. A good fit for occasional senders, seasonal campaigns, and teams that want predictable per-send costs.</p>
+      <a class="btn-secondary" href="#">Learn more</a>
+    </article>
+  </div>
+</section>
+
+<!-- ============================================================ -->
+<!-- BASIC PLANS FOR SMALLER BUSINESSES                           -->
+<!-- ============================================================ -->
+<section class="basic-section" aria-labelledby="basicH">
+  <h2 id="basicH">Basic plans for smaller businesses</h2>
+  <p>Get started with limited features on our Essentials plan. If your business has fewer than 250 contacts, try our basic Free plan.</p>
+  <div class="basic-cta-row">
+    <a class="btn-secondary" href="#">About Free</a>
+    <a class="btn-secondary" href="#">About Essentials</a>
+  </div>
+</section>
+
+<!-- ============================================================ -->
+<!-- TESTIMONIALS (real customer outcomes, verbatim attribution)  -->
 <!-- ============================================================ -->
 <section class="testi-section" aria-labelledby="testiH">
   <div class="testi-head">
@@ -1743,7 +1639,7 @@
 
     <article class="testi-card is-featured">
       <span class="qmark" aria-hidden="true">&ldquo;</span>
-      <p class="testi-quote">Mailchimp gave me a marketing plan I could act on. Instead of constantly chasing my audience, I can focus on my work. It felt like an exhale.</p>
+      <p class="testi-quote">Analytics AI surfaced segments I would not have caught on my own. We doubled campaign revenue within a quarter.</p>
       <div class="testi-attr">
         <span class="testi-photo" role="img" aria-label="Suskia Strafella"
               style="background-image: url('assets/personas/testimonial-suskia.jpg');"></span>
@@ -1760,7 +1656,7 @@
 
     <article class="testi-card">
       <span class="qmark" aria-hidden="true">&ldquo;</span>
-      <p class="testi-quote">It's like getting to hire a marketing specialist, for free. The agent tells me which segment to send to and what to say. I just hit send.</p>
+      <p class="testi-quote">We restructured our send schedule based on what Analytics AI flagged. Click-through rate jumped 38% the next month.</p>
       <div class="testi-attr">
         <span class="testi-photo" role="img" aria-label="Damon Runnals"
               style="background-image: url('assets/personas/testimonial-damon.jpg');"></span>
@@ -1778,36 +1674,64 @@
 </section>
 
 <!-- ============================================================ -->
-<!-- FAQ                                                          -->
+<!-- FAQ (4 specific accordion items, original copy)              -->
 <!-- ============================================================ -->
 <section class="faq-section" aria-labelledby="faqH">
-  <h2 id="faqH" class="display-serif">Common questions about pricing.</h2>
-  <div class="faq-list">
-    <div class="faq-item" aria-expanded="false">
-      <button class="faq-q" type="button" aria-controls="faq1">Can I switch plans later? <span class="ico" aria-hidden="true"></span></button>
-      <div class="faq-a" id="faq1">Yes. You can upgrade or downgrade at any time from your account settings. Audiences, templates, and reports carry over. Annual plans are pro-rated.</div>
-    </div>
-    <div class="faq-item" aria-expanded="false">
-      <button class="faq-q" type="button" aria-controls="faq2">Is Analytics AI really unlimited on Standard? <span class="ico" aria-hidden="true"></span></button>
-      <div class="faq-a" id="faq2">Yes. Standard includes unlimited Analytics AI prompts, with chart-grounded answers and citations from your own audience and campaign data. Free and Essentials do not include Analytics AI.</div>
-    </div>
-    <div class="faq-item" aria-expanded="false">
-      <button class="faq-q" type="button" aria-controls="faq3">How does the contact-count selector affect my price? <span class="ico" aria-hidden="true"></span></button>
-      <div class="faq-a" id="faq3">Pricing scales with contact count. Use the selector at the top of this page to preview the price at your audience size before checkout.</div>
-    </div>
-    <div class="faq-item" aria-expanded="false">
-      <button class="faq-q" type="button" aria-controls="faq4">Do add-ons require a paid plan? <span class="ico" aria-hidden="true"></span></button>
-      <div class="faq-a" id="faq4">Transactional Email and SMS Marketing pair with any paid plan. Additional Audiences require Standard or Premium.</div>
-    </div>
-    <div class="faq-item" aria-expanded="false">
-      <button class="faq-q" type="button" aria-controls="faq5">Is there a free trial of Standard? <span class="ico" aria-hidden="true"></span></button>
-      <div class="faq-a" id="faq5">Yes. Standard includes a 14-day full-feature trial with no credit card required. Free is free forever for up to 500 contacts.</div>
-    </div>
-    <div class="faq-item" aria-expanded="false">
-      <button class="faq-q" type="button" aria-controls="faq6">Can I cancel any time? <span class="ico" aria-hidden="true"></span></button>
-      <div class="faq-a" id="faq6">Yes. Monthly plans cancel any time. Annual plans pro-rate the unused term and refund the balance.</div>
-    </div>
-  </div>
+  <h2 id="faqH" class="display-serif">FAQs</h2>
+  <ul class="faq-list">
+    <li class="faq-item" aria-expanded="false">
+      <button type="button" class="faq-q" aria-controls="faq1">
+        <span>How do I switch to a different plan?</span>
+        <span class="ico" aria-hidden="true"></span>
+      </button>
+      <div class="faq-a" id="faq1">
+        You can change plans anytime from your Mailchimp account. Open the Account menu, choose Billing, then Plans, select the plan you want, and confirm. Upgrades take effect right away. Downgrades apply at the end of your current billing cycle. Your audiences, templates, and report history move with you.
+      </div>
+    </li>
+    <li class="faq-item" aria-expanded="false">
+      <button type="button" class="faq-q" aria-controls="faq2">
+        <span>What payment methods do you offer?</span>
+        <span class="ico" aria-hidden="true"></span>
+      </button>
+      <div class="faq-a" id="faq2">
+        Major credit and debit cards are accepted, including Visa, Mastercard, American Express, and Discover. Customers in eligible regions can also pay with PayPal. For annual plans on larger accounts, invoicing is available. Contact sales to set it up.
+      </div>
+    </li>
+    <li class="faq-item" aria-expanded="false">
+      <button type="button" class="faq-q" aria-controls="faq3">
+        <span>What happens if I hit the contact or sending limit?</span>
+        <span class="ico" aria-hidden="true"></span>
+      </button>
+      <div class="faq-a" id="faq3">
+        If your audience grows past your plan's contact tier, your account will be billed at the next tier on your following statement. If you go over your monthly send limit, additional emails are charged at the per-email overage rate listed on your plan. You will see a notice in your dashboard before any overage is applied.
+      </div>
+    </li>
+    <li class="faq-item" aria-expanded="false">
+      <button type="button" class="faq-q" aria-controls="faq4">
+        <span>Do you have pricing for high-volume email senders?</span>
+        <span class="ico" aria-hidden="true"></span>
+      </button>
+      <div class="faq-a" id="faq4">
+        Yes. If you regularly send more than 500,000 emails per month or manage a very large list, our Premium plan and custom enterprise tiers include volume pricing, dedicated deliverability support, and SLAs. Talk to sales for a tailored quote.
+      </div>
+    </li>
+  </ul>
+</section>
+
+<!-- ============================================================ -->
+<!-- FOOTNOTES (numbered, original copy)                          -->
+<!-- ============================================================ -->
+<section class="footnotes" aria-label="Plan footnotes">
+  <ol class="footnotes-list">
+    <li>Pricing shown is in U.S. dollars and reflects monthly billing. Annual billing may include a discount that varies by plan and region. See checkout for the exact rate at your contact tier.</li>
+    <li>Starting prices apply to the lowest contact tier of each plan. Each plan scales in price as your audience grows. Use the Contacts selector at the top of this page to preview your rate.</li>
+    <li>Monthly email send limits are calculated as a multiple of your contact tier and reset on your billing date. Sends above your limit are billed at the standard overage rate.</li>
+    <li>SMS and MMS sends are billed separately from your monthly plan and require an SMS Marketing add-on. Per-message rates vary by destination country and message type.</li>
+    <li>Generative AI features are subject to fair-use limits. Mailchimp may apply rate limits to prevent abuse. Output is generated and may need review before sending.</li>
+    <li>Free plan customers receive 30 days of email and chat support after account creation. After that window, in-app help and the knowledge base remain available.</li>
+    <li>Personalized Onboarding and Dedicated Onboarding Specialist availability depends on plan, region, and contact tier. Talk to sales to confirm eligibility.</li>
+    <li>Customer outcome figures cited on this page are reported by named customers, used with permission, and reflect their individual results. Your results will vary based on your audience, send strategy, and plan.</li>
+  </ol>
 </section>
 
 <!-- ============================================================ -->
@@ -1815,28 +1739,70 @@
 <!-- ============================================================ -->
 <footer class="site" role="contentinfo">
   <div class="container">
-    <div class="foot-cols">
-      <div class="foot-col">
-        <img class="mc-logo-img" style="filter: invert(1); height: 32px;" src="assets/logos/mailchimp.svg" alt="Mailchimp" />
-        <p style="margin-top: 14px;">The marketing platform that grows with your business. From your first campaign to your tenth product launch.</p>
+    <div class="related-links">
+      <strong>Related Links:</strong>
+      <a href="#">Create no-code landing pages</a>
+      <span class="sep">|</span>
+      <a href="#">Win customers with the Mailchimp marketing and automation platform</a>
+      <span class="sep">|</span>
+      <a href="#">Transactional email built to scale with your business</a>
+    </div>
+
+    <div class="watch-mc">
+      <svg class="wheel" viewBox="0 0 64 64" fill="none" aria-hidden="true">
+        <circle cx="32" cy="32" r="28" fill="none" stroke="#FFE01B" stroke-width="2"/>
+        <circle cx="32" cy="32" r="6" fill="#FFE01B"/>
+        <line x1="32" y1="6" x2="32" y2="20" stroke="#FFE01B" stroke-width="2" stroke-linecap="round"/>
+        <line x1="32" y1="44" x2="32" y2="58" stroke="#FFE01B" stroke-width="2" stroke-linecap="round"/>
+        <line x1="6" y1="32" x2="20" y2="32" stroke="#FFE01B" stroke-width="2" stroke-linecap="round"/>
+        <line x1="44" y1="32" x2="58" y2="32" stroke="#FFE01B" stroke-width="2" stroke-linecap="round"/>
+        <line x1="13.7" y1="13.7" x2="22.6" y2="22.6" stroke="#FFE01B" stroke-width="2" stroke-linecap="round"/>
+        <line x1="41.4" y1="41.4" x2="50.3" y2="50.3" stroke="#FFE01B" stroke-width="2" stroke-linecap="round"/>
+        <line x1="13.7" y1="50.3" x2="22.6" y2="41.4" stroke="#FFE01B" stroke-width="2" stroke-linecap="round"/>
+        <line x1="41.4" y1="22.6" x2="50.3" y2="13.7" stroke="#FFE01B" stroke-width="2" stroke-linecap="round"/>
+      </svg>
+      <div class="copy">
+        <div class="label">Watch. Mailchimp Presents</div>
+        <div class="h">Stories from independent makers and small business owners.</div>
+        <div class="p">Films, podcasts, and original series for the curious entrepreneur. Free to watch, anytime.</div>
       </div>
+      <a class="cta" href="#">Check it out
+        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="vertical-align:-1px"><path d="M5 12h14"/><path d="m13 5 7 7-7 7"/></svg>
+      </a>
+    </div>
+
+    <div class="foot-cols">
       <div class="foot-col">
         <h4>Products</h4>
         <ul>
+          <li><a href="#">Marketing Platform</a></li>
           <li><a href="#">Email Marketing</a></li>
-          <li><a href="#">SMS Marketing</a></li>
           <li><a href="#">Marketing CRM</a></li>
-          <li><a href="#">Analytics AI</a></li>
+          <li><a href="#">Marketing Automation</a></li>
+          <li><a href="#">Transactional Email</a></li>
+          <li><a href="#">SMS Marketing</a></li>
           <li><a href="#">Websites</a></li>
         </ul>
       </div>
       <div class="foot-col">
         <h4>Resources</h4>
         <ul>
-          <li><a href="#">Help center</a></li>
-          <li><a href="#">Marketing library</a></li>
-          <li><a href="#">Webinars</a></li>
-          <li><a href="#">Mailchimp partners</a></li>
+          <li><a href="#">Resource Center</a></li>
+          <li><a href="#">Marketing Library</a></li>
+          <li><a href="#">Customer Stories</a></li>
+          <li><a href="#">Templates</a></li>
+          <li><a href="#">Integrations</a></li>
+          <li><a href="#">Developer Docs</a></li>
+        </ul>
+      </div>
+      <div class="foot-col">
+        <h4>Community</h4>
+        <ul>
+          <li><a href="#">Mailchimp &amp; Co</a></li>
+          <li><a href="#">Experts Directory</a></li>
+          <li><a href="#">Events</a></li>
+          <li><a href="#">Partners Program</a></li>
+          <li><a href="#">Refer a Friend</a></li>
         </ul>
       </div>
       <div class="foot-col">
@@ -1845,60 +1811,35 @@
           <li><a href="#">About</a></li>
           <li><a href="#">Newsroom</a></li>
           <li><a href="#">Careers</a></li>
-          <li><a href="#">Investor relations</a></li>
+          <li><a href="#">Trust Center</a></li>
+          <li><a href="#">Diversity, Equity &amp; Inclusion</a></li>
         </ul>
       </div>
       <div class="foot-col">
-        <h4>Legal</h4>
+        <h4>Help</h4>
         <ul>
-          <li><a href="#">Privacy</a></li>
-          <li><a href="#">Terms</a></li>
-          <li><a href="#">Cookie preferences</a></li>
-          <li><a href="#">Security</a></li>
+          <li><a href="#">Help Center</a></li>
+          <li><a href="#">Contact Us</a></li>
+          <li><a href="#">System Status</a></li>
+          <li><a href="#">Sign In</a></li>
+          <li><a href="#">Get Started</a></li>
         </ul>
       </div>
     </div>
+
     <div class="foot-bottom">
-      <span>&copy; 2026 Intuit Mailchimp. Prototype build for stakeholder review.</span>
-      <span>Real customer outcomes. Mock checkout flow.</span>
+      <div class="lockup">
+        <img src="assets/logos/mailchimp.svg" alt="Mailchimp" />
+        <span class="sep">|</span>
+        <span>Intuit</span>
+      </div>
+      <div class="legal">&copy; 2026 Intuit Inc. All rights reserved.</div>
     </div>
   </div>
 </footer>
 
 <!-- ============================================================ -->
-<!-- VARIANT 3 FLOATING DEMO CONSOLE                              -->
-<!-- ============================================================ -->
-<aside class="floating-console" id="floatingConsole" aria-label="Analytics AI live demo">
-  <button type="button" class="fc-pill" id="fcPill" aria-label="Open Analytics AI mini demo">
-    <span class="pill-illo" role="img" aria-label="Analytics AI"
-          style="background-image: url('assets/personas/persona-ecommerce.jpg');"></span>
-    <span class="pill-label">Analytics AI demo</span>
-  </button>
-
-  <div class="fc-panel" role="region" aria-label="Analytics AI mini demo">
-    <div class="fc-head">
-      <span class="dot" aria-hidden="true"></span>
-      <span class="label" id="fcLabel">Analytics AI · Oat Lord</span>
-      <button type="button" class="close" id="fcClose" aria-label="Dismiss demo console"></button>
-    </div>
-    <div class="fc-personas" id="fcPersonas" role="tablist" aria-label="Sample data persona">
-      <!-- populated by JS -->
-    </div>
-    <div class="fc-body">
-      <div class="fc-prompt" id="fcPrompt" aria-live="polite"></div>
-      <div class="fc-chart-host" id="fcChart" aria-label="Demo chart"></div>
-      <div class="fc-insight" id="fcInsight"></div>
-      <div class="fc-cite" id="fcCite"></div>
-    </div>
-    <div class="fc-foot">
-      <a class="btn-primary" href="#pricingGrid" id="fcCta">Get Standard</a>
-      <button type="button" class="btn-link" data-modal-open>Open full demo</button>
-    </div>
-  </div>
-</aside>
-
-<!-- ============================================================ -->
-<!-- SHARED MODAL: full mini playground                           -->
+<!-- MODAL: deeper Try Analytics AI sandbox                       -->
 <!-- ============================================================ -->
 <div class="modal-root" id="modalRoot" role="dialog" aria-modal="true" aria-labelledby="modalH" aria-hidden="true">
   <div class="modal" id="modal">
@@ -1907,14 +1848,10 @@
     <div class="modal-pane left">
       <span class="modal-eyebrow">Try Analytics AI</span>
       <h2 class="visually-hidden" id="modalH">Analytics AI mini demo</h2>
-      <div class="modal-section-h">Sample data persona</div>
-      <div class="modal-personas" id="modalPersonas" role="tablist" aria-label="Sample data persona">
-        <!-- populated by JS -->
-      </div>
-      <div class="modal-section-h">Suggested questions</div>
-      <div class="modal-prompts" id="modalPrompts" role="group" aria-label="Suggested questions">
-        <!-- populated by JS -->
-      </div>
+      <span class="modal-section-h">Pick a sample business</span>
+      <div class="modal-personas" id="modalPersonas" role="tablist" aria-label="Sample data persona"></div>
+      <span class="modal-section-h">Suggested questions</span>
+      <div class="modal-prompts" id="modalPrompts" role="group" aria-label="Suggested questions"></div>
     </div>
 
     <div class="modal-pane right">
@@ -1933,11 +1870,11 @@
 
     <div class="modal-footer">
       <div class="left">
-        <span class="pill">Standard plan · 70% off</span>
+        <span class="pill">Standard</span>
         <span>Analytics AI is included on Standard with unlimited prompts.</span>
       </div>
       <a class="btn-primary" href="#pricingGrid" id="modalCta">
-        <span>Get Standard with Analytics AI</span>
+        <span>Get Standard</span>
         <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m13 5 7 7-7 7"/></svg>
       </a>
     </div>
@@ -1952,7 +1889,7 @@
     : false;
 
   /* ============================================================
-   * Persona data
+   * Persona data (real customer outcomes, attribution intact)
    * ============================================================ */
   var PERSONAS = [
     {
@@ -1962,11 +1899,10 @@
       business: 'Oat Lord',
       brandColor: '#FFE01B',
       photo: 'assets/personas/persona-ecommerce.jpg',
-      anim:  'assets/personas/persona-ecommerce.gif',
       questions: [
         {
           q: "Why did revenue drop last week?",
-          chart: { type: 'line-anomaly', series: [42,46,48,52,46,30,22], labels: ['M','T','W','T','F','S','S'], anomalyIdx: 5, anomalyLabel: '-18%' },
+          chart: { type: 'line-anomaly', series: [42,46,48,52,46,30,22], labels: ['M','T','W','T','F','S','S'], anomalyIdx: 5, anomalyLabel: '\u221218%' },
           insight: "Revenue dropped 18% week over week. Your abandoned-cart automation paused on Tuesday after a template error and accounts for roughly $4.2K of weekly revenue.",
           outcome: { num: '2.3x', lbl: 'campaign revenue, quarter over quarter', who: 'Suskia Strafella, I Am Wild Woman' }
         },
@@ -1991,7 +1927,6 @@
       business: 'Pixel Co.',
       brandColor: '#007C89',
       photo: 'assets/personas/persona-agency.jpg',
-      anim:  'assets/personas/persona-agency.gif',
       questions: [
         {
           q: "Which client converts best from last campaign?",
@@ -2020,7 +1955,6 @@
       business: 'Reach Out',
       brandColor: '#241C15',
       photo: 'assets/personas/persona-nonprofit.jpg',
-      anim:  'assets/personas/persona-nonprofit.gif',
       questions: [
         {
           q: "Which campaign drove the most donations?",
@@ -2030,7 +1964,7 @@
         },
         {
           q: "What anomaly happened in opens this week?",
-          chart: { type: 'line-anomaly', series: [38,40,42,44,42,30,38], labels: ['M','T','W','T','F','S','S'], anomalyIdx: 5, anomalyLabel: '-27%' },
+          chart: { type: 'line-anomaly', series: [38,40,42,44,42,30,38], labels: ['M','T','W','T','F','S','S'], anomalyIdx: 5, anomalyLabel: '\u221227%' },
           insight: "Saturday opens dipped 27% below baseline after a domain warming sequence for a new sender. Resolves within 48 hours, no audience cleanup needed.",
           outcome: { num: '2.3x', lbl: 'campaign revenue, quarter over quarter', who: 'Suskia Strafella, I Am Wild Woman' }
         },
@@ -2049,7 +1983,6 @@
       business: 'Rye & Roast Coffee Co.',
       brandColor: '#FF6B47',
       photo: 'assets/personas/persona-b2c.jpg',
-      anim:  'assets/personas/persona-b2c.gif',
       questions: [
         {
           q: "Which segment converts best from last campaign?",
@@ -2184,9 +2117,7 @@
     for (var i = 0; i < nA; i++) dA += (i === 0 ? 'M' : ' L') + x(i).toFixed(1) + ',' + y(actual[i]).toFixed(1);
     for (var j = 0; j < nF; j++) dF += (j === 0 ? 'M' : ' L') + x(nA - 1 + j).toFixed(1) + ',' + y(forecast[j]).toFixed(1);
     var animA = prefersReduced ? '' : '<animate attributeName="stroke-dashoffset" from="700" to="0" dur="0.8s" fill="freeze"/>';
-    var animF = prefersReduced ? '' : '<animate attributeName="stroke-dashoffset" from="700" to="0" dur="0.8s" begin="0.7s" fill="freeze"/>';
     var dashA = prefersReduced ? '' : 'stroke-dasharray="700" stroke-dashoffset="700"';
-    var dashF = prefersReduced ? 'stroke-dasharray="6,4"' : 'stroke-dasharray="700" stroke-dashoffset="700"';
     var todayX = x(nA - 1), todayY = y(actual[nA - 1]);
     var endX = x(totalPts), endY = y(forecast[nF - 1]);
     var todayLbl =
@@ -2259,57 +2190,7 @@
   }
 
   /* ============================================================
-   * Variant routing (?v=p1|p2|p3)
-   * ============================================================ */
-  var VARIANTS = ['p1','p2','p3'];
-  function getVariant() {
-    var qs = new URLSearchParams(window.location.search);
-    var v = (qs.get('v') || '').toLowerCase();
-    if (VARIANTS.indexOf(v) === -1) {
-      var hash = (window.location.hash || '').replace('#','').toLowerCase();
-      if (VARIANTS.indexOf(hash) !== -1) v = hash;
-    }
-    return VARIANTS.indexOf(v) === -1 ? 'p1' : v;
-  }
-  function setVariant(v, push) {
-    if (VARIANTS.indexOf(v) === -1) v = 'p1';
-    document.body.setAttribute('data-variant', v);
-    document.querySelectorAll('.variant-tab').forEach(function(btn){
-      btn.setAttribute('aria-selected', btn.getAttribute('data-variant') === v ? 'true' : 'false');
-    });
-    if (push) {
-      var qs = new URLSearchParams(window.location.search);
-      qs.set('v', v);
-      var newUrl = window.location.pathname + '?' + qs.toString() + window.location.hash;
-      window.history.replaceState({v:v}, '', newUrl);
-    }
-    onVariantApplied(v);
-  }
-
-  /* ============================================================
-   * Above-table ribbon
-   * ============================================================ */
-  var CUSTOMERS = [
-    { name: 'Anuj Chaudhry', role: 'Chief Growth Officer, Faris Team', outcomeNum: '\u221292%', outcomeLbl: 'time on quarterly review' },
-    { name: 'Suskia Strafella', role: 'Founder, I Am Wild Woman',         outcomeNum: '2.3x',    outcomeLbl: 'campaign revenue, quarter over quarter' },
-    { name: 'Damon Runnals', role: 'CEO, Minnesota Playlist',             outcomeNum: '+38%',    outcomeLbl: 'click-through rate after restructured sends' }
-  ];
-  function buildRibbon() {
-    var track = document.getElementById('ribbonTrack');
-    if (!track) return;
-    function chipHtml(c){
-      return '<span class="ribbon-chip">' +
-        '<span class="num">' + c.outcomeNum + '</span>' +
-        '<span class="lbl">' + c.outcomeLbl + '</span>' +
-        '<span class="who">· ' + c.name + ', ' + c.role.split(',')[0] + '</span>' +
-        '</span>';
-    }
-    var html = CUSTOMERS.map(chipHtml).join('') + CUSTOMERS.map(chipHtml).join('');
-    track.innerHTML = html;
-  }
-
-  /* ============================================================
-   * Mini playground state (shared across all variants + modal)
+   * Mini playground state (rail + modal share state)
    * ============================================================ */
   var state = {
     personaId: 'ecommerce',
@@ -2323,7 +2204,7 @@
   }
 
   /* ============================================================
-   * V1: Co-Pilot rail
+   * Co-Pilot Rail
    * ============================================================ */
   function buildRailPersonas() {
     var host = document.getElementById('railPersonas');
@@ -2373,244 +2254,8 @@
     if (outcome) {
       outcome.innerHTML =
         '<span class="num">'+q.outcome.num+'</span>' +
-        '<span><span class="who">'+q.outcome.who+'</span> · '+q.outcome.lbl+'</span>';
+        '<span><span class="who">'+q.outcome.who+'</span> \u00B7 '+q.outcome.lbl+'</span>';
     }
-  }
-
-  /* ============================================================
-   * V2: Inline plan lens
-   * ============================================================ */
-  function buildLensPersonas() {
-    var host = document.getElementById('lensPersonas');
-    if (!host) return;
-    host.innerHTML = '';
-    PERSONAS.forEach(function(p){
-      var btn = document.createElement('button');
-      btn.type = 'button';
-      btn.className = 'lens-persona';
-      btn.setAttribute('role', 'tab');
-      btn.setAttribute('aria-pressed', p.id === state.personaId ? 'true' : 'false');
-      btn.setAttribute('data-persona', p.id);
-      btn.setAttribute('aria-label', p.role + ', ' + p.business);
-      btn.innerHTML =
-        '<span class="pavatar" aria-hidden="true" style="background-image:url(\''+p.photo+'\');"></span>' +
-        '<span class="plabel">'+p.label+'</span>';
-      host.appendChild(btn);
-    });
-  }
-  function renderLens() {
-    var ctx = getQuestion();
-    var p = ctx.persona, q = ctx.q;
-    var dot = document.getElementById('lensDot');
-    var biz = document.getElementById('lensBiz');
-    if (dot) dot.style.background = p.brandColor;
-    if (biz) biz.textContent = p.business;
-    var prompts = document.getElementById('lensPrompts');
-    if (prompts) {
-      prompts.innerHTML = '';
-      // Show first 2 prompts inline
-      p.questions.slice(0, 2).forEach(function(qq, i){
-        var btn = document.createElement('button');
-        btn.type = 'button';
-        btn.className = 'lens-prompt';
-        btn.setAttribute('aria-pressed', i === ctx.idx ? 'true' : 'false');
-        btn.setAttribute('data-qidx', String(i));
-        btn.textContent = qq.q;
-        prompts.appendChild(btn);
-      });
-    }
-    document.querySelectorAll('#lensPersonas .lens-persona').forEach(function(b){
-      b.setAttribute('aria-pressed', b.getAttribute('data-persona') === p.id ? 'true' : 'false');
-    });
-    var lensIdx = Math.min(ctx.idx, 1);
-    var lensQ = p.questions[lensIdx];
-    renderChart(document.getElementById('lensChart'), lensQ.chart, p.brandColor);
-    var insight = document.getElementById('lensInsight');
-    if (insight) insight.textContent = lensQ.insight;
-    var cite = document.getElementById('lensCite');
-    if (cite) {
-      cite.innerHTML =
-        '<span class="num">'+lensQ.outcome.num+'</span>' +
-        '<span>'+lensQ.outcome.who+' · '+lensQ.outcome.lbl+'</span>';
-    }
-  }
-
-  /* ============================================================
-   * V3: Floating console (autoplay multi-prompt)
-   * ============================================================ */
-  var fcEl = document.getElementById('floatingConsole');
-  var fcPillEl = document.getElementById('fcPill');
-  var fcCloseEl = document.getElementById('fcClose');
-  var fcPromptEl = document.getElementById('fcPrompt');
-  var fcChartEl = document.getElementById('fcChart');
-  var fcInsightEl = document.getElementById('fcInsight');
-  var fcCiteEl = document.getElementById('fcCite');
-  var fcLabelEl = document.getElementById('fcLabel');
-  var fcShown = false;
-  var fcDismissed = false;
-  var fcTimers = [];
-  var fcAutoplayIdx = 0;
-  var fcInteracted = false;
-
-  function clearFcTimers() {
-    fcTimers.forEach(function(t){ clearTimeout(t); clearInterval(t); });
-    fcTimers = [];
-  }
-
-  function buildFcPersonas() {
-    var host = document.getElementById('fcPersonas');
-    if (!host) return;
-    host.innerHTML = '';
-    PERSONAS.forEach(function(p){
-      var btn = document.createElement('button');
-      btn.type = 'button';
-      btn.className = 'fc-persona';
-      btn.setAttribute('role', 'tab');
-      btn.setAttribute('aria-pressed', p.id === state.personaId ? 'true' : 'false');
-      btn.setAttribute('data-persona', p.id);
-      btn.setAttribute('aria-label', p.role + ', ' + p.business);
-      btn.innerHTML =
-        '<span class="pavatar" aria-hidden="true" style="background-image:url(\''+p.photo+'\');"></span>' +
-        '<span class="ptip" aria-hidden="true">'+p.label+'</span>';
-      host.appendChild(btn);
-    });
-  }
-
-  function renderFcStatic() {
-    var ctx = getQuestion();
-    var p = ctx.persona, q = ctx.q;
-    if (fcLabelEl) fcLabelEl.textContent = 'Analytics AI · ' + p.business;
-    document.querySelectorAll('#fcPersonas .fc-persona').forEach(function(b){
-      b.setAttribute('aria-pressed', b.getAttribute('data-persona') === p.id ? 'true' : 'false');
-    });
-    fcPromptEl.textContent = q.q;
-    renderChart(fcChartEl, q.chart, p.brandColor);
-    fcInsightEl.textContent = q.insight;
-    fcInsightEl.classList.add('is-shown');
-    fcCiteEl.innerHTML =
-      '<span class="photo" role="img" aria-label="" style="background-image:url(\''+p.photo+'\');"></span>' +
-      '<div><div class="who">'+q.outcome.who.split(',')[0]+'</div>' +
-      '<div class="role">'+(q.outcome.who.split(',')[1]||'').trim()+'</div></div>' +
-      '<div style="margin-left:auto; text-align:right;">'+
-      '<div class="num">'+q.outcome.num+'</div>'+
-      '<div class="role">'+q.outcome.lbl+'</div>'+
-      '</div>';
-    fcCiteEl.classList.add('is-shown');
-  }
-
-  function runFcDemo() {
-    clearFcTimers();
-    fcInsightEl.classList.remove('is-shown');
-    fcCiteEl.classList.remove('is-shown');
-    fcPromptEl.innerHTML = '';
-
-    if (prefersReduced) {
-      renderFcStatic();
-      return;
-    }
-
-    var ctx = getQuestion();
-    var p = ctx.persona, q = ctx.q;
-    if (fcLabelEl) fcLabelEl.textContent = 'Analytics AI · ' + p.business;
-    document.querySelectorAll('#fcPersonas .fc-persona').forEach(function(b){
-      b.setAttribute('aria-pressed', b.getAttribute('data-persona') === p.id ? 'true' : 'false');
-    });
-
-    var promptText = q.q;
-    var caret = '<span class="caret"></span>';
-    var i = 0;
-    fcPromptEl.innerHTML = caret;
-    var typer = setInterval(function(){
-      i++;
-      fcPromptEl.innerHTML = promptText.slice(0, i) + caret;
-      if (i >= promptText.length) {
-        clearInterval(typer);
-        fcPromptEl.innerHTML = promptText;
-      }
-    }, 32);
-    fcTimers.push(typer);
-
-    fcTimers.push(setTimeout(function(){
-      renderChart(fcChartEl, q.chart, p.brandColor);
-    }, Math.max(800, promptText.length * 32 + 200)));
-
-    fcTimers.push(setTimeout(function(){
-      fcInsightEl.textContent = q.insight;
-      fcInsightEl.classList.add('is-shown');
-    }, Math.max(1700, promptText.length * 32 + 1100)));
-
-    fcTimers.push(setTimeout(function(){
-      fcCiteEl.innerHTML =
-        '<span class="photo" role="img" aria-label="" style="background-image:url(\''+p.photo+'\');"></span>' +
-        '<div><div class="who">'+q.outcome.who.split(',')[0]+'</div>' +
-        '<div class="role">'+(q.outcome.who.split(',')[1]||'').trim()+'</div></div>' +
-        '<div style="margin-left:auto; text-align:right;">'+
-        '<div class="num">'+q.outcome.num+'</div>'+
-        '<div class="role">'+q.outcome.lbl+'</div>'+
-        '</div>';
-      fcCiteEl.classList.add('is-shown');
-    }, Math.max(2300, promptText.length * 32 + 1700)));
-
-    if (!fcInteracted) {
-      fcTimers.push(setTimeout(function(){
-        if (fcInteracted) return;
-        fcAutoplayIdx = (fcAutoplayIdx + 1) % 6;
-        var nextPersona, nextQ;
-        if (fcAutoplayIdx % 2 === 0) {
-          var idxList = ['ecommerce','agency','nonprofit','b2c'];
-          nextPersona = idxList[(fcAutoplayIdx / 2) % 4];
-          state.personaId = nextPersona;
-          state.questionIdx = 0;
-        } else {
-          var pp = getPersonaById(state.personaId);
-          state.questionIdx = (state.questionIdx + 1) % pp.questions.length;
-        }
-        runFcDemo();
-      }, 6500));
-    }
-  }
-
-  function showFcPill() {
-    if (fcDismissed) return;
-    fcEl.style.display = 'block';
-  }
-  function expandFc() {
-    fcEl.classList.add('is-open');
-    if (!fcEl.dataset.first) {
-      fcEl.dataset.first = '1';
-      runFcDemo();
-    }
-  }
-  function dismissFc() {
-    fcDismissed = true;
-    fcEl.classList.remove('is-open');
-    fcEl.style.display = 'none';
-    try { localStorage.setItem('mc-fc-dismissed', '1'); } catch(e){}
-    clearFcTimers();
-  }
-  function setupFcVisibility() {
-    try {
-      if (localStorage.getItem('mc-fc-dismissed') === '1') {
-        fcDismissed = true;
-        fcEl.style.display = 'none';
-        return;
-      }
-    } catch(e) {}
-    var grid = document.getElementById('planGrid');
-    if (!grid || !('IntersectionObserver' in window)) {
-      setTimeout(showFcPill, 3000);
-      return;
-    }
-    var io = new IntersectionObserver(function(entries){
-      entries.forEach(function(en){
-        if (en.isIntersecting && !fcShown) {
-          fcShown = true;
-          setTimeout(showFcPill, 3000);
-          io.disconnect();
-        }
-      });
-    }, { threshold: 0.2 });
-    io.observe(grid);
   }
 
   /* ============================================================
@@ -2669,7 +2314,7 @@
     if (outcome) {
       outcome.innerHTML =
         '<span class="num">'+q.outcome.num+'</span>' +
-        '<span class="lbl"><span class="who">'+q.outcome.who+'</span> · '+q.outcome.lbl+'</span>';
+        '<span class="lbl"><span class="who">'+q.outcome.who+'</span> \u00B7 '+q.outcome.lbl+'</span>';
     }
   }
   function trapFocus(e) {
@@ -2690,7 +2335,6 @@
     document.addEventListener('keydown', trapFocus);
     renderModal();
     setTimeout(function(){ modalCloseBtn.focus(); }, 30);
-    document.body.setAttribute('data-ai-touched', 'true');
   }
   function closeModal() {
     modalRoot.classList.remove('is-open');
@@ -2707,60 +2351,16 @@
     if (state.personaId === id) return;
     state.personaId = id;
     state.questionIdx = 0;
-    fcInteracted = true;
     renderAll();
   }
   function selectQuestion(idx) {
     state.questionIdx = idx;
-    fcInteracted = true;
     renderAll();
   }
   function renderAll() {
     renderRail();
-    renderLens();
-    if (fcEl && fcEl.classList.contains('is-open')) renderFcStatic();
     if (modalRoot.classList.contains('is-open')) renderModal();
-    if (typeof syncLensSpacers === 'function') syncLensSpacers();
   }
-
-  /* ============================================================
-   * Variant change side-effects
-   * ============================================================ */
-  function onVariantApplied(v) {
-    if (v === 'p3') {
-      setupFcVisibility();
-    } else {
-      if (fcEl) {
-        fcEl.style.display = 'none';
-        fcEl.classList.remove('is-open');
-      }
-      clearFcTimers();
-    }
-    var lensHost = document.getElementById('lensHost');
-    var spacers = document.querySelectorAll('.lens-spacer');
-    if (lensHost) lensHost.setAttribute('aria-hidden', v === 'p2' ? 'false' : 'true');
-    spacers.forEach(function(s){ s.setAttribute('aria-hidden', 'true'); });
-    document.body.removeAttribute('data-ai-touched');
-    // Match spacer height in V2 so all four cards stay equal-height.
-    syncLensSpacers();
-  }
-
-  function syncLensSpacers() {
-    var lensHost = document.getElementById('lensHost');
-    var spacers = document.querySelectorAll('.lens-spacer');
-    if (!lensHost || !spacers.length) return;
-    var v = document.body.getAttribute('data-variant');
-    if (v === 'p2') {
-      // Wait one frame so the lens content has its final layout.
-      requestAnimationFrame(function(){
-        var h = lensHost.getBoundingClientRect().height;
-        spacers.forEach(function(s){ s.style.height = h + 'px'; });
-      });
-    } else {
-      spacers.forEach(function(s){ s.style.height = ''; });
-    }
-  }
-  window.addEventListener('resize', function(){ syncLensSpacers(); });
 
   /* ============================================================
    * Wire up listeners
@@ -2772,19 +2372,14 @@
       openModal();
       return;
     }
-    var pTab = e.target.closest('.copilot-persona, .lens-persona, .fc-persona, .modal-persona');
+    var pTab = e.target.closest('.copilot-persona, .modal-persona');
     if (pTab) {
       selectPersona(pTab.getAttribute('data-persona'));
       return;
     }
-    var qBtn = e.target.closest('.copilot-q, .lens-prompt, .modal-prompt');
+    var qBtn = e.target.closest('.copilot-q, .modal-prompt');
     if (qBtn) {
       selectQuestion(parseInt(qBtn.getAttribute('data-qidx'), 10) || 0);
-      return;
-    }
-    var tab = e.target.closest('.variant-tab');
-    if (tab) {
-      setVariant(tab.getAttribute('data-variant'), true);
       return;
     }
     var faqQ = e.target.closest('.faq-q');
@@ -2794,39 +2389,24 @@
       item.setAttribute('aria-expanded', expanded ? 'false' : 'true');
       return;
     }
-    var billing = e.target.closest('.billing-toggle button');
-    if (billing) {
-      document.querySelectorAll('.billing-toggle button').forEach(function(b){
-        b.setAttribute('aria-selected', b === billing ? 'true' : 'false');
-      });
-      return;
-    }
   });
 
   modalCloseBtn.addEventListener('click', closeModal);
   modalRoot.addEventListener('click', function(e){ if (e.target === modalRoot) closeModal(); });
 
-  if (fcPillEl) fcPillEl.addEventListener('click', expandFc);
-  if (fcPillEl) fcPillEl.addEventListener('mouseenter', expandFc);
-  if (fcCloseEl) fcCloseEl.addEventListener('click', dismissFc);
-
   /* ============================================================
    * Boot
    * ============================================================ */
-  buildRibbon();
   buildRailPersonas();
-  buildLensPersonas();
-  buildFcPersonas();
   buildModalPersonas();
-  setVariant(getVariant(), false);
   renderAll();
 
   // Equal-height verification hook (exposed for QA)
   window.__verifyPlanHeights = function() {
-    var cards = document.querySelectorAll('.plan-card');
-    var heights = Array.prototype.map.call(cards, function(c){ return Math.round(c.getBoundingClientRect().height); });
-    var spread = Math.max.apply(null, heights) - Math.min.apply(null, heights);
-    return { variant: document.body.getAttribute('data-variant'), heights: heights, spread: spread, equalish: spread <= 4 };
+    var cells = document.querySelectorAll('.table-head .head-cell');
+    var heights = Array.prototype.map.call(cells, function(c){ return Math.round(c.getBoundingClientRect().height); });
+    var spread = heights.length ? (Math.max.apply(null, heights) - Math.min.apply(null, heights)) : 0;
+    return { heights: heights, spread: spread, equalish: spread <= 4 };
   };
 })();
 </script>

@@ -1,16 +1,36 @@
 # Mailchimp Pricing · Analytics AI Prototype
 
-A single-page prototype that mirrors the public Mailchimp Marketing pricing page and layers in three switchable Analytics AI experiences. Built for stakeholder review.
+A single-page prototype that mirrors the public Mailchimp Marketing pricing page and layers in one Analytics AI experience. Built for stakeholder review.
 
-## Variants
+## Single AI overlay
 
-The variant switcher tabs (below the top nav) toggle the AI overlay only. The pricing comparison table grid stays identical across all three variants.
+The page renders a single deterministic AI experience: the **Pricing Co-Pilot Rail**. The rail is a sticky right-side buddy with persona-driven prompts, an animated mini chart, an insight, and one cited customer outcome. Below the rail, a separate yellow "Get Standard with Analytics AI" CTA smooth-scrolls to the pricing table.
 
-- `?v=p1` Pricing Co-Pilot Rail (default). Sticky right-rail buddy with three suggested questions and a rotating customer-quote ticker.
-- `?v=p2` Inline Plan Lens. A compact "Try Analytics AI" block inside the Standard plan card hero. Equal-height spacers preserve grid parity. Above-table ribbon scrolls three real customer outcomes.
-- `?v=p3` Floating Demo Console. Bottom-right pill that expands into a 30-second scripted Analytics AI demo with chart fill and a Damon Runnals citation.
+The deeper "Try Analytics AI" sandbox is reachable from the rail via "Open the full Analytics AI sandbox", which opens a focus-trapped modal of the same demo. The modal has no checkout flow inside it and closes back to the page with the passive "Get Standard" CTA still visible below the rail.
 
-All three variants open the same shared "Try Analytics AI" modal: scoped chat on the left, chart and insight + cited customer quote on the right, sticky checkout footer pre-selecting Standard with `analytics_ai=on`.
+## Pricing comparison table
+
+The pricing comparison table now mirrors the structure of the live mailchimp.com/pricing/marketing page:
+
+- Top utility bar with "Customize your plan", a Contacts dropdown (default 0 to 500), and a yellow "Find my plan" ribbon.
+- Three paid columns visible at the top: Premium, Standard (with "Best deal" yellow badge), Essentials. The leftmost meta column shows the Free plan blurb and a "Sign Up" button.
+- Four row groups in this order: Key Plan Features, Admin, Services & Support, Email Marketing & Segmentation.
+- "Compare all features" pill button below the table.
+- Free plan is collapsed into a "Basic plans for smaller businesses" section below the table, not a fourth top-level column.
+
+## Sections, in order
+
+1. Top nav
+2. Pricing hero
+3. Pricing utility bar (Customize your plan + Contacts pill + yellow ribbon)
+4. Pricing comparison table + Co-Pilot Rail
+5. Awards / "Work with a trusted industry leader" (dark)
+6. Two-column: Rates for nonprofits and charities + Prefer to pay as you go
+7. Basic plans for smaller businesses (centered)
+8. Real customer testimonials
+9. FAQs (4 accordion items)
+10. Footnotes (numbered)
+11. Footer (related links, Watch.Mailchimp callout, columns, lockup)
 
 ## Real customer quotes
 
@@ -32,9 +52,9 @@ Verbatim, attribution intact. No fabricated quotes anywhere.
 
 ## Accessibility
 
-- Keyboard-first. The variant switcher, every CTA, and the modal are reachable via Tab.
-- Modal traps focus, closes on Esc.
-- `prefers-reduced-motion` is respected. The Variant 3 console autoplay is replaced by a static still + CTA. The Variant 2 ribbon and pulse animations are paused.
+- Keyboard-first. Every CTA, persona button, prompt, FAQ accordion, and modal action is reachable via Tab.
+- Modal traps focus and closes on Esc.
+- `prefers-reduced-motion` is respected. Chart animations and the live indicator pulse are paused when set.
 - Every visual has alt text or an aria-label.
 
 ## Asset map
